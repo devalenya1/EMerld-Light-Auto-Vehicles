@@ -1,4 +1,4 @@
-package com.safaqat.app
+package com.picklejargives.app
 
 import io.flutter.embedding.android.FlutterActivity
 
