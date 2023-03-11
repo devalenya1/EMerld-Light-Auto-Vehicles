@@ -580,7 +580,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                   AppLocalizations.of(context)
                                       .home_screen_featured_categories,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 13,
                                   ),
                                 ),
                               ],
@@ -615,10 +615,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "FEATURED PRODUCTS",
+                                  "Featured Products",
                                   //AppLocalizations.of(context)
                                   //.home_screen_featured_products,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 13),
                                 ),
                               ],
                             ),
@@ -662,9 +662,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "AUCTION PRODUCTS",
+                                  "Featured Auctions",
                                   //AppLocalizations.of(context).home_screen_featured_products,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 13),
                                 ),
                               ],
                             ),
@@ -759,7 +759,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           )
                         ]),
                       ),
-                      SliverList(
+                     /* SliverList(
                         delegate: SliverChildListDelegate([
                           Padding(
                             padding: const EdgeInsets.fromLTRB(
@@ -1365,7 +1365,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                             height: 80,
                           )
                         ]),
-                      ),
+                      ),*/
                       SliverList(
                         delegate: SliverChildListDelegate([
                           Padding(
@@ -1379,8 +1379,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "ALL PRODUCTS",
-                                  style: TextStyle(fontSize: 16),
+                                  "All Products",
+                                  style: TextStyle(fontSize: 13),
                                 ),
                               ],
                             ),
