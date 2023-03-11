@@ -6,8 +6,8 @@ var this_year = DateTime.now().year.toString();
 
 class AppConfig {
   static String copyright_text =
-      "SAFAQAT " + this_year; //this shows in the splash screen
-  static String app_name = "SAFAQAT"; //this shows in the splash screen
+      "Pickle Jar Gives " + this_year; //this shows in the splash screen
+  static String app_name = "Pickle Jar Gives"; //this shows in the splash screen
   static String purchase_code = "bkash";
 
   //Default language config
