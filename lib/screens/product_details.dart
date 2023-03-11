@@ -1147,9 +1147,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           ),
                           child: Row(
                             children: [
-                              Text(
-                                AppLocalizations.of(context)
-                                    .product_details_screen_seller_policy,
+                              Text("Donate to Association",
                                 style: TextStyle(
                                     color: MyTheme.font_grey,
                                     fontSize: 14,
