@@ -147,7 +147,7 @@ class _SellerDetailsState extends State<SellerDetails> {
                     
                     
                     Divider(
-                      height: 1,
+                      height: 4,
                     ),
                     InkWell(
                       onTap: () {
@@ -174,7 +174,7 @@ class _SellerDetailsState extends State<SellerDetails> {
                               Text("Donate to Association",
                                 style: TextStyle(
                                     color: MyTheme.font_grey,
-                                    fontSize: 14,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.w600),
                               ),
                               Spacer(),
@@ -189,7 +189,7 @@ class _SellerDetailsState extends State<SellerDetails> {
                       ),
                     ),
                     Divider(
-                      height: 1,
+                      height: 4,
                     ),
                     
                     
