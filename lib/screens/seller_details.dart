@@ -143,6 +143,55 @@ class _SellerDetailsState extends State<SellerDetails> {
                       ),
                       child: buildCarouselSlider(context),
                     ),
+                    
+                    
+                    Divider(
+                      height: 1,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return CommonWebviewScreen(
+                            url:
+                                "#",
+                            page_name: "Donate To Association",
+                          );
+                        }));
+                      },
+                      child: Container(
+                        height: 40,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                            16.0,
+                            0.0,
+                            8.0,
+                            0.0,
+                          ),
+                          child: Row(
+                            children: [
+                              Text("Donate to Association",
+                                style: TextStyle(
+                                    color: MyTheme.font_grey,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              Spacer(),
+                              Icon(
+                                Ionicons.ios_add,
+                                color: MyTheme.font_grey,
+                                size: 24,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      height: 1,
+                    ),
+                    
+                    
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
                         16.0,
