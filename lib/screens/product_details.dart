@@ -1510,7 +1510,7 @@ class _ProductDetailsState extends State<ProductDetails> {
    if (_productDetails.verified == "1") {
     return Row(
       children: [
-//         Padding(
+        Padding(
 //           padding: app_language_rtl.$
 //               ? EdgeInsets.only(left: 8.0)
 //               : EdgeInsets.only(right: 8.0),
@@ -1522,7 +1522,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 //               style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
 //             ),
 //           ),
-//         ),
+        ),
         Text("For Verified buyers only",
           style: TextStyle(
               color: Colors.red,
@@ -1534,7 +1534,7 @@ class _ProductDetailsState extends State<ProductDetails> {
    } else {
      return Row(
       children: [
-//         Padding(
+        Padding(
 //           padding: app_language_rtl.$
 //               ? EdgeInsets.only(left: 8.0)
 //               : EdgeInsets.only(right: 8.0),
@@ -1546,7 +1546,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 //               style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
 //             ),
 //           ),
-//         ),
+        ),
         Text("For Every buyers",
           style: TextStyle(
               color: Colors.green,
