@@ -45,15 +45,6 @@ import '../ui_elements/mini_product_card.dart';
 import 'package:http/http.dart' as http;
 
 
-// class Profile extends StatefulWidget {
-//   Profile({Key key, this.show_back_button = false}) : super(key: key);
-
-//  // bool show_back_button;
-
-//   @override
-//   _ProfileState createState() => _ProfileState();
-// }
-
 
 class ProductDetails extends StatefulWidget {
   int id;
@@ -62,17 +53,6 @@ class ProductDetails extends StatefulWidget {
   ProductDetails({Key key, this.id, this.isAuction, this.buyToWinProducts})
       : super(key: key);
   
-  
-  
-//   Profile({Key key}) : super(key: key);
-
-//  // bool show_back_button;
-
-//   @override
-//   _ProfileState createState() => _ProductDetailsState();
-
-  
-  
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
   
@@ -80,32 +60,6 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  
-  //my add
-  ///////////////////
-  //////////////////
-  ///////////////////
-  //////////////////
- // ScrollController _mainScrollController = ScrollController();
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    if (is_logged_in.$ == true) {
-      fetchAll();
-    }
-  }
-  
-  
-  //my add ends
-  ///////////////////
-  //////////////////
-  ///////////////////
-  //////////////////
-  
   bool _showCopied = false;
   String _appbarPriceString = ". . .";
   int _currentImage = 0;
@@ -2425,38 +2379,38 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
 
   buildBottomAppBar(BuildContext context, _addedToCartSnackbar, isAuction) {
-    if (_productDetails.verified == "1" && user_verified_user.$ == "0"){
-      return Row(
-      children: [
-        Padding(
-          padding: app_language_rtl.$,
-          child: Container(
-            width: 75,
-            child: Text("FOR VERIFIED BUYERS ONLY",
-              style: TextStyle(color: Color.red,
-            ),
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-              border: Border.all(color: MyTheme.golden, width: 1),
-              borderRadius: BorderRadius.circular(16.0),
-              color: Color.fromRGBO(253, 235, 212, 1)),
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 2.0),
-            child: Text(
-              _productDetails.earn_point.toString(),
-              style: TextStyle(color: MyTheme.golden, fontSize: 12.0),
-            ),
-          ),
-        )
-      ],
-    );
-    } 
+//     if (_productDetails.verified == "1" && user_verified_user.$ == "0"){
+//       return Row(
+//       children: [
+//         Padding(
+//           padding: app_language_rtl.$,
+//           child: Container(
+//             width: 75,
+//             child: Text("FOR VERIFIED BUYERS ONLY",
+//               style: TextStyle(color: Color.red,
+//             ),
+//           ),
+//         ),
+//         Container(
+//           decoration: BoxDecoration(
+//               border: Border.all(color: MyTheme.golden, width: 1),
+//               borderRadius: BorderRadius.circular(16.0),
+//               color: Color.fromRGBO(253, 235, 212, 1)),
+//           child: Padding(
+//             padding:
+//                 const EdgeInsets.symmetric(horizontal: 16.0, vertical: 2.0),
+//             child: Text(
+//               _productDetails.earn_point.toString(),
+//               style: TextStyle(color: MyTheme.golden, fontSize: 12.0),
+//             ),
+//           ),
+//         )
+//       ],
+//     );
+//     } 
     // int dateNow = DateTime.now().millisecondsSinceEpoch;
     // int endDate = int.parse(_productDetails.buytowin_end_date + "000");
-    if (_productDetails.verified == "1" && user_verified_user.$ == "1"){
+    //if (_productDetails.verified == "1" && user_verified_user.$ == "1"){
     return Builder(builder: (BuildContext context) {
       return BottomAppBar(
         child: Container(
@@ -2729,283 +2683,283 @@ class _ProductDetailsState extends State<ProductDetails> {
         ),
       );
     });  
-    } 
+   // } 
     
     
-    if (_productDetails.verified == "0"){
-    return Builder(builder: (BuildContext context) {
-      return BottomAppBar(
-        child: Container(
-          color: Colors.transparent,
-          height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              isAuction == true && auctionStatus == false
-                  ? Expanded(
-                      // child: FlatButton(
-                      //   minWidth: MediaQuery.of(context).size.width / 2 - .5,
-                      //   height: 50,
-                      //   color: MyTheme.golden,
-                      //   disabledColor: Colors.grey,
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(0.0),
-                      //   ),
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          minimumSize: Size(
-                              MediaQuery.of(context).size.width / 2 - .5, 50),
-                          backgroundColor: MyTheme.golden,
-                          disabledBackgroundColor: Colors.grey,
-                          // padding: EdgeInsets.all(0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          //  side:
-                          //   BorderSide(color: Colors.black, width: 1.0)
-                        ),
-                        child: Text(
-                          "Bid Now",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        onPressed: () {
-                          // onPressBuyNow(context);
-                          final controller = TextEditingController();
-                          final productDetailsController =
-                              ProductDetailController();
-                          showDialog(
-                              context: context,
-                              builder: (context) => AlertDialog(
-                                    // clipBehavior: ,
-                                    title: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                            'Bid for Product (Min Bid Amound: ' +
-                                                _productDetails.starting_bid +
-                                                " )"),
-                                        Divider(
-                                          height: 2,
-                                        ),
-                                        SizedBox(
-                                          height: 20,
-                                        ),
-                                        Text("Place Bid Price*"),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        TextField(
-                                          autofocus: false,
-                                          controller: controller,
-                                          decoration: InputDecoration(
-                                              hintText: "Enter Amount",
-                                              hintStyle: TextStyle(
-                                                  fontSize: 12.0,
-                                                  color:
-                                                      MyTheme.textfield_grey),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color:
-                                                        MyTheme.textfield_grey,
-                                                    width: 0.5),
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                  const Radius.circular(16.0),
-                                                ),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color:
-                                                        MyTheme.textfield_grey,
-                                                    width: 1.0),
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                  const Radius.circular(16.0),
-                                                ),
-                                              ),
-                                              contentPadding:
-                                                  EdgeInsets.all(4.0)),
-                                        ),
-                                        SizedBox(
-                                          height: 5,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Obx(() => productDetailsController
-                                                        .isStartBidding.value ==
-                                                    true
-                                                ? CircularProgressIndicator()
-                                                : SizedBox()),
-                                            SizedBox(
-                                              width: 5,
-                                            ),
-                                            ElevatedButton(
-                                                onPressed: () async {
-                                                  productDetailsController
-                                                      .isStartBidding
-                                                      .value = true;
-                                                  RegExp regExp = new RegExp(
-                                                    r"^[1-9]\d*$",
-                                                    caseSensitive: false,
-                                                    multiLine: false,
-                                                  );
-                                                  if (regExp.hasMatch(controller
-                                                          .text
-                                                          .toString()) &&
-                                                      double.parse(controller
-                                                              .text
-                                                              .toString()) >
-                                                          double.parse(
-                                                              _productDetails
-                                                                  .starting_bid)) {
-                                                    Uri url2 = Uri.parse(
-                                                      "${AppConfig.BASE_URL}/products/bid",
-                                                    );
-                                                    final response2 =
-                                                        await http.post(url2,
-                                                            headers: {
-                                                              'Content-Type':
-                                                                  'application/json',
-                                                              'Accept':
-                                                                  'application/json',
-                                                              'Authorization':
-                                                                  "Bearer ${access_token.$}",
-                                                            },
-                                                            body: jsonEncode({
-                                                              "product_id": widget
-                                                                  .id
-                                                                  .toString(),
-                                                              "user_id": user_id
-                                                                  .$
-                                                                  .toString(),
-                                                              "amount": controller
-                                                                  .text
-                                                                  .toString(),
-                                                              "type": "1"
-                                                            }));
-                                                    log("value ${controller.text}");
-                                                    Navigator.pop(context);
-                                                    const snackBar = SnackBar(
-                                                      content: Text(
-                                                          'Your Bid has been placed, Successfully..'),
-                                                    );
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(snackBar);
-                                                  } else {
-                                                    const snackBar = SnackBar(
-                                                      content: Text(
-                                                          'Cant bid less than the min amount.'),
-                                                    );
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(snackBar);
-                                                  }
-                                                  // productDetails.type
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                    foregroundColor:
-                                                        MyTheme.white,
-                                                    backgroundColor:
-                                                        MyTheme.accent_color),
-                                                child: const Text('Submit')),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ));
-                        },
-                      ),
-                    )
-                  : SizedBox(),
-              isAuction == true ||
-                      normalProduct == false ||
-                      (widget.buyToWinProducts == true &&
-                          buyTowinStatus == true) ||
-                      raffelStatus == true
-                  ? SizedBox()
-                  : Expanded(
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          minimumSize: Size(
-                              MediaQuery.of(context).size.width / 2 - .5, 50),
-                          backgroundColor: MyTheme.golden,
-                          padding: EdgeInsets.all(0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0.0),
-                          ),
-                        ),
-                        child: Text(
-                          AppLocalizations.of(context)
-                              .product_details_screen_button_add_to_cart,
-                          // 'Let see',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        onPressed: () {
-                          onPressAddToCart(context, _addedToCartSnackbar);
-                        },
-                      ),
-                    ),
-              SizedBox(
-                width: 1,
-              ),
-              // raffelStatus == false
-              (isAuction == true && auctionStatus == false) ||
-                      (isAuction == false && buyTowinStatus == false) ||
-                      (isAuction == false && voucherDateStatus == false) ||
-                      // (isAuction == false && raffelStatus == false) ||
-                      (normalProduct == true &&
-                          widget.buyToWinProducts == false &&
-                          isAuction == false)
-                  // (auctionStatus == true && buyTowinStatus == true ||
-                  //         voucherDateStatus == true)
-                  ? Expanded(
-                      // child: FlatButton(
-                      //   minWidth: MediaQuery.of(context).size.width / 2 - .5,
-                      //   height: 50,
-                      //   color: MyTheme.accent_color,
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(0.0),
-                      //   ),
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          minimumSize: Size(
-                              MediaQuery.of(context).size.width / 2 - .55, 50),
-                          backgroundColor: MyTheme.accent_color,
-                          // padding: EdgeInsets.all(0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                        child: Text(
-                          AppLocalizations.of(context)
-                              .product_details_screen_button_buy_now,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        onPressed: () {
-                          onPressBuyNow(context);
-                        },
-                      ),
-                    )
-                  : SizedBox()
-            ],
-          ),
-        ),
-      );
-    });
-    }
+//     if (_productDetails.verified == "0"){
+//     return Builder(builder: (BuildContext context) {
+//       return BottomAppBar(
+//         child: Container(
+//           color: Colors.transparent,
+//           height: 50,
+//           child: Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//             children: [
+//               isAuction == true && auctionStatus == false
+//                   ? Expanded(
+//                       // child: FlatButton(
+//                       //   minWidth: MediaQuery.of(context).size.width / 2 - .5,
+//                       //   height: 50,
+//                       //   color: MyTheme.golden,
+//                       //   disabledColor: Colors.grey,
+//                       //   shape: RoundedRectangleBorder(
+//                       //     borderRadius: BorderRadius.circular(0.0),
+//                       //   ),
+//                       child: TextButton(
+//                         style: TextButton.styleFrom(
+//                           minimumSize: Size(
+//                               MediaQuery.of(context).size.width / 2 - .5, 50),
+//                           backgroundColor: MyTheme.golden,
+//                           disabledBackgroundColor: Colors.grey,
+//                           // padding: EdgeInsets.all(0),
+//                           shape: RoundedRectangleBorder(
+//                             borderRadius: BorderRadius.circular(8.0),
+//                           ),
+//                           //  side:
+//                           //   BorderSide(color: Colors.black, width: 1.0)
+//                         ),
+//                         child: Text(
+//                           "Bid Now",
+//                           style: TextStyle(
+//                               color: Colors.white,
+//                               fontSize: 16,
+//                               fontWeight: FontWeight.w600),
+//                         ),
+//                         onPressed: () {
+//                           // onPressBuyNow(context);
+//                           final controller = TextEditingController();
+//                           final productDetailsController =
+//                               ProductDetailController();
+//                           showDialog(
+//                               context: context,
+//                               builder: (context) => AlertDialog(
+//                                     // clipBehavior: ,
+//                                     title: Column(
+//                                       crossAxisAlignment:
+//                                           CrossAxisAlignment.start,
+//                                       children: [
+//                                         Text(
+//                                             'Bid for Product (Min Bid Amound: ' +
+//                                                 _productDetails.starting_bid +
+//                                                 " )"),
+//                                         Divider(
+//                                           height: 2,
+//                                         ),
+//                                         SizedBox(
+//                                           height: 20,
+//                                         ),
+//                                         Text("Place Bid Price*"),
+//                                         SizedBox(
+//                                           height: 10,
+//                                         ),
+//                                         TextField(
+//                                           autofocus: false,
+//                                           controller: controller,
+//                                           decoration: InputDecoration(
+//                                               hintText: "Enter Amount",
+//                                               hintStyle: TextStyle(
+//                                                   fontSize: 12.0,
+//                                                   color:
+//                                                       MyTheme.textfield_grey),
+//                                               enabledBorder: OutlineInputBorder(
+//                                                 borderSide: BorderSide(
+//                                                     color:
+//                                                         MyTheme.textfield_grey,
+//                                                     width: 0.5),
+//                                                 borderRadius:
+//                                                     const BorderRadius.all(
+//                                                   const Radius.circular(16.0),
+//                                                 ),
+//                                               ),
+//                                               focusedBorder: OutlineInputBorder(
+//                                                 borderSide: BorderSide(
+//                                                     color:
+//                                                         MyTheme.textfield_grey,
+//                                                     width: 1.0),
+//                                                 borderRadius:
+//                                                     const BorderRadius.all(
+//                                                   const Radius.circular(16.0),
+//                                                 ),
+//                                               ),
+//                                               contentPadding:
+//                                                   EdgeInsets.all(4.0)),
+//                                         ),
+//                                         SizedBox(
+//                                           height: 5,
+//                                         ),
+//                                         Row(
+//                                           mainAxisAlignment:
+//                                               MainAxisAlignment.end,
+//                                           children: [
+//                                             Obx(() => productDetailsController
+//                                                         .isStartBidding.value ==
+//                                                     true
+//                                                 ? CircularProgressIndicator()
+//                                                 : SizedBox()),
+//                                             SizedBox(
+//                                               width: 5,
+//                                             ),
+//                                             ElevatedButton(
+//                                                 onPressed: () async {
+//                                                   productDetailsController
+//                                                       .isStartBidding
+//                                                       .value = true;
+//                                                   RegExp regExp = new RegExp(
+//                                                     r"^[1-9]\d*$",
+//                                                     caseSensitive: false,
+//                                                     multiLine: false,
+//                                                   );
+//                                                   if (regExp.hasMatch(controller
+//                                                           .text
+//                                                           .toString()) &&
+//                                                       double.parse(controller
+//                                                               .text
+//                                                               .toString()) >
+//                                                           double.parse(
+//                                                               _productDetails
+//                                                                   .starting_bid)) {
+//                                                     Uri url2 = Uri.parse(
+//                                                       "${AppConfig.BASE_URL}/products/bid",
+//                                                     );
+//                                                     final response2 =
+//                                                         await http.post(url2,
+//                                                             headers: {
+//                                                               'Content-Type':
+//                                                                   'application/json',
+//                                                               'Accept':
+//                                                                   'application/json',
+//                                                               'Authorization':
+//                                                                   "Bearer ${access_token.$}",
+//                                                             },
+//                                                             body: jsonEncode({
+//                                                               "product_id": widget
+//                                                                   .id
+//                                                                   .toString(),
+//                                                               "user_id": user_id
+//                                                                   .$
+//                                                                   .toString(),
+//                                                               "amount": controller
+//                                                                   .text
+//                                                                   .toString(),
+//                                                               "type": "1"
+//                                                             }));
+//                                                     log("value ${controller.text}");
+//                                                     Navigator.pop(context);
+//                                                     const snackBar = SnackBar(
+//                                                       content: Text(
+//                                                           'Your Bid has been placed, Successfully..'),
+//                                                     );
+//                                                     ScaffoldMessenger.of(
+//                                                             context)
+//                                                         .showSnackBar(snackBar);
+//                                                   } else {
+//                                                     const snackBar = SnackBar(
+//                                                       content: Text(
+//                                                           'Cant bid less than the min amount.'),
+//                                                     );
+//                                                     ScaffoldMessenger.of(
+//                                                             context)
+//                                                         .showSnackBar(snackBar);
+//                                                   }
+//                                                   // productDetails.type
+//                                                 },
+//                                                 style: ElevatedButton.styleFrom(
+//                                                     foregroundColor:
+//                                                         MyTheme.white,
+//                                                     backgroundColor:
+//                                                         MyTheme.accent_color),
+//                                                 child: const Text('Submit')),
+//                                           ],
+//                                         )
+//                                       ],
+//                                     ),
+//                                   ));
+//                         },
+//                       ),
+//                     )
+//                   : SizedBox(),
+//               isAuction == true ||
+//                       normalProduct == false ||
+//                       (widget.buyToWinProducts == true &&
+//                           buyTowinStatus == true) ||
+//                       raffelStatus == true
+//                   ? SizedBox()
+//                   : Expanded(
+//                       child: TextButton(
+//                         style: TextButton.styleFrom(
+//                           minimumSize: Size(
+//                               MediaQuery.of(context).size.width / 2 - .5, 50),
+//                           backgroundColor: MyTheme.golden,
+//                           padding: EdgeInsets.all(0),
+//                           shape: RoundedRectangleBorder(
+//                             borderRadius: BorderRadius.circular(0.0),
+//                           ),
+//                         ),
+//                         child: Text(
+//                           AppLocalizations.of(context)
+//                               .product_details_screen_button_add_to_cart,
+//                           // 'Let see',
+//                           style: TextStyle(
+//                               color: Colors.white,
+//                               fontSize: 16,
+//                               fontWeight: FontWeight.w600),
+//                         ),
+//                         onPressed: () {
+//                           onPressAddToCart(context, _addedToCartSnackbar);
+//                         },
+//                       ),
+//                     ),
+//               SizedBox(
+//                 width: 1,
+//               ),
+//               // raffelStatus == false
+//               (isAuction == true && auctionStatus == false) ||
+//                       (isAuction == false && buyTowinStatus == false) ||
+//                       (isAuction == false && voucherDateStatus == false) ||
+//                       // (isAuction == false && raffelStatus == false) ||
+//                       (normalProduct == true &&
+//                           widget.buyToWinProducts == false &&
+//                           isAuction == false)
+//                   // (auctionStatus == true && buyTowinStatus == true ||
+//                   //         voucherDateStatus == true)
+//                   ? Expanded(
+//                       // child: FlatButton(
+//                       //   minWidth: MediaQuery.of(context).size.width / 2 - .5,
+//                       //   height: 50,
+//                       //   color: MyTheme.accent_color,
+//                       //   shape: RoundedRectangleBorder(
+//                       //     borderRadius: BorderRadius.circular(0.0),
+//                       //   ),
+//                       child: TextButton(
+//                         style: TextButton.styleFrom(
+//                           minimumSize: Size(
+//                               MediaQuery.of(context).size.width / 2 - .55, 50),
+//                           backgroundColor: MyTheme.accent_color,
+//                           // padding: EdgeInsets.all(0),
+//                           shape: RoundedRectangleBorder(
+//                             borderRadius: BorderRadius.circular(8.0),
+//                           ),
+//                         ),
+//                         child: Text(
+//                           AppLocalizations.of(context)
+//                               .product_details_screen_button_buy_now,
+//                           style: TextStyle(
+//                               color: Colors.white,
+//                               fontSize: 16,
+//                               fontWeight: FontWeight.w600),
+//                         ),
+//                         onPressed: () {
+//                           onPressBuyNow(context);
+//                         },
+//                       ),
+//                     )
+//                   : SizedBox()
+//             ],
+//           ),
+//         ),
+//       );
+//     });
+//     }
   }
 
   buildRatingAndWishButtonRow() {
