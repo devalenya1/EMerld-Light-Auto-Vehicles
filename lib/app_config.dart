@@ -6,8 +6,8 @@ var this_year = DateTime.now().year.toString();
 
 class AppConfig {
   static String copyright_text =
-      "Pickle Jar Gives " + this_year; //this shows in the splash screen
-  static String app_name = "Pickle Jar Gives"; //this shows in the splash screen
+      "Airsoft Auctions " + this_year; //this shows in the splash screen
+  static String app_name = "Airsoft Auctions"; //this shows in the splash screen
   static String purchase_code = "bkash";
 
   //Default language config
@@ -20,7 +20,7 @@ class AppConfig {
 
   //configure this
   //static const DOMAIN_PATH = "192.168.88.193/demo_ecommerce/ecommerce"; //localhost
-  static const DOMAIN_PATH = "safqatbh.com/1"; // directly inside the
+  static const DOMAIN_PATH = "safqatbh.com/2"; // directly inside the
   //static const DOMAIN_PATH = "auction.picklejargives.com";
   // public folder
 
