@@ -64,12 +64,12 @@ class ProductDetails extends StatefulWidget {
   
   
   
-  Profile({Key key}) : super(key: key);
+//   Profile({Key key}) : super(key: key);
 
- // bool show_back_button;
+//  // bool show_back_button;
 
-  @override
-  _ProfileState createState() => _ProfileState();
+//   @override
+//   _ProfileState createState() => _ProductDetailsState();
 
   
   
@@ -82,7 +82,11 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
   
   //my add
-  ScrollController _mainScrollController = ScrollController();
+  ///////////////////
+  //////////////////
+  ///////////////////
+  //////////////////
+ // ScrollController _mainScrollController = ScrollController();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   
   @override
@@ -96,7 +100,12 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
   
   
-  //my addends
+  //my add ends
+  ///////////////////
+  //////////////////
+  ///////////////////
+  //////////////////
+  
   bool _showCopied = false;
   String _appbarPriceString = ". . .";
   int _currentImage = 0;
@@ -2416,12 +2425,38 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
 
   buildBottomAppBar(BuildContext context, _addedToCartSnackbar, isAuction) {
-    if (_productDetails.verified == "1" && ${user_verified_user.$ == "0"}){
-      
+    if (_productDetails.verified == "1" && user_verified_user.$ == "0"){
+      return Row(
+      children: [
+        Padding(
+          padding: app_language_rtl.$,
+          child: Container(
+            width: 75,
+            child: Text("FOR VERIFIED BUYERS ONLY",
+              style: TextStyle(color: Color.red,
+            ),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+              border: Border.all(color: MyTheme.golden, width: 1),
+              borderRadius: BorderRadius.circular(16.0),
+              color: Color.fromRGBO(253, 235, 212, 1)),
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 2.0),
+            child: Text(
+              _productDetails.earn_point.toString(),
+              style: TextStyle(color: MyTheme.golden, fontSize: 12.0),
+            ),
+          ),
+        )
+      ],
+    );
     } 
     // int dateNow = DateTime.now().millisecondsSinceEpoch;
     // int endDate = int.parse(_productDetails.buytowin_end_date + "000");
-    if (_productDetails.verified == "1" && ${user_verified_user.$ == "1"}){
+    if (_productDetails.verified == "1" && user_verified_user.$ == "1"){
     return Builder(builder: (BuildContext context) {
       return BottomAppBar(
         child: Container(
