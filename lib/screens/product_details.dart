@@ -840,41 +840,41 @@ class _ProductDetailsState extends State<ProductDetails> {
                             )),
                 ])),
                 
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        16.0,
-                        8.0,
-                        16.0,
-                        0.0,
-                      ),
+//                 SliverList(
+//                     delegate: SliverChildListDelegate([
+//                   Padding(
+//                       padding: const EdgeInsets.fromLTRB(
+//                         16.0,
+//                         8.0,
+//                         16.0,
+//                         0.0,
+//                       ),
                       
-                    child: _productDetails != null
-                        ? buildVerifiedRow()
-                        : ShimmerHelper().buildBasicShimmer(
-                            height: 50.0,
-                          ),
-                ])),
+//                     child: _productDetails != null
+//                         ? buildVerifiedRow()
+//                         : ShimmerHelper().buildBasicShimmer(
+//                             height: 50.0,
+//                           ),
+//                 ])),
 
 
 
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                      Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                            16.0,
-                            8.0,
-                            16.0,
-                            0.0,
-                          ),
-                          child: _productDetails != null
-                              ? buildWarrentyRow()
-                              : ShimmerHelper().buildBasicShimmer(
-                                  height: 30.0,
-                                ),
-                        ),
-                ])),
+//                 SliverList(
+//                     delegate: SliverChildListDelegate([
+//                       Padding(
+//                           padding: const EdgeInsets.fromLTRB(
+//                             16.0,
+//                             8.0,
+//                             16.0,
+//                             0.0,
+//                           ),
+//                           child: _productDetails != null
+//                               ? buildWarrentyRow()
+//                               : ShimmerHelper().buildBasicShimmer(
+//                                   height: 30.0,
+//                                 ),
+//                         ),
+//                 ])),
 
                 SliverList(
                     delegate: SliverChildListDelegate([
@@ -1658,28 +1658,28 @@ class _ProductDetailsState extends State<ProductDetails> {
 
   
  Row buildWarrentyRow() {
-//     return Row(
-//       children: [
-//         Padding(
-//           padding: app_language_rtl.$
-//               ? EdgeInsets.only(left: 8.0)
-//               : EdgeInsets.only(right: 8.0),
-//           child: Container(
-//             width: 75,
-//             child: Text("Warrenty",
-//               style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
-//             ),
-//           ),
-//         ),
-//         Text(
-//           _productDetails.warrenty,
-//           style: TextStyle(
-//               color: MyTheme.accent_color,
-//               fontSize: 18.0,
-//               fontWeight: FontWeight.w600),
-//         )
-//       ],
-//     );
+    return Row(
+      children: [
+        Padding(
+          padding: app_language_rtl.$
+              ? EdgeInsets.only(left: 8.0)
+              : EdgeInsets.only(right: 8.0),
+          child: Container(
+            width: 75,
+            child: Text("Warrenty",
+              style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
+            ),
+          ),
+        ),
+        Text(
+          _productDetails.warrenty,
+          style: TextStyle(
+              color: MyTheme.accent_color,
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600),
+        )
+      ],
+    );
   } 
 
 
@@ -1688,51 +1688,51 @@ class _ProductDetailsState extends State<ProductDetails> {
 
     
  Row buildVerifiedRow() {
-//    if (_productDetails.verified == "1") {
-//     return Row(
-//       children: [
-//         Padding(
-//           padding: app_language_rtl.$
-//               ? EdgeInsets.only(left: 8.0)
-//               : EdgeInsets.only(right: 8.0),
-//           child: Container(
-//             width: 75,
-//             child: Text("For",
-//               style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
-//             ),
-//           ),
-//         ),
-//         Text("Verified buyers only",
-//           style: TextStyle(
-//               color: Colors.red,
-//               fontSize: 20.0,
-//               fontWeight: FontWeight.w600),
-//         )
-//       ],
-//     );
-//    } else {
-//      return Row(
-//       children: [
-//         Padding(
-//           padding: app_language_rtl.$
-//               ? EdgeInsets.only(left: 8.0)
-//               : EdgeInsets.only(right: 8.0),
-//           child: Container(
-//             width: 75,
-//             child: Text("For",
-//               style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
-//             ),
-//           ),
-//         ),
-//         Text("Every buyers",
-//           style: TextStyle(
-//               color: Colors.green,
-//               fontSize: 20.0,
-//               fontWeight: FontWeight.w600),
-//         )
-//       ],
-//     ); 
-//    }
+   if (_productDetails.verified == "1") {
+    return Row(
+      children: [
+        Padding(
+          padding: app_language_rtl.$
+              ? EdgeInsets.only(left: 8.0)
+              : EdgeInsets.only(right: 8.0),
+          child: Container(
+            width: 75,
+            child: Text("For",
+              style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
+            ),
+          ),
+        ),
+        Text("Verified buyers only",
+          style: TextStyle(
+              color: Colors.red,
+              fontSize: 20.0,
+              fontWeight: FontWeight.w600),
+        )
+      ],
+    );
+   } else {
+     return Row(
+      children: [
+        Padding(
+          padding: app_language_rtl.$
+              ? EdgeInsets.only(left: 8.0)
+              : EdgeInsets.only(right: 8.0),
+          child: Container(
+            width: 75,
+            child: Text("For",
+              style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
+            ),
+          ),
+        ),
+        Text("Every buyers",
+          style: TextStyle(
+              color: Colors.green,
+              fontSize: 20.0,
+              fontWeight: FontWeight.w600),
+        )
+      ],
+    ); 
+   }
   } 
   
 
