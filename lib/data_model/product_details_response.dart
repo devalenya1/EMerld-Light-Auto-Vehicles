@@ -68,6 +68,8 @@ class DetailedProduct {
       this.current_stock_fixed,
       this.unit,
       this.rating,
+      this.verified,
+      this.warrenty,
       this.rating_count,
       this.earn_point,
       this.description,
@@ -99,6 +101,8 @@ class DetailedProduct {
   String auction_end_date;
   String stroked_price;
   String main_price;
+  String warrenty;
+  String verified;
   var calculable_price;
   String currency_symbol;
   int current_stock;
@@ -144,6 +148,8 @@ class DetailedProduct {
         current_stock: json["current_stock"],
         current_stock_fixed: int.parse(json["current_stock_fixed"]),
         unit: json["unit"],
+        verified: json["verified"],
+        warrenty: json["warrenty"],
         rating: json["rating"].toInt(),
         rating_count: json["rating_count"],
         earn_point: json["earn_point"].toInt(),
@@ -187,6 +193,8 @@ class DetailedProduct {
         "current_stock_fixed": current_stock_fixed,
         "unit": unit,
         "rating": rating,
+        "warrenty": warrenty,
+        "verified": verified,
         "rating_count": rating_count,
         "earn_point": earn_point,
         "description": description,
