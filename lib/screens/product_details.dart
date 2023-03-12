@@ -839,29 +839,29 @@ class _ProductDetailsState extends State<ProductDetails> {
                               height: 30.0,
                             )),
                 ])),
-                
+
+                SliverList(
+                    delegate: SliverChildListDelegate([
+                       Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                            16.0,
+                            8.0,
+                            16.0,
+                            0.0,
+                          ),
+                          child: _productDetails != null
+                              ? buildVerifiedRow()
+                              : ShimmerHelper().buildBasicShimmer(
+                                  height: 30.0,
+                                ),
+                        ) 
+                ])),
+
+
 //                 SliverList(
 //                     delegate: SliverChildListDelegate([
-//                   Padding(
-//                       padding: const EdgeInsets.fromLTRB(
-//                         16.0,
-//                         8.0,
-//                         16.0,
-//                         0.0,
-//                       ),
-                      
-//                     child: _productDetails != null
-//                         ? buildVerifiedRow()
-//                         : ShimmerHelper().buildBasicShimmer(
-//                             height: 50.0,
-//                           ),
-//                 ])),
-
-
-
-//                 SliverList(
-//                     delegate: SliverChildListDelegate([
-//                       Padding(
+//                   widget.isAuction == true
+//                       ? Padding(
 //                           padding: const EdgeInsets.fromLTRB(
 //                             16.0,
 //                             8.0,
@@ -873,8 +873,11 @@ class _ProductDetailsState extends State<ProductDetails> {
 //                               : ShimmerHelper().buildBasicShimmer(
 //                                   height: 30.0,
 //                                 ),
-//                         ),
+//                         )
+//                       : SizedBox(),
 //                 ])),
+
+
 
                 SliverList(
                     delegate: SliverChildListDelegate([
