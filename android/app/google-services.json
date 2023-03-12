@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "530147077019",
-    "project_id": "pickle-jar-gives",
-    "storage_bucket": "pickle-jar-gives.appspot.com"
+    "project_number": "532943347288",
+    "project_id": "airsoft-auctions-8d89e",
+    "storage_bucket": "airsoft-auctions-8d89e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:530147077019:android:4bb8295948a43346b2cf3e",
+        "mobilesdk_app_id": "1:532943347288:android:1be06beca2de2493d3f42d",
         "android_client_info": {
-          "package_name": "com.picklejargives.app"
+          "package_name": "com.airsoftauctions.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "530147077019-2pman3p5u4k5u3g3qt3238hos4h6oi6b.apps.googleusercontent.com",
+          "client_id": "532943347288-o1fun3836attl13r203gcucqa85k536l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDkEtp0TtzC07txBZH9qLlSEbSU4Ju0Ws4"
+          "current_key": "AIzaSyAgmers6KZapt8vCdTUK4mWideulTQQlPA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "530147077019-2pman3p5u4k5u3g3qt3238hos4h6oi6b.apps.googleusercontent.com",
+              "client_id": "532943347288-o1fun3836attl13r203gcucqa85k536l.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
