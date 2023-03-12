@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class MyTheme{
   /*configurable colors stars*/
-  static Color accent_color = Color.red;
+  static Color accent_color = Color.fromRGBO(229, 25, 25, 0.8);
   static Color soft_accent_color = Color.fromRGBO(247,189,168, 1);
-  static Color splash_screen_color = Color.red; // if not sure , use the same color as accent color
+  static Color splash_screen_color = Color.fromRGBO(229, 25, 25, 0.8); // if not sure , use the same color as accent color
   /*configurable colors ends*/
 
 
