@@ -1511,19 +1511,19 @@ class _ProductDetailsState extends State<ProductDetails> {
     return Row(
       children: [
         Padding(
-//           padding: app_language_rtl.$
-//               ? EdgeInsets.only(left: 8.0)
-//               : EdgeInsets.only(right: 8.0),
-//           child: Container(
-//             width: 75,
-//             child: Text(
-//               "Warrenty",
-//               //AppLocalizations.of(context).product_details_screen_total_price,
-//               style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
-//             ),
-//           ),
+          padding: app_language_rtl.$
+              ? EdgeInsets.only(left: 8.0)
+              : EdgeInsets.only(right: 8.0),
+          child: Container(
+            width: 75,
+            child: Text(
+              "For",
+              //AppLocalizations.of(context).product_details_screen_total_price,
+              style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
+            ),
+          ),
         ),
-        Text("For Verified buyers only",
+        Text("Verified buyers only",
           style: TextStyle(
               color: Colors.red,
               fontSize: 20.0,
@@ -1535,19 +1535,19 @@ class _ProductDetailsState extends State<ProductDetails> {
      return Row(
       children: [
         Padding(
-//           padding: app_language_rtl.$
-//               ? EdgeInsets.only(left: 8.0)
-//               : EdgeInsets.only(right: 8.0),
-//           child: Container(
-//             width: 75,
-//             child: Text(
-//               "Warrenty",
-//               //AppLocalizations.of(context).product_details_screen_total_price,
-//               style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
-//             ),
-//           ),
+          padding: app_language_rtl.$
+              ? EdgeInsets.only(left: 8.0)
+              : EdgeInsets.only(right: 8.0),
+          child: Container(
+            width: 75,
+            child: Text(
+              "For",
+              //AppLocalizations.of(context).product_details_screen_total_price,
+              style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
+            ),
+          ),
         ),
-        Text("For Every buyers",
+        Text("Every buyers",
           style: TextStyle(
               color: Colors.green,
               fontSize: 20.0,
