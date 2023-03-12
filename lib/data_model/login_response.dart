@@ -53,6 +53,7 @@ class User {
     this.avatar,
     this.avatar_original,
     this.phone,
+    this.verified_user,
   });
 
   int id;
@@ -62,6 +63,7 @@ class User {
   String avatar;
   String avatar_original;
   String phone;
+  String verified_user;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
     id: json["id"],
@@ -71,6 +73,7 @@ class User {
     avatar: json["avatar"],
     avatar_original: json["avatar_original"],
     phone: json["phone"],
+    verified_user: json["verified_user"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -81,5 +84,6 @@ class User {
     "avatar": avatar,
     "avatar_original": avatar_original,
     "phone": phone,
+    "verified_user": verified_user,
   };
 }
