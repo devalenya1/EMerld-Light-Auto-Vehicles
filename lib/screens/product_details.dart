@@ -19,7 +19,10 @@ import 'package:timer_builder/timer_builder.dart';
 import 'package:toast/toast.dart';
 
 import '../app_config.dart';
+
+import '../data_model/login_response.dart';
 import '../repositories/profile_repository.dart';
+
 import '../custom/toast_component.dart';
 import '../data_model/product_details_response.dart';
 import '../helpers/color_helper.dart';
@@ -41,18 +44,59 @@ import '../ui_elements/list_product_card.dart';
 import '../ui_elements/mini_product_card.dart';
 import 'package:http/http.dart' as http;
 
+
+// class Profile extends StatefulWidget {
+//   Profile({Key key, this.show_back_button = false}) : super(key: key);
+
+//  // bool show_back_button;
+
+//   @override
+//   _ProfileState createState() => _ProfileState();
+// }
+
+
 class ProductDetails extends StatefulWidget {
   int id;
   bool isAuction;
   bool buyToWinProducts;
   ProductDetails({Key key, this.id, this.isAuction, this.buyToWinProducts})
       : super(key: key);
+  
+  
+  
+  Profile({Key key}) : super(key: key);
+
+ // bool show_back_button;
 
   @override
+  _ProfileState createState() => _ProfileState();
+
+  
+  
+  @override
   _ProductDetailsState createState() => _ProductDetailsState();
+  
+  
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+  
+  //my add
+  ScrollController _mainScrollController = ScrollController();
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    if (is_logged_in.$ == true) {
+      fetchAll();
+    }
+  }
+  
+  
+  //my addends
   bool _showCopied = false;
   String _appbarPriceString = ". . .";
   int _currentImage = 0;
@@ -1500,7 +1544,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 
     
  Row buildVerifiedRow() {
-   if (productDetails.verified == "1") {
+   if (_productDetails.verified == "1") {
     return Row(
       children: [
 //         Padding(
