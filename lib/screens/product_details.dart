@@ -2444,7 +2444,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               // raffelStatus == false
               (isAuction == true && auctionStatus == false) ||
                       (isAuction == false && buyTowinStatus == false) ||
-                      (isAuction == false && voucherDateStatus == false) ||
+                      //(isAuction == false && voucherDateStatus == false) ||
                       // (isAuction == false && raffelStatus == false) ||
                       (normalProduct == true &&
                           widget.buyToWinProducts == false &&
@@ -2945,12 +2945,12 @@ class ProductDetailController extends GetxController {
 
 bool auctionStatus; // true mean to disable
 bool buyTowinStatus;
-bool voucherDateStatus;
+//bool voucherDateStatus;
 bool normalProduct;
 bool raffelStatus = false;
 TimerBuilder buildTimer(
     DetailedProduct productDetails, isAuction, buyToWinProducts) {
-  log("Voucher  1x${productDetails.voucher_end_date.toString()}");
+  //log("Voucher  1x${productDetails.voucher_end_date.toString()}");
   log("BuyTOWin  1x${productDetails.buytowin_end_date.toString()}");
   log("Auction  1x${productDetails.auction_end_date.toString()}");
   if (productDetails.buytowin_end_date != null) {
@@ -3028,106 +3028,91 @@ TimerBuilder buildTimer(
         );
       }
     });
-  } else if (productDetails.voucher_end_date != null) {
-    log("Voucher product is here");
-    int dateNow = DateTime.now().millisecondsSinceEpoch;
-    int endDate = int.parse(productDetails.voucher_end_date + "000");
+  } 
+  //   else if (productDetails.voucher_end_date != null) {
+  //   log("Voucher product is here");
+  //   int dateNow = DateTime.now().millisecondsSinceEpoch;
+  //   int endDate = int.parse(productDetails.voucher_end_date + "000");
 
-    return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-      if (dateNow > endDate) {
-        voucherDateStatus = true;
-        return TimerBuilder.periodic(
-          const Duration(seconds: 1),
-          builder: (context) {
-            return Container(
-              width: 35,
-              height: 40,
-              child: Material(
-                borderRadius: BorderRadius.circular(8.0),
-                color: MyTheme.accent_color,
-                child: Center(
-                    child: Text(
-                  "Voucher Has Ended:",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                )),
-              ),
-            );
-          },
-        );
-      } else {
-        voucherDateStatus = false;
-
-        return CountdownTimer(
-          endTime: endDate,
-          widgetBuilder: (_, CurrentRemainingTime time) {
-            if (time == null) {}
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Closing at:",
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      buildTextTimer("Day", time.days.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Hour", time.hours.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Min", time.min.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      Center(child: Text(":")),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Sec", time.sec.toString()),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      }
-    });
-  }
-  // else if (widget.buyToWinProducts == true) {
-  //   return TimerBuilder.periodic(
-  //     const Duration(seconds: 1),
-  //     builder: (context) {
-  //       return Container(
-  //         width: 35,
-  //         height: 40,
-  //         child: Material(
-  //           borderRadius: BorderRadius.circular(8.0),
-  //           color: MyTheme.accent_color,
-  //           child: Center(
-  //               child: Text(
-  //             "Voucher Has Ended:",
-  //             style: TextStyle(color: Colors.white, fontSize: 20),
-  //           )),
-  //         ),
+  //   return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
+  //     if (dateNow > endDate) {
+  //       voucherDateStatus = true;
+  //       return TimerBuilder.periodic(
+  //         const Duration(seconds: 1),
+  //         builder: (context) {
+  //           return Container(
+  //             width: 35,
+  //             height: 40,
+  //             child: Material(
+  //               borderRadius: BorderRadius.circular(8.0),
+  //               color: MyTheme.accent_color,
+  //               child: Center(
+  //                   child: Text(
+  //                 "Voucher Has Ended:",
+  //                 style: TextStyle(color: Colors.white, fontSize: 20),
+  //               )),
+  //             ),
+  //           );
+  //         },
   //       );
-  //     },
-  //   );
+  //     } else {
+  //       voucherDateStatus = false;
+
+  //       return CountdownTimer(
+  //         endTime: endDate,
+  //         widgetBuilder: (_, CurrentRemainingTime time) {
+  //           if (time == null) {}
+  //           return Padding(
+  //             padding: const EdgeInsets.symmetric(horizontal: 4.0),
+  //             child: Column(
+  //               children: [
+  //                 Row(
+  //                   children: [
+  //                     Text(
+  //                       "Closing at:",
+  //                       style: TextStyle(
+  //                           fontSize: 22, fontWeight: FontWeight.bold),
+  //                     ),
+  //                   ],
+  //                 ),
+  //                 Row(
+  //                   mainAxisAlignment: MainAxisAlignment.center,
+  //                   children: [
+  //                     buildTextTimer("Day", time.days.toString()),
+  //                     Padding(
+  //                       padding: const EdgeInsets.only(top: 8.0),
+  //                       child: Text(":"),
+  //                     ),
+  //                     buildTextTimer("Hour", time.hours.toString()),
+  //                     Padding(
+  //                       padding: const EdgeInsets.only(top: 8.0),
+  //                       child: Text(":"),
+  //                     ),
+  //                     buildTextTimer("Min", time.min.toString()),
+  //                     Padding(
+  //                       padding: const EdgeInsets.only(top: 8.0),
+  //                       child: Text(":"),
+  //                     ),
+  //                     Center(child: Text(":")),
+  //                     Padding(
+  //                       padding: const EdgeInsets.only(top: 8.0),
+  //                       child: Text(":"),
+  //                     ),
+  //                     buildTextTimer("Sec", time.sec.toString()),
+  //                   ],
+  //                 ),
+  //               ],
+  //             ),
+  //           );
+  //         },
+  //       );
+  //     }
+  //   });
   // }
+  
+  
+
+
 
   else if (productDetails.auction_product != null && isAuction == true) {
     int dateNow = DateTime.now().millisecondsSinceEpoch;
