@@ -53,22 +53,22 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   int _current_slider = 0;
   ScrollController _featuredProductScrollController;
   ScrollController _auctionProductScrollController;
-  ScrollController _applianceProductScrollController;
+//   ScrollController _applianceProductScrollController;
   //Homeappliance
   ScrollController _allProductScrollController;
-  ScrollController _raffelProductScrollController;
-  ScrollController _toysProductScrollController;
-  ScrollController _toolsProductScrollController;
-  ScrollController _phoneProductScrollController;
-  ScrollController _babyProductScrollController;
-  ScrollController _healthProductScrollController;
-  ScrollController _freeProductScrollController;
-  //ScrollController _halfProductScrollController;
-  ScrollController _clothesProductScrollController;
-  ScrollController _electricProductScrollController;
-  ScrollController _geoProductScrollController;
-  ScrollController _mathProductScrollController;
-  ScrollController _computerProductScrollController;
+//   ScrollController _raffelProductScrollController;
+//   ScrollController _toysProductScrollController;
+//   ScrollController _toolsProductScrollController;
+//   ScrollController _phoneProductScrollController;
+//   ScrollController _babyProductScrollController;
+//   ScrollController _healthProductScrollController;
+//   ScrollController _freeProductScrollController;
+//   //ScrollController _halfProductScrollController;
+//   ScrollController _clothesProductScrollController;
+//   ScrollController _electricProductScrollController;
+//   ScrollController _geoProductScrollController;
+//   ScrollController _mathProductScrollController;
+//   ScrollController _computerProductScrollController;
   //ScrollController _bestsellingProductScrollController;
   ScrollController _mainScrollController = ScrollController();
 
@@ -80,21 +80,21 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   var _featuredProductList = [];
   var _auctionProductList = [];
   var _allProductList = [];
-  var _raffelProductList = [];
-  var _toysProductList = [];
-  var _phoneProductList = [];
-  var _babyProductList = [];
-  var _freeProductList = [];
-  // var _halfProductList = [];
-  var _healthProductList = [];
-  var _computerProductList = [];
-  var _electricProductList = [];
-  var _mathProductList = [];
-  var _geoProductList = [];
-  var _applianceProductList = [];
+//   var _raffelProductList = [];
+//   var _toysProductList = [];
+//   var _phoneProductList = [];
+//   var _babyProductList = [];
+//   var _freeProductList = [];
+//   // var _halfProductList = [];
+//   var _healthProductList = [];
+//   var _computerProductList = [];
+//   var _electricProductList = [];
+//   var _mathProductList = [];
+//   var _geoProductList = [];
+//   var _applianceProductList = [];
 
-  var _toolsProductList = [];
-  var _clothesProductList = [];
+//   var _toolsProductList = [];
+//   var _clothesProductList = [];
   //var _bestsellingProductList = [];
   bool _isProductInitial = true;
   bool _isCategoryInitial = true;
@@ -138,21 +138,21 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     fetchFeaturedProducts();
     fetchAuctionProducts();
     fetchAllProducts();
-    fetchRaffelProducts();
-    fetchToysProducts();
-    fetchToolsProducts();
-    fetchPhoneProducts();
-    fetchBabyProducts();
-    fetchHealthProducts();
-    fetchFreeProducts();
-    //fetchHalfProducts();
-    fetchElectricProducts();
-    fetchComputerProducts();
-    fetchMathProducts();
-    fetchGeoProducts();
-    fetchApplianceProducts();
-    //fetchBestSellingProducts();
-    fetchClothesProducts();
+//     fetchRaffelProducts();
+//     fetchToysProducts();
+//     fetchToolsProducts();
+//     fetchPhoneProducts();
+//     fetchBabyProducts();
+//     fetchHealthProducts();
+//     fetchFreeProducts();
+//     //fetchHalfProducts();
+//     fetchElectricProducts();
+//     fetchComputerProducts();
+//     fetchMathProducts();
+//     fetchGeoProducts();
+//     fetchApplianceProducts();
+//     //fetchBestSellingProducts();
+//     fetchClothesProducts();
     // AddonsHelper().setAddonsData();
     // BusinessSettingHelper().setBusinessSettingData();
   }
@@ -216,173 +216,173 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     setState(() {});
   }
 
-  fetchRaffelProducts() async {
-    var productResponse = await ProductRepository().getRaffelProducts(
-      page: _productPage,
-    );
+//   fetchRaffelProducts() async {
+//     var productResponse = await ProductRepository().getRaffelProducts(
+//       page: _productPage,
+//     );
 
-    _raffelProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _raffelProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchToysProducts() async {
-    var productResponse = await ProductRepository().getToysProducts(
-      page: _productPage,
-    );
+//   fetchToysProducts() async {
+//     var productResponse = await ProductRepository().getToysProducts(
+//       page: _productPage,
+//     );
 
-    _toysProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _toysProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchApplianceProducts() async {
-    var productResponse = await ProductRepository().getApplianceProducts(
-      page: _productPage,
-    );
+//   fetchApplianceProducts() async {
+//     var productResponse = await ProductRepository().getApplianceProducts(
+//       page: _productPage,
+//     );
 
-    _applianceProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _applianceProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchGeoProducts() async {
-    var productResponse = await ProductRepository().getGeoProducts(
-      page: _productPage,
-    );
+//   fetchGeoProducts() async {
+//     var productResponse = await ProductRepository().getGeoProducts(
+//       page: _productPage,
+//     );
 
-    _geoProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _geoProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchMathProducts() async {
-    var productResponse = await ProductRepository().getMathProducts(
-      page: _productPage,
-    );
+//   fetchMathProducts() async {
+//     var productResponse = await ProductRepository().getMathProducts(
+//       page: _productPage,
+//     );
 
-    _mathProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _mathProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchFreeProducts() async {
-    var productResponse = await ProductRepository().getFreeProducts(
-      page: _productPage,
-    );
+//   fetchFreeProducts() async {
+//     var productResponse = await ProductRepository().getFreeProducts(
+//       page: _productPage,
+//     );
 
-    _freeProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _freeProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  // fetchHalfProducts() async {
-  //   var productResponse = await ProductRepository().getHalfProducts(
-  //     page: _productPage,
-  //   );
+//   // fetchHalfProducts() async {
+//   //   var productResponse = await ProductRepository().getHalfProducts(
+//   //     page: _productPage,
+//   //   );
 
-  //   _halfProductList.addAll(productResponse.products);
-  //   _isProductInitial = false;
-  //   _totalProductData = productResponse.meta.total;
-  //   _showProductLoadingContainer = false;
-  //   setState(() {});
-  // }
+//   //   _halfProductList.addAll(productResponse.products);
+//   //   _isProductInitial = false;
+//   //   _totalProductData = productResponse.meta.total;
+//   //   _showProductLoadingContainer = false;
+//   //   setState(() {});
+//   // }
 
-  fetchBabyProducts() async {
-    var productResponse = await ProductRepository().getBabyProducts(
-      page: _productPage,
-    );
+//   fetchBabyProducts() async {
+//     var productResponse = await ProductRepository().getBabyProducts(
+//       page: _productPage,
+//     );
 
-    _babyProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _babyProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchToolsProducts() async {
-    var productResponse = await ProductRepository().getToolsProducts(
-      page: _productPage,
-    );
+//   fetchToolsProducts() async {
+//     var productResponse = await ProductRepository().getToolsProducts(
+//       page: _productPage,
+//     );
 
-    _toolsProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _toolsProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchClothesProducts() async {
-    var productResponse = await ProductRepository().getClothesProducts(
-      page: _productPage,
-    );
+//   fetchClothesProducts() async {
+//     var productResponse = await ProductRepository().getClothesProducts(
+//       page: _productPage,
+//     );
 
-    _clothesProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _clothesProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchPhoneProducts() async {
-    var productResponse = await ProductRepository().getPhoneProducts(
-      page: _productPage,
-    );
+//   fetchPhoneProducts() async {
+//     var productResponse = await ProductRepository().getPhoneProducts(
+//       page: _productPage,
+//     );
 
-    _phoneProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _phoneProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchHealthProducts() async {
-    var productResponse = await ProductRepository().getHealthProducts(
-      page: _productPage,
-    );
+//   fetchHealthProducts() async {
+//     var productResponse = await ProductRepository().getHealthProducts(
+//       page: _productPage,
+//     );
 
-    _healthProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _healthProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchElectricProducts() async {
-    var productResponse = await ProductRepository().getElectricProducts(
-      page: _productPage,
-    );
+//   fetchElectricProducts() async {
+//     var productResponse = await ProductRepository().getElectricProducts(
+//       page: _productPage,
+//     );
 
-    _electricProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _electricProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  fetchComputerProducts() async {
-    var productResponse = await ProductRepository().getComputerProducts(
-      page: _productPage,
-    );
+//   fetchComputerProducts() async {
+//     var productResponse = await ProductRepository().getComputerProducts(
+//       page: _productPage,
+//     );
 
-    _computerProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _computerProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
   /*   
   fetchBestSellingProducts() async {
@@ -421,20 +421,20 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     _featuredProductList.clear();
     _auctionProductList.clear();
     _allProductList.clear();
-    _raffelProductList.clear();
-    _toysProductList.clear();
-    _toolsProductList.clear();
-    _applianceProductList.clear();
-    _phoneProductList.clear();
-    _babyProductList.clear();
-    _healthProductList.clear();
-    _clothesProductList.clear();
-    // _halfProductList.clear();
-    _freeProductList.clear();
-    _electricProductList.clear();
-    _geoProductList.clear();
-    _mathProductList.clear();
-    _computerProductList.clear();
+//     _raffelProductList.clear();
+//     _toysProductList.clear();
+//     _toolsProductList.clear();
+//     _applianceProductList.clear();
+//     _phoneProductList.clear();
+//     _babyProductList.clear();
+//     _healthProductList.clear();
+//     _clothesProductList.clear();
+//     // _halfProductList.clear();
+//     _freeProductList.clear();
+//     _electricProductList.clear();
+//     _geoProductList.clear();
+//     _mathProductList.clear();
+//     _computerProductList.clear();
     // _bestsellingProductList.clear();
     _isProductInitial = true;
     _totalProductData = 0;
@@ -1486,171 +1486,171 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     return productDetails;
   }
 
-  buildHomeRaffelProducts(context) {
-    if (_isProductInitial && _raffelProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _raffelProductScrollController));
-    } else if (_raffelProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeRaffelProducts(context) {
+//     if (_isProductInitial && _raffelProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _raffelProductScrollController));
+//     } else if (_raffelProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _raffelProductList.length,
-        //controller: _raffelProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _raffelProductList[index].id,
-              image: _raffelProductList[index].thumbnail_image,
-              name: _raffelProductList[index].name,
-              main_price: _raffelProductList[index].main_price,
-              stroked_price: _raffelProductList[index].stroked_price,
-              buyToWinProducts: true,
-              isAuction: false,
-              has_discount: _raffelProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _raffelProductList.length,
+//         //controller: _raffelProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _raffelProductList[index].id,
+//               image: _raffelProductList[index].thumbnail_image,
+//               name: _raffelProductList[index].name,
+//               main_price: _raffelProductList[index].main_price,
+//               stroked_price: _raffelProductList[index].stroked_price,
+//               buyToWinProducts: true,
+//               isAuction: false,
+//               has_discount: _raffelProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomeToysProducts(context) {
-    if (_isProductInitial && _toysProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _toysProductScrollController));
-    } else if (_toysProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeToysProducts(context) {
+//     if (_isProductInitial && _toysProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _toysProductScrollController));
+//     } else if (_toysProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _toysProductList.length,
-        //controller: _raffelProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _toysProductList[index].id,
-              image: _toysProductList[index].thumbnail_image,
-              name: _toysProductList[index].name,
-              main_price: _toysProductList[index].main_price,
-              stroked_price: _toysProductList[index].stroked_price,
-              has_discount: _toysProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _toysProductList.length,
+//         //controller: _raffelProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _toysProductList[index].id,
+//               image: _toysProductList[index].thumbnail_image,
+//               name: _toysProductList[index].name,
+//               main_price: _toysProductList[index].main_price,
+//               stroked_price: _toysProductList[index].stroked_price,
+//               has_discount: _toysProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomeToolsProducts(context) {
-    if (_isProductInitial && _toolsProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _toolsProductScrollController));
-    } else if (_toolsProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeToolsProducts(context) {
+//     if (_isProductInitial && _toolsProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _toolsProductScrollController));
+//     } else if (_toolsProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _toolsProductList.length,
-        //controller: _raffelProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _toolsProductList[index].id,
-              image: _toolsProductList[index].thumbnail_image,
-              name: _toolsProductList[index].name,
-              main_price: _toolsProductList[index].main_price,
-              stroked_price: _toolsProductList[index].stroked_price,
-              has_discount: _toolsProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _toolsProductList.length,
+//         //controller: _raffelProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _toolsProductList[index].id,
+//               image: _toolsProductList[index].thumbnail_image,
+//               name: _toolsProductList[index].name,
+//               main_price: _toolsProductList[index].main_price,
+//               stroked_price: _toolsProductList[index].stroked_price,
+//               has_discount: _toolsProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomeClothesProducts(context) {
-    if (_isProductInitial && _clothesProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _clothesProductScrollController));
-    } else if (_clothesProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeClothesProducts(context) {
+//     if (_isProductInitial && _clothesProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _clothesProductScrollController));
+//     } else if (_clothesProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _clothesProductList.length,
-        //controller: _clothesProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _clothesProductList[index].id,
-              image: _clothesProductList[index].thumbnail_image,
-              name: _clothesProductList[index].name,
-              main_price: _clothesProductList[index].main_price,
-              stroked_price: _clothesProductList[index].stroked_price,
-              has_discount: _clothesProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _clothesProductList.length,
+//         //controller: _clothesProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _clothesProductList[index].id,
+//               image: _clothesProductList[index].thumbnail_image,
+//               name: _clothesProductList[index].name,
+//               main_price: _clothesProductList[index].main_price,
+//               stroked_price: _clothesProductList[index].stroked_price,
+//               has_discount: _clothesProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
   buildHomeAllProducts(context) {
     if (_isProductInitial && _allProductList.length == 0) {
@@ -1693,374 +1693,374 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     }
   }
 
-  buildHomeApplianceProducts(context) {
-    if (_isProductInitial && _applianceProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _applianceProductScrollController));
-    } else if (_applianceProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeApplianceProducts(context) {
+//     if (_isProductInitial && _applianceProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _applianceProductScrollController));
+//     } else if (_applianceProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _applianceProductList.length,
-        //controller: _clothesProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _applianceProductList[index].id,
-              image: _applianceProductList[index].thumbnail_image,
-              name: _applianceProductList[index].name,
-              main_price: _applianceProductList[index].main_price,
-              stroked_price: _applianceProductList[index].stroked_price,
-              has_discount: _applianceProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _applianceProductList.length,
+//         //controller: _clothesProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _applianceProductList[index].id,
+//               image: _applianceProductList[index].thumbnail_image,
+//               name: _applianceProductList[index].name,
+//               main_price: _applianceProductList[index].main_price,
+//               stroked_price: _applianceProductList[index].stroked_price,
+//               has_discount: _applianceProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomePhoneProducts(context) {
-    if (_isProductInitial && _phoneProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _phoneProductScrollController));
-    } else if (_phoneProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomePhoneProducts(context) {
+//     if (_isProductInitial && _phoneProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _phoneProductScrollController));
+//     } else if (_phoneProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _phoneProductList.length,
-        //controller: _clothesProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _phoneProductList[index].id,
-              image: _phoneProductList[index].thumbnail_image,
-              name: _phoneProductList[index].name,
-              main_price: _phoneProductList[index].main_price,
-              stroked_price: _phoneProductList[index].stroked_price,
-              has_discount: _phoneProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _phoneProductList.length,
+//         //controller: _clothesProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _phoneProductList[index].id,
+//               image: _phoneProductList[index].thumbnail_image,
+//               name: _phoneProductList[index].name,
+//               main_price: _phoneProductList[index].main_price,
+//               stroked_price: _phoneProductList[index].stroked_price,
+//               has_discount: _phoneProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomeBabyProducts(context) {
-    if (_isProductInitial && _babyProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _babyProductScrollController));
-    } else if (_babyProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeBabyProducts(context) {
+//     if (_isProductInitial && _babyProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _babyProductScrollController));
+//     } else if (_babyProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _babyProductList.length,
-        //controller: _babyProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _babyProductList[index].id,
-              image: _babyProductList[index].thumbnail_image,
-              name: _clothesProductList[index].name,
-              main_price: _babyProductList[index].main_price,
-              stroked_price: _babyProductList[index].stroked_price,
-              has_discount: _babyProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _babyProductList.length,
+//         //controller: _babyProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _babyProductList[index].id,
+//               image: _babyProductList[index].thumbnail_image,
+//               name: _clothesProductList[index].name,
+//               main_price: _babyProductList[index].main_price,
+//               stroked_price: _babyProductList[index].stroked_price,
+//               has_discount: _babyProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomeHealthProducts(context) {
-    if (_isProductInitial && _healthProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _healthProductScrollController));
-    } else if (_healthProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeHealthProducts(context) {
+//     if (_isProductInitial && _healthProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _healthProductScrollController));
+//     } else if (_healthProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _healthProductList.length,
-        //controller: _clothesProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _healthProductList[index].id,
-              image: _healthProductList[index].thumbnail_image,
-              name: _healthProductList[index].name,
-              main_price: _healthProductList[index].main_price,
-              stroked_price: _healthProductList[index].stroked_price,
-              has_discount: _healthProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _healthProductList.length,
+//         //controller: _clothesProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _healthProductList[index].id,
+//               image: _healthProductList[index].thumbnail_image,
+//               name: _healthProductList[index].name,
+//               main_price: _healthProductList[index].main_price,
+//               stroked_price: _healthProductList[index].stroked_price,
+//               has_discount: _healthProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomeFreeProducts(context) {
-    if (_isProductInitial && _freeProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _freeProductScrollController));
-    } else if (_freeProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeFreeProducts(context) {
+//     if (_isProductInitial && _freeProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _freeProductScrollController));
+//     } else if (_freeProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _freeProductList.length,
-        //controller: _freeProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _freeProductList[index].id,
-              image: _freeProductList[index].thumbnail_image,
-              name: _freeProductList[index].name,
-              main_price: _freeProductList[index].main_price,
-              stroked_price: _freeProductList[index].stroked_price,
-              has_discount: _freeProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _freeProductList.length,
+//         //controller: _freeProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _freeProductList[index].id,
+//               image: _freeProductList[index].thumbnail_image,
+//               name: _freeProductList[index].name,
+//               main_price: _freeProductList[index].main_price,
+//               stroked_price: _freeProductList[index].stroked_price,
+//               has_discount: _freeProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomeElectricProducts(context) {
-    if (_isProductInitial && _electricProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _electricProductScrollController));
-    } else if (_electricProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeElectricProducts(context) {
+//     if (_isProductInitial && _electricProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _electricProductScrollController));
+//     } else if (_electricProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _electricProductList.length,
-        //controller: _electricProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _electricProductList[index].id,
-              image: _electricProductList[index].thumbnail_image,
-              name: _electricProductList[index].name,
-              main_price: _electricProductList[index].main_price,
-              stroked_price: _electricProductList[index].stroked_price,
-              has_discount: _electricProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _electricProductList.length,
+//         //controller: _electricProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _electricProductList[index].id,
+//               image: _electricProductList[index].thumbnail_image,
+//               name: _electricProductList[index].name,
+//               main_price: _electricProductList[index].main_price,
+//               stroked_price: _electricProductList[index].stroked_price,
+//               has_discount: _electricProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomeComputerProducts(context) {
-    if (_isProductInitial && _computerProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _computerProductScrollController));
-    } else if (_computerProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeComputerProducts(context) {
+//     if (_isProductInitial && _computerProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _computerProductScrollController));
+//     } else if (_computerProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _computerProductList.length,
-        //controller: _clothesProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _computerProductList[index].id,
-              image: _computerProductList[index].thumbnail_image,
-              name: _computerProductList[index].name,
-              main_price: _computerProductList[index].main_price,
-              stroked_price: _computerProductList[index].stroked_price,
-              has_discount: _computerProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _computerProductList.length,
+//         //controller: _clothesProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _computerProductList[index].id,
+//               image: _computerProductList[index].thumbnail_image,
+//               name: _computerProductList[index].name,
+//               main_price: _computerProductList[index].main_price,
+//               stroked_price: _computerProductList[index].stroked_price,
+//               has_discount: _computerProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomeGeoProducts(context) {
-    if (_isProductInitial && _geoProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _geoProductScrollController));
-    } else if (_geoProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeGeoProducts(context) {
+//     if (_isProductInitial && _geoProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _geoProductScrollController));
+//     } else if (_geoProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _geoProductList.length,
-        //controller: _geoProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _geoProductList[index].id,
-              image: _geoProductList[index].thumbnail_image,
-              name: _geoProductList[index].name,
-              main_price: _geoProductList[index].main_price,
-              stroked_price: _geoProductList[index].stroked_price,
-              has_discount: _geoProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _geoProductList.length,
+//         //controller: _geoProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _geoProductList[index].id,
+//               image: _geoProductList[index].thumbnail_image,
+//               name: _geoProductList[index].name,
+//               main_price: _geoProductList[index].main_price,
+//               stroked_price: _geoProductList[index].stroked_price,
+//               has_discount: _geoProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  buildHomeMathProducts(context) {
-    if (_isProductInitial && _mathProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _mathProductScrollController));
-    } else if (_mathProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeMathProducts(context) {
+//     if (_isProductInitial && _mathProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _mathProductScrollController));
+//     } else if (_mathProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _mathProductList.length,
-        //controller: _mathProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _mathProductList[index].id,
-              image: _mathProductList[index].thumbnail_image,
-              name: _mathProductList[index].name,
-              main_price: _mathProductList[index].main_price,
-              stroked_price: _mathProductList[index].stroked_price,
-              has_discount: _mathProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _mathProductList.length,
+//         //controller: _mathProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _mathProductList[index].id,
+//               image: _mathProductList[index].thumbnail_image,
+//               name: _mathProductList[index].name,
+//               main_price: _mathProductList[index].main_price,
+//               stroked_price: _mathProductList[index].stroked_price,
+//               has_discount: _mathProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 /*--------------
 --------------
 --------------
