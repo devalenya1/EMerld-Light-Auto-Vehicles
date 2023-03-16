@@ -7,7 +7,8 @@
 		"dockerfile": "Dockerfile"
 	},
 	"name": "Flutter",
-	"customizations/vscode/extensions": [
+	// "customizations/vscode/extensions": [
+	"extensions": [	
 		"Dart-Code.dart-code",
 		"Dart-Code.flutter"
 	]
