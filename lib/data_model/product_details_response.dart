@@ -53,7 +53,7 @@ class DetailedProduct {
       this.colors,
       this.has_discount,
       this.stroked_price,
-      this.voucher_end_date,
+      //this.voucher_end_date,
       this.buytowin_end_date,
       this.buytowin_description,
       this.auction_end_date,
@@ -89,7 +89,7 @@ class DetailedProduct {
   List<ChoiceOption> choice_options;
   List<dynamic> colors;
   bool has_discount;
-  String voucher_end_date;
+  //String voucher_end_date;
   String buytowin_end_date;
   String buytowin_description;
   String voucher_product;
@@ -133,7 +133,7 @@ class DetailedProduct {
         main_price: json["main_price"],
         buytowin_end_date: json["buytowin_end_date"],
         buytowin_description: json["buytowin_description"],
-        voucher_end_date: json["voucher_end_date"],
+        //voucher_end_date: json["voucher_end_date"],
         voucher_product: json["voucher_product"],
         buytowin_product: json["buytowin_product"],
         auction_product: json["auction_product"],
@@ -173,7 +173,7 @@ class DetailedProduct {
         "has_discount": has_discount,
         "stroked_price": stroked_price,
         "main_price": main_price,
-        "voucher_end_date": voucher_end_date,
+        //"voucher_end_date": voucher_end_date,
         "buytowin_end_date": buytowin_end_date,
         "buytowin_description": buytowin_description,
         "voucher_product": voucher_product,
