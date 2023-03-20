@@ -10,7 +10,7 @@ class MiniProductCard extends StatefulWidget {
   String stroked_price;
   bool has_discount;
   bool isAuction;
-  bool buyToWinProducts;
+  //bool buyToWinProducts;
 
   MiniProductCard(
       {Key key,
@@ -21,7 +21,7 @@ class MiniProductCard extends StatefulWidget {
       this.stroked_price,
       this.has_discount,
       this.isAuction,
-      this.buyToWinProducts})
+      //this.buyToWinProducts})
       : super(key: key);
 
   @override
@@ -39,7 +39,7 @@ class _MiniProductCardState extends State<MiniProductCard> {
           return ProductDetails(
             id: widget.id,
             isAuction: widget.isAuction,
-            buyToWinProducts: widget.buyToWinProducts,
+            //buyToWinProducts: widget.buyToWinProducts,
           );
         }));
       },

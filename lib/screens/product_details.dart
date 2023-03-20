@@ -43,8 +43,8 @@ import 'package:http/http.dart' as http;
 class ProductDetails extends StatefulWidget {
   int id;
   bool isAuction;
-  bool buyToWinProducts;
-  ProductDetails({Key key, this.id, this.isAuction, this.buyToWinProducts})
+  //bool buyToWinProducts;
+  ProductDetails({Key key, this.id, this.isAuction /*, this.buyToWinProducts*/})
       : super(key: key);
 
   @override
@@ -767,21 +767,21 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                 ])),
 
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        16.0,
-                        8.0,
-                        16.0,
-                        0.0,
-                      ),
-                      child: _productDetails != null
-                          ? buildWin(_productDetails)
-                          : ShimmerHelper().buildBasicShimmer(
-                              height: 30.0,
-                            )),
-                ])),
+                // SliverList(
+                //     delegate: SliverChildListDelegate([
+                //   Padding(
+                //       padding: const EdgeInsets.fromLTRB(
+                //         16.0,
+                //         8.0,
+                //         16.0,
+                //         0.0,
+                //       ),
+                //       child: _productDetails != null
+                //           ? buildWin(_productDetails)
+                //           : ShimmerHelper().buildBasicShimmer(
+                //               height: 30.0,
+                //             )),
+                // ])),
 
                 // SliverList(
                 //     delegate: SliverChildListDelegate([
@@ -839,21 +839,21 @@ class _ProductDetailsState extends State<ProductDetails> {
                               height: 30.0,
                             )),
                 ])),
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        16.0,
-                        8.0,
-                        16.0,
-                        0.0,
-                      ),
-                      child: _productDetails != null
-                          ? buildDescription(_productDetails)
-                          : ShimmerHelper().buildBasicShimmer(
-                              height: 30.0,
-                            )),
-                ])),
+                // SliverList(
+                //     delegate: SliverChildListDelegate([
+                //   Padding(
+                //       padding: const EdgeInsets.fromLTRB(
+                //         16.0,
+                //         8.0,
+                //         16.0,
+                //         0.0,
+                //       ),
+                //       child: _productDetails != null
+                //           ? buildDescription(_productDetails)
+                //           : ShimmerHelper().buildBasicShimmer(
+                //               height: 30.0,
+                //             )),
+                // ])),
                 SliverList(
                     delegate: SliverChildListDelegate([
                   Padding(
@@ -865,7 +865,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                       child: _productDetails != null
                           ? buildTimer(_productDetails, widget.isAuction,
-                              widget.buyToWinProducts)
+                              /*widget.buyToWinProducts*/)
                           : ShimmerHelper().buildBasicShimmer(
                               height: 30.0,
                             )),
@@ -1420,46 +1420,46 @@ class _ProductDetailsState extends State<ProductDetails> {
     );
   }
 
-  TimerBuilder buildDescription(dynamic productDetails) {
-    if (productDetails.buytowin_description != null) {
-      int dateNow = DateTime.now().millisecondsSinceEpoch;
-      int endDate = int.parse(productDetails.buytowin_end_date + "000");
-      if (dateNow < endDate) {
-        return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-          return Container(
-            width: 35,
-            height: 40,
-            child: Material(
-              borderRadius: BorderRadius.circular(8.0),
-              color: MyTheme.accent_color,
-              child: Center(
-                  child: Text(
-                productDetails.buytowin_description.toString(),
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              )),
-            ),
-          );
-        });
-      }
-    }
-  }
+  // TimerBuilder buildDescription(dynamic productDetails) {
+  //   if (productDetails.buytowin_description != null) {
+  //     int dateNow = DateTime.now().millisecondsSinceEpoch;
+  //     int endDate = int.parse(productDetails.buytowin_end_date + "000");
+  //     if (dateNow < endDate) {
+  //       return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
+  //         return Container(
+  //           width: 35,
+  //           height: 40,
+  //           child: Material(
+  //             borderRadius: BorderRadius.circular(8.0),
+  //             color: MyTheme.accent_color,
+  //             child: Center(
+  //                 child: Text(
+  //               productDetails.buytowin_description.toString(),
+  //               style: TextStyle(color: Colors.white, fontSize: 20),
+  //             )),
+  //           ),
+  //         );
+  //       });
+  //     }
+  //   }
+  // }
 
-  TimerBuilder buildWin(dynamic productDetails) {
-    if (productDetails.buytowin_end_date != null) {
-      int dateNow = DateTime.now().millisecondsSinceEpoch;
-      return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-        int endDate = int.parse(productDetails.buytowin_end_date + "000");
-        if (dateNow < endDate) {
-          return Text(
-            "WIN:",
-            style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.red),
-          );
-        }
-        return Container();
-      });
-    } else {}
-  }
+  // TimerBuilder buildWin(dynamic productDetails) {
+  //   if (productDetails.buytowin_end_date != null) {
+  //     int dateNow = DateTime.now().millisecondsSinceEpoch;
+  //     return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
+  //       int endDate = int.parse(productDetails.buytowin_end_date + "000");
+  //       if (dateNow < endDate) {
+  //         return Text(
+  //           "WIN:",
+  //           style: TextStyle(
+  //               fontSize: 24, fontWeight: FontWeight.bold, color: Colors.red),
+  //         );
+  //       }
+  //       return Container();
+  //     });
+  //   } else {}
+  // }
 
   Row buildSellerRow(BuildContext context) {
     //print("sl:" +  _productDetails.shop_logo);
@@ -1559,7 +1559,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           child: Container(
             width: 75,
             child: Text(
-              "Start Bid",
+              "Start Bidding",
               //AppLocalizations.of(context).product_details_screen_total_price,
               style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
             ),
@@ -2409,8 +2409,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   : SizedBox(),
               isAuction == true ||
                       normalProduct == false ||
-                      (widget.buyToWinProducts == true &&
-                          buyTowinStatus == true) ||
+                      //(widget.buyToWinProducts == true && buyTowinStatus == true) ||
                       raffelStatus == true
                   ? SizedBox()
                   : Expanded(
@@ -2443,11 +2442,11 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
               // raffelStatus == false
               (isAuction == true && auctionStatus == false) ||
-                      (isAuction == false && buyTowinStatus == false) ||
+                      (isAuction == false /*&& buyTowinStatus == false*/) ||
                       //(isAuction == false && voucherDateStatus == false) ||
                       // (isAuction == false && raffelStatus == false) ||
                       (normalProduct == true &&
-                          widget.buyToWinProducts == false &&
+                          //widget.buyToWinProducts == false &&
                           isAuction == false)
                   // (auctionStatus == true && buyTowinStatus == true ||
                   //         voucherDateStatus == true)
@@ -2735,7 +2734,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     stroked_price: _relatedProducts[index].stroked_price,
                     has_discount: _relatedProducts[index].has_discount,
                     isAuction: false,
-                    buyToWinProducts: widget.buyToWinProducts),
+                    //buyToWinProducts: widget.buyToWinProducts),
               );
             },
           ),
@@ -2944,91 +2943,91 @@ class ProductDetailController extends GetxController {
 }
 
 bool auctionStatus; // true mean to disable
-bool buyTowinStatus;
+//bool buyTowinStatus;
 //bool voucherDateStatus;
 bool normalProduct;
 bool raffelStatus = false;
 TimerBuilder buildTimer(
-    DetailedProduct productDetails, isAuction, buyToWinProducts) {
+    DetailedProduct productDetails, isAuction/*, buyToWinProducts*/) {
   //log("Voucher  1x${productDetails.voucher_end_date.toString()}");
-  log("BuyTOWin  1x${productDetails.buytowin_end_date.toString()}");
+  //log("BuyTOWin  1x${productDetails.buytowin_end_date.toString()}");
   log("Auction  1x${productDetails.auction_end_date.toString()}");
-  if (productDetails.buytowin_end_date != null) {
-    // log("Voucher product is here");
-    int dateNow = DateTime.now().millisecondsSinceEpoch;
-    return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-      int endDate = int.parse(productDetails.buytowin_end_date + "000");
+  // if (productDetails.buytowin_end_date != null) {
+  //   // log("Voucher product is here");
+  //   int dateNow = DateTime.now().millisecondsSinceEpoch;
+  //   return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
+  //     int endDate = int.parse(productDetails.buytowin_end_date + "000");
 
-      if (dateNow > endDate) {
-        buyTowinStatus = true;
-        return Container(
-          // width: 35,
-          height: 40,
-          child: Material(
-            borderRadius: BorderRadius.circular(8.0),
-            color: MyTheme.accent_color,
-            child: Center(
-                child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                child: Text(
-                  "Deal Has Ended:",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            )),
-          ),
-        );
-      } else {
-        buyTowinStatus = false;
+  //     if (dateNow > endDate) {
+  //       buyTowinStatus = true;
+  //       return Container(
+  //         // width: 35,
+  //         height: 40,
+  //         child: Material(
+  //           borderRadius: BorderRadius.circular(8.0),
+  //           color: MyTheme.accent_color,
+  //           child: Center(
+  //               child: FittedBox(
+  //             fit: BoxFit.scaleDown,
+  //             child: Padding(
+  //               padding: const EdgeInsets.symmetric(horizontal: 4.0),
+  //               child: Text(
+  //                 "Deal Has Ended:",
+  //                 style: TextStyle(color: Colors.white, fontSize: 20),
+  //               ),
+  //             ),
+  //           )),
+  //         ),
+  //       );
+  //     } else {
+  //       buyTowinStatus = false;
 
-        return CountdownTimer(
-          endTime: endDate,
-          widgetBuilder: (_, CurrentRemainingTime time) {
-            if (time == null) {}
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 34.0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Closing at:",
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      buildTextTimer("Day", time.days.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Hour", time.hours.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Min", time.min.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Sec", time.sec.toString()),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      }
-    });
-  } 
+  //       return CountdownTimer(
+  //         endTime: endDate,
+  //         widgetBuilder: (_, CurrentRemainingTime time) {
+  //           if (time == null) {}
+  //           return Padding(
+  //             padding: const EdgeInsets.symmetric(horizontal: 34.0),
+  //             child: Column(
+  //               children: [
+  //                 Row(
+  //                   children: [
+  //                     Text(
+  //                       "Closing at:",
+  //                       style: TextStyle(
+  //                           fontSize: 22, fontWeight: FontWeight.bold),
+  //                     ),
+  //                   ],
+  //                 ),
+  //                 Row(
+  //                   mainAxisAlignment: MainAxisAlignment.center,
+  //                   children: [
+  //                     buildTextTimer("Day", time.days.toString()),
+  //                     Padding(
+  //                       padding: const EdgeInsets.only(top: 8.0),
+  //                       child: Text(":"),
+  //                     ),
+  //                     buildTextTimer("Hour", time.hours.toString()),
+  //                     Padding(
+  //                       padding: const EdgeInsets.only(top: 8.0),
+  //                       child: Text(":"),
+  //                     ),
+  //                     buildTextTimer("Min", time.min.toString()),
+  //                     Padding(
+  //                       padding: const EdgeInsets.only(top: 8.0),
+  //                       child: Text(":"),
+  //                     ),
+  //                     buildTextTimer("Sec", time.sec.toString()),
+  //                   ],
+  //                 ),
+  //               ],
+  //             ),
+  //           );
+  //         },
+  //       );
+  //     }
+  //   });
+  // } 
   //   else if (productDetails.voucher_end_date != null) {
   //   log("Voucher product is here");
   //   int dateNow = DateTime.now().millisecondsSinceEpoch;
@@ -3114,7 +3113,7 @@ TimerBuilder buildTimer(
 
 
 
-  else if (productDetails.auction_product != null && isAuction == true) {
+  if (productDetails.auction_product != null && isAuction == true) {
     int dateNow = DateTime.now().millisecondsSinceEpoch;
 
     int endDate = int.parse(productDetails.auction_end_date + "000");
@@ -3197,7 +3196,7 @@ TimerBuilder buildTimer(
         );
       }
     });
-  } else {
+  } /* else {
     normalProduct = true;
     if (buyToWinProducts == true) {
       normalProduct = false;
@@ -3223,7 +3222,7 @@ TimerBuilder buildTimer(
                 ),
               ));
     }
-  }
+  }*/
 }
 
 Padding buildTextTimer(String text, String time) {

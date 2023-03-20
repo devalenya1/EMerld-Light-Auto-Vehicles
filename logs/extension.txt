@@ -14,81 +14,81 @@ NO_PROXY: undefined
 Logging Categories:
     General
 
-Mon Mar 20 2023 [08:43:19 GMT+0000 (Coordinated Universal Time)] Log file started
-[8:43:19 AM] [General] [Info] Searching for SDKs...
-[8:43:19 AM] [General] [Info] Environment PATH:
-[8:43:19 AM] [General] [Info]     /vscode/bin/linux-x64/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli
-[8:43:19 AM] [General] [Info]     /home/codespace/flutter/bin
-[8:43:19 AM] [General] [Info]     /usr/local/sbin
-[8:43:19 AM] [General] [Info]     /usr/local/bin
-[8:43:19 AM] [General] [Info]     /usr/sbin
-[8:43:19 AM] [General] [Info]     /usr/bin
-[8:43:19 AM] [General] [Info]     /sbin
-[8:43:19 AM] [General] [Info]     /bin
-[8:43:19 AM] [General] [Info] Took 156ms to search for projects (5 levels)
-[8:43:19 AM] [General] [Info] Took 0ms to filter out excluded projects (0 exclusion rules)
-[8:43:19 AM] [General] [Info] Found Flutter project at /workspaces/AIRSOFT_CLIENT_REAL_to_delete:
+Mon Mar 20 2023 [14:27:00 GMT+0000 (Coordinated Universal Time)] Log file started
+[2:27:00 PM] [General] [Info] Searching for SDKs...
+[2:27:00 PM] [General] [Info] Environment PATH:
+[2:27:00 PM] [General] [Info]     /vscode/bin/linux-x64/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli
+[2:27:00 PM] [General] [Info]     /home/codespace/flutter/bin
+[2:27:00 PM] [General] [Info]     /usr/local/sbin
+[2:27:00 PM] [General] [Info]     /usr/local/bin
+[2:27:00 PM] [General] [Info]     /usr/sbin
+[2:27:00 PM] [General] [Info]     /usr/bin
+[2:27:00 PM] [General] [Info]     /sbin
+[2:27:00 PM] [General] [Info]     /bin
+[2:27:00 PM] [General] [Info] Took 189ms to search for projects (5 levels)
+[2:27:00 PM] [General] [Info] Took 0ms to filter out excluded projects (0 exclusion rules)
+[2:27:00 PM] [General] [Info] Found Flutter project at /workspaces/AIRSOFT_CLIENT_REAL_to_delete:
 			Mobile? true
 			Web? false
 			Create Trigger? false
 			Flutter Repo? false
-[8:43:19 AM] [General] [Info] Searching for flutter
-[8:43:19 AM] [General] [Info]     Looking for flutter in:
-[8:43:19 AM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete
-[8:43:19 AM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete/bin
-[8:43:19 AM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete/.flutter
-[8:43:19 AM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete/.flutter/bin
-[8:43:19 AM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete/vendor/flutter
-[8:43:19 AM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete/vendor/flutter/bin
-[8:43:19 AM] [General] [Info]         /root/snap/flutter/common/flutter
-[8:43:19 AM] [General] [Info]         /root/snap/flutter/common/flutter/bin
-[8:43:19 AM] [General] [Info]         /root/flutter-sdk
-[8:43:19 AM] [General] [Info]         /root/flutter-sdk/bin
-[8:43:19 AM] [General] [Info]         /google/flutter
-[8:43:19 AM] [General] [Info]         /google/flutter/bin
-[8:43:19 AM] [General] [Info]         /vscode/bin/linux-x64/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli
-[8:43:19 AM] [General] [Info]         /vscode/bin/linux-x64/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli/bin
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin
-[8:43:19 AM] [General] [Info]         /usr/local/sbin
-[8:43:19 AM] [General] [Info]         /usr/local/bin
-[8:43:19 AM] [General] [Info]         /usr/sbin
-[8:43:19 AM] [General] [Info]         /usr/bin
-[8:43:19 AM] [General] [Info]         /sbin
-[8:43:19 AM] [General] [Info]         /bin
-[8:43:19 AM] [General] [Info]     Found at:
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin
-[8:43:19 AM] [General] [Info]     Candidate paths to be post-filtered:
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter
-[8:43:19 AM] [General] [Info]     Found at /home/codespace/flutter
-[8:43:19 AM] [General] [Info]     Returning SDK path /home/codespace/flutter for flutter
-[8:43:19 AM] [General] [Info] Searching for dart
-[8:43:19 AM] [General] [Info]     Looking for dart in:
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk/bin
-[8:43:19 AM] [General] [Info]         /vscode/bin/linux-x64/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli
-[8:43:19 AM] [General] [Info]         /vscode/bin/linux-x64/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli/bin
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin
-[8:43:19 AM] [General] [Info]         /usr/local/sbin
-[8:43:19 AM] [General] [Info]         /usr/local/bin
-[8:43:19 AM] [General] [Info]         /usr/sbin
-[8:43:19 AM] [General] [Info]         /usr/bin
-[8:43:19 AM] [General] [Info]         /sbin
-[8:43:19 AM] [General] [Info]         /bin
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk/bin
-[8:43:19 AM] [General] [Info]     Found at:
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk/bin
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk/bin
-[8:43:19 AM] [General] [Info]     Candidate paths to be post-filtered:
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter
-[8:43:19 AM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk
-[8:43:19 AM] [General] [Info]     Found at /home/codespace/flutter/bin/cache/dart-sdk
-[8:43:19 AM] [General] [Info]     Returning SDK path /home/codespace/flutter/bin/cache/dart-sdk for dart
-[8:43:19 AM] [General] [Info] Experiment random number is 30 for experiment 'sdkDaps'. Experiment is enabled for <= 10
-[8:43:19 AM] [General] [Info] Experiment 'sdkDaps' does not apply and will not be activated
-[8:43:19 AM] [General] [Info] !! PLEASE REVIEW THIS LOG FOR SENSITIVE INFORMATION BEFORE SHARING !!
+[2:27:00 PM] [General] [Info] Searching for flutter
+[2:27:00 PM] [General] [Info]     Looking for flutter in:
+[2:27:00 PM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete
+[2:27:00 PM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete/bin
+[2:27:00 PM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete/.flutter
+[2:27:00 PM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete/.flutter/bin
+[2:27:00 PM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete/vendor/flutter
+[2:27:00 PM] [General] [Info]         /workspaces/AIRSOFT_CLIENT_REAL_to_delete/vendor/flutter/bin
+[2:27:00 PM] [General] [Info]         /root/snap/flutter/common/flutter
+[2:27:00 PM] [General] [Info]         /root/snap/flutter/common/flutter/bin
+[2:27:00 PM] [General] [Info]         /root/flutter-sdk
+[2:27:00 PM] [General] [Info]         /root/flutter-sdk/bin
+[2:27:00 PM] [General] [Info]         /google/flutter
+[2:27:00 PM] [General] [Info]         /google/flutter/bin
+[2:27:00 PM] [General] [Info]         /vscode/bin/linux-x64/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli
+[2:27:00 PM] [General] [Info]         /vscode/bin/linux-x64/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli/bin
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin
+[2:27:00 PM] [General] [Info]         /usr/local/sbin
+[2:27:00 PM] [General] [Info]         /usr/local/bin
+[2:27:00 PM] [General] [Info]         /usr/sbin
+[2:27:00 PM] [General] [Info]         /usr/bin
+[2:27:00 PM] [General] [Info]         /sbin
+[2:27:00 PM] [General] [Info]         /bin
+[2:27:00 PM] [General] [Info]     Found at:
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin
+[2:27:00 PM] [General] [Info]     Candidate paths to be post-filtered:
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter
+[2:27:00 PM] [General] [Info]     Found at /home/codespace/flutter
+[2:27:00 PM] [General] [Info]     Returning SDK path /home/codespace/flutter for flutter
+[2:27:00 PM] [General] [Info] Searching for dart
+[2:27:00 PM] [General] [Info]     Looking for dart in:
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk/bin
+[2:27:00 PM] [General] [Info]         /vscode/bin/linux-x64/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli
+[2:27:00 PM] [General] [Info]         /vscode/bin/linux-x64/ee2b180d582a7f601fa6ecfdad8d9fd269ab1884/bin/remote-cli/bin
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin
+[2:27:00 PM] [General] [Info]         /usr/local/sbin
+[2:27:00 PM] [General] [Info]         /usr/local/bin
+[2:27:00 PM] [General] [Info]         /usr/sbin
+[2:27:00 PM] [General] [Info]         /usr/bin
+[2:27:00 PM] [General] [Info]         /sbin
+[2:27:00 PM] [General] [Info]         /bin
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk/bin
+[2:27:00 PM] [General] [Info]     Found at:
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk/bin
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk/bin
+[2:27:00 PM] [General] [Info]     Candidate paths to be post-filtered:
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter
+[2:27:00 PM] [General] [Info]         /home/codespace/flutter/bin/cache/dart-sdk
+[2:27:00 PM] [General] [Info]     Found at /home/codespace/flutter/bin/cache/dart-sdk
+[2:27:00 PM] [General] [Info]     Returning SDK path /home/codespace/flutter/bin/cache/dart-sdk for dart
+[2:27:00 PM] [General] [Info] Experiment random number is 30 for experiment 'sdkDaps'. Experiment is enabled for <= 10
+[2:27:00 PM] [General] [Info] Experiment 'sdkDaps' does not apply and will not be activated
+[2:27:00 PM] [General] [Info] !! PLEASE REVIEW THIS LOG FOR SENSITIVE INFORMATION BEFORE SHARING !!
 
 Dart Code extension: 3.60.1
 Flutter extension: 3.60.0 (not activated)
@@ -111,12 +111,12 @@ Flutter SDK:
 
 HTTP_PROXY: undefined
 NO_PROXY: undefined
-[8:43:19 AM] [General] [Info] Returning cached results for project search
-[8:43:19 AM] [General] [Info] Activating Flutter extension for Flutter project...
-[8:43:19 AM] [General] [Info] Extension:Startup timing: 405ms
-[8:43:19 AM] [General] [Info] Found 1 folders requiring "pub get" or "pub upgrade":
+[2:27:00 PM] [General] [Info] Returning cached results for project search
+[2:27:00 PM] [General] [Info] Activating Flutter extension for Flutter project...
+[2:27:00 PM] [General] [Info] Extension:Startup timing: 447ms
+[2:27:00 PM] [General] [Info] Found 1 folders requiring "pub get" or "pub upgrade":
     /workspaces/AIRSOFT_CLIENT_REAL_to_delete (get: true, upgrade: false)
-[8:43:20 AM] [General] [Info] !! PLEASE REVIEW THIS LOG FOR SENSITIVE INFORMATION BEFORE SHARING !!
+[2:27:02 PM] [General] [Info] !! PLEASE REVIEW THIS LOG FOR SENSITIVE INFORMATION BEFORE SHARING !!
 
 Dart Code extension: 3.60.1
 Flutter extension: 3.60.0 (activated)
@@ -139,11 +139,10 @@ Flutter SDK:
 
 HTTP_PROXY: undefined
 NO_PROXY: undefined
-[8:43:22 AM] [General] [Info] Analyzer:Startup timing: 2956ms
-[8:43:26 AM] [General] [Info] Analyzer:FirstAnalysis timing: 3462ms
-[8:43:26 AM] [General] [Info] Returning cached results for project search
-[8:43:26 AM] [General] [Info] Checking 1 projects for supported platforms
-[8:43:26 AM] [General] [Info] Returning cached promise for getSupportedPlatforms()
-[8:43:26 AM] [General] [Info] Supported platforms for the workspace are ios, android
-[8:43:35 AM] [General] [Info] Loaded 20000 from file:///root/.vscode-remote/data/User/globalStorage/dart-code.dart-code/package_cache.json
-[8:43:35 AM] [General] [Info] Caching Pub package names from https://pub.dev...
+[2:27:04 PM] [General] [Info] Analyzer:Startup timing: 3862ms
+[2:27:07 PM] [General] [Info] Analyzer:FirstAnalysis timing: 1172ms
+[2:27:08 PM] [General] [Info] Returning cached results for project search
+[2:27:08 PM] [General] [Info] Checking 1 projects for supported platforms
+[2:27:08 PM] [General] [Info] Returning cached promise for getSupportedPlatforms()
+[2:27:08 PM] [General] [Info] Supported platforms for the workspace are ios, android
+[2:28:01 PM] [General] [Info] Loaded 20000 from file:///root/.vscode-remote/data/User/globalStorage/dart-code.dart-code/package_cache.json
