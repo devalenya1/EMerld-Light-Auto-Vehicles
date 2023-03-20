@@ -11,7 +11,7 @@ class ProductCard extends StatefulWidget {
   String stroked_price;
   bool has_discount;
   bool isAuction;
-  //bool buyToWinProducts;
+  bool buyToWinProducts;
   var productDetails;
 
   ProductCard(
