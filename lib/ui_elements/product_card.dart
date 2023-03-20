@@ -11,7 +11,7 @@ class ProductCard extends StatefulWidget {
   String stroked_price;
   bool has_discount;
   bool isAuction;
-  bool buyToWinProducts;
+  //bool buyToWinProducts;
   var productDetails;
 
   ProductCard(
@@ -23,7 +23,7 @@ class ProductCard extends StatefulWidget {
       this.stroked_price,
       this.has_discount,
       this.productDetails,
-      this.buyToWinProducts = false,
+      //this.buyToWinProducts = false,
       this.isAuction = false})
       : super(key: key);
 
@@ -41,7 +41,7 @@ class _ProductCardState extends State<ProductCard> {
           return ProductDetails(
             id: widget.id,
             isAuction: widget.isAuction,
-            buyToWinProducts: widget.buyToWinProducts,
+            //buyToWinProducts: widget.buyToWinProducts,
           );
         }));
       },
@@ -81,14 +81,14 @@ class _ProductCardState extends State<ProductCard> {
               // ),
               Container(
                 height:
-                    widget.isAuction == true || widget.buyToWinProducts == true
+                    widget.isAuction == true //|| widget.buyToWinProducts == true
                         // widget.isAuction == true
                         ? 170
                         : 90,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    widget.isAuction == true || widget.buyToWinProducts == true
+                    widget.isAuction == true //|| widget.buyToWinProducts == true
                         // widget.isAuction == true
                         ? Container(
                             height: 80,
@@ -98,7 +98,7 @@ class _ProductCardState extends State<ProductCard> {
                                 fit: BoxFit.scaleDown,
                                 child: buildTimer(
                                   widget.productDetails,
-                                  widget.isAuction, widget.buyToWinProducts,
+                                  widget.isAuction, //widget.buyToWinProducts,
                                   // auctionStatus: false,
                                   // buyToWinStatus: false,
                                   // normalProduct: false,
