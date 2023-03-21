@@ -21,7 +21,8 @@ class MiniProductCard extends StatefulWidget {
       this.stroked_price,
       this.has_discount,
       this.isAuction,
-      //this.buyToWinProducts})
+      //this.buyToWinProducts
+      })
       : super(key: key);
 
   @override
