@@ -2734,7 +2734,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                     stroked_price: _relatedProducts[index].stroked_price,
                     has_discount: _relatedProducts[index].has_discount,
                     isAuction: false,
-                    //buyToWinProducts: widget.buyToWinProducts),
+                    //buyToWinProducts: widget.buyToWinProducts
+                ),
               );
             },
           ),
