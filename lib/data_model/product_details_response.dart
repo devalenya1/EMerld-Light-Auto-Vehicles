@@ -67,6 +67,7 @@ class DetailedProduct {
       this.current_stock,
       this.current_stock_fixed,
       this.unit,
+      this.verified,
       this.rating,
       this.rating_count,
       this.earn_point,
@@ -99,6 +100,7 @@ class DetailedProduct {
   String auction_end_date;
   String stroked_price;
   String main_price;
+  String verified;
   var calculable_price;
   String currency_symbol;
   int current_stock;
@@ -136,6 +138,7 @@ class DetailedProduct {
         //voucher_end_date: json["voucher_end_date"],
         voucher_product: json["voucher_product"],
         buytowin_product: json["buytowin_product"],
+        verified: json["verified"],
         auction_product: json["auction_product"],
         auction_end_date: json["auction_end_date"],
         starting_bid: json["starting_bid"],
@@ -163,6 +166,7 @@ class DetailedProduct {
         "shop_id": shop_id,
         "shop_name": shop_name,
         "shop_logo": shop_logo,
+        "verified": verified,
         "photos": List<dynamic>.from(photos.map((x) => x.toJson())),
         "thumbnail_image": thumbnail_image,
         "tags": List<dynamic>.from(tags.map((x) => x)),
