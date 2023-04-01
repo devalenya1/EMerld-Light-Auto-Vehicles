@@ -163,7 +163,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     _allProductList.addAll(productResponse.products);
     _isProductInitial = false;
     _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = true;
+    _showProductLoadingContainer = false;
     setState(() {});
   }
 
@@ -372,6 +372,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                   //.home_screen_featured_products,
                                   style: TextStyle(fontSize: 13),
                                 ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.red, // background
+                                    onPrimary: Colors.white, // foreground
+                                  ),
+//                                   onPressed: () {
+//                                     //Navigator.pushNamed(context, loginPageRoute);
+//                                   },
+                                  child: Text('See More'),
+                                 // style: TextStyle(fontSize: 7),
+                                ),
+                                
+                                
                               ],
                             ),
                           ),
@@ -531,19 +544,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                   "All Products",
                                   style: TextStyle(fontSize: 13),
                                 ),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    primary: Colors.red, // background
-                                    onPrimary: Colors.white, // foreground
-                                  ),
-//                                   onPressed: () {
-//                                     //Navigator.pushNamed(context, loginPageRoute);
-//                                   },
-                                  child: Text('See More'),
-                                 // style: TextStyle(fontSize: 7),
-                                ),
-                                
-                                
                               ],
                             ),
                           ),
