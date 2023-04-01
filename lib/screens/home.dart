@@ -433,7 +433,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 //                                   onPressed: () {
 //                                     //Navigator.pushNamed(context, loginPageRoute);
 //                                   },
-                                  child: Text('Login!'),
+                                  child: Text('See More'),
+                                  style: TextStyle(fontSize: 7),
                                 ),
                                 
                               ],
@@ -538,7 +539,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 //                                   onPressed: () {
 //                                     //Navigator.pushNamed(context, loginPageRoute);
 //                                   },
-                                  child: Text('Login!'),
+                                  child: Text('See More'),
+                                  style: TextStyle(fontSize: 7),
                                 ),
                                 
                                 
