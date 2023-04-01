@@ -839,6 +839,25 @@ class _ProductDetailsState extends State<ProductDetails> {
                               height: 30.0,
                             )),
                 ])),
+                
+                SliverList(
+                    delegate: SliverChildListDelegate([
+                  Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                            16.0,
+                            8.0,
+                            16.0,
+                            0.0,
+                          ),
+                          child: _productDetails != null
+                              ? buildVerifiedRow()
+                              : ShimmerHelper().buildBasicShimmer(
+                                  height: 30.0,
+                                ),
+                        )
+                      : SizedBox(),
+                ])),
+
                 // SliverList(
                 //     delegate: SliverChildListDelegate([
                 //   Padding(
@@ -947,23 +966,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                         )
                       : SizedBox(),
                 ])),
-
-                /*SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                      16.0,
-                      8.0,
-                      16.0,
-                      0.0,
-                    ),
-                    child: _productDetails != null
-                        ? buildMainPriceRow()
-                        : ShimmerHelper().buildBasicShimmer(
-                            height: 30.0,
-                          ),
-                  ),
-                ])),*/
 
                 //-----------------
                 //----------------
@@ -1444,22 +1446,21 @@ class _ProductDetailsState extends State<ProductDetails> {
   //   }
   // }
 
-  // TimerBuilder buildWin(dynamic productDetails) {
-  //   if (productDetails.buytowin_end_date != null) {
-  //     int dateNow = DateTime.now().millisecondsSinceEpoch;
-  //     return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-  //       int endDate = int.parse(productDetails.buytowin_end_date + "000");
-  //       if (dateNow < endDate) {
-  //         return Text(
-  //           "WIN:",
-  //           style: TextStyle(
-  //               fontSize: 24, fontWeight: FontWeight.bold, color: Colors.red),
-  //         );
-  //       }
-  //       return Container();
-  //     });
-  //   } else {}
-  // }
+  Row buildVerifiedRow() {
+    if (productDetails.verified == 1) {
+      return Text(
+            "For You",
+            style: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green),
+      );
+    } else {
+      return Text(
+            "For Verified Buyers",
+            style: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.red),
+      );
+    }
+  }
 
   Row buildSellerRow(BuildContext context) {
     //print("sl:" +  _productDetails.shop_logo);
@@ -1742,18 +1743,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                // RichText(
-                                //   text: TextSpan(
-                                //     text: '$itemSold ',
-                                //     style: DefaultTextStyle.of(context).style,
-                                //     children: const <TextSpan>[
-                                //       TextSpan(
-                                //           text: 'sold',
-                                //           style: TextStyle(
-                                //               fontWeight: FontWeight.bold)),
-                                //     ],
-                                //   ),
-                                // ),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
