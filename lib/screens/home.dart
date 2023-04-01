@@ -417,7 +417,25 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                   "Featured Auctions",
                                   //AppLocalizations.of(context).home_screen_featured_products,
                                   style: TextStyle(fontSize: 13),
+//                                 onPressed: () {
+//                                   Navigator.push(context, MaterialPageRoute(builder: (context) {
+//                                   return Filter(
+//                                   selected_filter: "sellers",
+//                                   );
+//                                   }));
+//                                 })),
                                 ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.red, // background
+                                    onPrimary: Colors.white, // foreground
+                                  ),
+//                                   onPressed: () {
+//                                     //Navigator.pushNamed(context, loginPageRoute);
+//                                   },
+                                  child: Text('Login!'),
+                                ),
+                                
                               ],
                             ),
                           ),
@@ -512,6 +530,18 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                   "All Products",
                                   style: TextStyle(fontSize: 13),
                                 ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.red, // background
+                                    onPrimary: Colors.white, // foreground
+                                  ),
+//                                   onPressed: () {
+//                                     //Navigator.pushNamed(context, loginPageRoute);
+//                                   },
+                                  child: Text('Login!'),
+                                ),
+                                
+                                
                               ],
                             ),
                           ),
