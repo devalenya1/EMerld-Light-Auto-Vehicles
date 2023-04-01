@@ -840,22 +840,21 @@ class _ProductDetailsState extends State<ProductDetails> {
                             )),
                 ])),
                 
-                SliverList(
+               SliverList(
                     delegate: SliverChildListDelegate([
                   Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                            16.0,
-                            8.0,
-                            16.0,
-                            0.0,
+                    padding: const EdgeInsets.fromLTRB(
+                      16.0,
+                      8.0,
+                      16.0,
+                      0.0,
+                    ),
+                    child: _productDetails != null
+                        ? buildVerifiedRow()
+                        : ShimmerHelper().buildBasicShimmer(
+                            height: 30.0,
                           ),
-                          child: _productDetails != null
-                              ? buildVerifiedRow()
-                              : ShimmerHelper().buildBasicShimmer(
-                                  height: 30.0,
-                                ),
-                        )
-                      : SizedBox(),
+                  ),
                 ])),
 
                 // SliverList(
@@ -1447,18 +1446,54 @@ class _ProductDetailsState extends State<ProductDetails> {
   // }
 
   Row buildVerifiedRow() {
-    if (productDetails.verified == 1) {
-      return Text(
-            "For You",
-            style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green),
-      );
+    if (_productDetails.verified == 1) {
+      return Row(
+      children: [
+        Padding(
+          padding: app_language_rtl.$
+              ? EdgeInsets.only(left: 8.0)
+              : EdgeInsets.only(right: 8.0),
+          child: Container(
+            width: 75,
+            child: Text(
+              "For",
+              //AppLocalizations.of(context).product_details_screen_total_price,
+              style: TextStyle(color: Colors.red),
+            ),
+          ),
+        ),
+        Text("Verified Buyers Only",
+          style: TextStyle(
+              color: Colors.red,
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600),
+        )
+      ],
+    );
     } else {
-      return Text(
-            "For Verified Buyers",
-            style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.red),
-      );
+      return Row(
+      children: [
+        Padding(
+          padding: app_language_rtl.$
+              ? EdgeInsets.only(left: 8.0)
+              : EdgeInsets.only(right: 8.0),
+          child: Container(
+            width: 75,
+            child: Text(
+              "For",
+              //AppLocalizations.of(context).product_details_screen_total_price,
+              style: TextStyle(color: Colors.green),
+            ),
+          ),
+        ),
+        Text("All Buyers",
+          style: TextStyle(
+              color: Colors.green,
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600),
+        )
+      ],
+    );
     }
   }
 
