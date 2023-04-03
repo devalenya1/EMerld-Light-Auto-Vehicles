@@ -10,9 +10,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 
-import 'package:SAFAQAT/route/route.dart' as route;
-import 'package:SAFAQAT/screens/auction.dart';
-import 'package:SAFAQAT/screens/featured.dart';
+// import 'package:SAFAQAT/route/route.dart' as route;
+// import 'package:SAFAQAT/screens/auction.dart';
+// import 'package:SAFAQAT/screens/featured.dart';
 
 import '../app_config.dart';
 import '../custom/CommonFunctoins.dart';
@@ -32,7 +32,57 @@ import 'filter.dart';
 import 'flash_deal_list.dart';
 
 
-
+void main() {
+  runApp(const MaterialApp(
+    home: Home(),
+  ));
+}
+ 
+class AuctionRoute extends StatelessWidget {
+  const AuctionRoute({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Geeks for Geeks'),
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child: ElevatedButton(
+            child: const Text('Click Me!'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SecondRoute()),
+              );
+            }),
+      ),
+    );
+  }
+}
+ 
+class SecondRoute extends StatelessWidget {
+  const SecondRoute({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Click Me Page"),
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Home!'),
+        ),
+      ),
+    );
+  }
+}
 
 
 class Home extends StatefulWidget {
@@ -145,13 +195,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     _showProductLoadingContainer = false;
     setState(() {});
   }
-/*----------
-------------
-------------
-------------
--------------
-------------
-------------*/
+
 
   fetchAuctionProducts() async {
     var productResponse = await ProductRepository().getAuctionProducts(
@@ -387,7 +431,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                     primary: Colors.red, // background
                                     onPrimary: Colors.white, // foreground
                                   ),
-                                  onPressed: () => Navigator.pushNamed(context, route.featuredPage),
+                                  onPressed: () {
+                                    Navigator.push(
+                                     context,
+                                     MaterialPageRoute(builder: (context) => const AuctionRoute()),
+                                    );
+                                  }),
                                   child: Text('See More'),
                                  // style: TextStyle(fontSize: 7),
                                 ),
@@ -444,7 +493,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                     primary: Colors.red, // background
                                     onPrimary: Colors.white, // foreground
                                   ),
-                                  onPressed: () => Navigator.pushNamed(context, route.auctionPage),
+                                  onPressed: () {
+                                    Navigator.push(
+                                     context,
+                                     MaterialPageRoute(builder: (context) => const AuctionRoute()),
+                                    );
+                                  }),
                                   child: Text('See More'),
                                  // style: TextStyle(fontSize: 7),
                                 ),
