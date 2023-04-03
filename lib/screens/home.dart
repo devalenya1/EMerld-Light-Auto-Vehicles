@@ -53,54 +53,54 @@ class Home extends StatefulWidget {
 }
 
 
-class FirstRoute extends StatelessWidget {
-  const FirstRoute({Key key, this.title, this.show_back_button = false, go_back = true});
-      : super(key: key);
-  //{super.key});
+// class FirstRoute extends StatelessWidget {
+//   const FirstRoute({Key key, this.title, this.show_back_button = false, go_back = true});
+//       : super(key: key);
+//   //{super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('First Route'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Open route'),
-          onPressed: () {
-            Navigator.push(
-             context,
-             MaterialPageRoute(builder: (context) => const SecondRoute()),
-            );
-          }
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('First Route'),
+//       ),
+//       body: Center(
+//         child: ElevatedButton(
+//           child: const Text('Open route'),
+//           onPressed: () {
+//             Navigator.push(
+//              context,
+//              MaterialPageRoute(builder: (context) => const SecondRoute()),
+//             );
+//           }
+//         ),
+//       ),
+//     );
+//   }
+// }
 
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({Key key, this.title, this.show_back_button = false, go_back = true});
-      : super(key: key);
-  //{super.key});
+// class SecondRoute extends StatelessWidget {
+//   const SecondRoute({Key key, this.title, this.show_back_button = false, go_back = true});
+//       : super(key: key);
+//   //{super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Second Route'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigate back to first route when tapped.
-          },
-          child: const Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Second Route'),
+//       ),
+//       body: Center(
+//         child: ElevatedButton(
+//           onPressed: () {
+//             // Navigate back to first route when tapped.
+//           },
+//           child: const Text('Go back!'),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 
 
@@ -434,12 +434,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                     primary: Colors.red, // background
                                     onPrimary: Colors.white, // foreground
                                   ),
-                                   onPressed: () {
-                                     Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => const SecondRoute()),
-                                     );
-                                   },
+//                                    onPressed: () {
+//                                      Navigator.push(
+//                                       context,
+//                                       MaterialPageRoute(builder: (context) => const SecondRoute()),
+//                                      );
+//                                    },
                                   child: Text('See More'),
                                  // style: TextStyle(fontSize: 7),
                                 ),
@@ -496,12 +496,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                     primary: Colors.red, // background
                                     onPrimary: Colors.white, // foreground
                                   ),
-                                   onPressed: () {
-                                     Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => const FirstRoute()),
-                                     );
-                                   },
+//                                    onPressed: () {
+//                                      Navigator.push(
+//                                       context,
+//                                       MaterialPageRoute(builder: (context) => const FirstRoute()),
+//                                      );
+//                                    },
                                   child: Text('See More'),
                                  // style: TextStyle(fontSize: 7),
                                 ),
