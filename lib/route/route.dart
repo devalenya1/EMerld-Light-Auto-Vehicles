@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 // Define Routes
-import 'package:named_route/views/auction.dart';
-import 'package:named_route/views/featured.dart';
+// import 'package:named_route/views/auction.dart';
+// import 'package:named_route/views/featured.dart';
 //import 'package:named_route/views/settings.dart';
+import 'package:SAFAQAT/screens/auction.dart';
+import 'package:SAFAQAT/screens/featured.dart';
 
 // Route Names
 const String auctionPage    = 'auction';
