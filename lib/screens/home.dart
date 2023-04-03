@@ -7,8 +7,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:toast/toast.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-//import 'package:flutter_spinkit/flutter_spinkit.dart';
-//import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+
+
+import 'package:SAFAQAT/route/route.dart' as route;
+import 'package:SAFAQAT/screens/auction.dart';
+import 'package:SAFAQAT/screens/featured.dart';
 
 import '../app_config.dart';
 import '../custom/CommonFunctoins.dart';
