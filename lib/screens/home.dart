@@ -39,7 +39,7 @@ import 'flash_deal_list.dart';
 // }
  
 class AuctionRoute extends StatelessWidget {
-  const AuctionRoute({Key? key}) : super(key: key);
+  const AuctionRoute({Key key}) : super(key: key);
  
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class AuctionRoute extends StatelessWidget {
 }
  
 class SecondRoute extends StatelessWidget {
-  const SecondRoute({Key? key}) : super(key: key);
+  const SecondRoute({Key key}) : super(key: key);
  
   @override
   Widget build(BuildContext context) {
