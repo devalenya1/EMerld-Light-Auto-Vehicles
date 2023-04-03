@@ -32,11 +32,11 @@ import 'filter.dart';
 import 'flash_deal_list.dart';
 
 
-void main() {
-  runApp(const MaterialApp(
-    home: Home(),
-  ));
-}
+// void main() {
+//   runApp(const MaterialApp(
+//     home: Home(),
+//   ));
+// }
  
 class AuctionRoute extends StatelessWidget {
   const AuctionRoute({Key? key}) : super(key: key);
@@ -436,7 +436,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                      context,
                                      MaterialPageRoute(builder: (context) => const AuctionRoute()),
                                     );
-                                  }),
+                                  },
                                   child: Text('See More'),
                                  // style: TextStyle(fontSize: 7),
                                 ),
@@ -498,7 +498,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                      context,
                                      MaterialPageRoute(builder: (context) => const AuctionRoute()),
                                     );
-                                  }),
+                                  },
                                   child: Text('See More'),
                                  // style: TextStyle(fontSize: 7),
                                 ),
