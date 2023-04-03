@@ -11,8 +11,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 import 'package:SAFAQAT/route/route.dart' as route;
-import 'package:SAFAQAT/screens/auction.dart';
-import 'package:SAFAQAT/screens/featured.dart';
+// import 'package:SAFAQAT/screens/auction.dart';
+// import 'package:SAFAQAT/screens/featured.dart';
 
 import '../app_config.dart';
 import '../custom/CommonFunctoins.dart';
@@ -36,7 +36,7 @@ import 'flash_deal_list.dart';
 
 
 class Auction extends StatefulWidget {
-  Home({Key key, this.title, this.show_back_button = false, go_back = true})
+  Auction({Key key, this.title, this.show_back_button = false, go_back = true})
       : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -53,11 +53,11 @@ class Auction extends StatefulWidget {
   bool go_back;
 
   @override
-  _HomeState createState() => _HomeState();
+  _AuctionState createState() => _AuctionState();
 }
 
 
-class _HomeState extends State<Home> with TickerProviderStateMixin {
+class _AuctionState extends State<Auction> with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   int _current_slider = 0;
   ScrollController _featuredProductScrollController;
