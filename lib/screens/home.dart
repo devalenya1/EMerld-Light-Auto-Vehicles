@@ -27,6 +27,10 @@ import 'category_products.dart';
 import 'filter.dart';
 import 'flash_deal_list.dart';
 
+
+
+
+
 class Home extends StatefulWidget {
   Home({Key key, this.title, this.show_back_button = false, go_back = true})
       : super(key: key);
@@ -47,6 +51,55 @@ class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
+
+
+class FirstRoute extends StatelessWidget {
+  const FirstRoute({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Route'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Open route'),
+          onPressed: () {
+            Navigator.push(
+             context,
+             MaterialPageRoute(builder: (context) => const SecondRoute()),
+            );
+          }
+        ),
+      ),
+    );
+  }
+}
+
+class SecondRoute extends StatelessWidget {
+  const SecondRoute({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Second Route'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate back to first route when tapped.
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
+    );
+  }
+}
+
+
+
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -377,9 +430,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                     primary: Colors.red, // background
                                     onPrimary: Colors.white, // foreground
                                   ),
-//                                   onPressed: () {
-//                                     //Navigator.pushNamed(context, loginPageRoute);
-//                                   },
+                                   onPressed: () {
+                                     Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const SecondRoute()),
+                                     );
+                                   }
                                   child: Text('See More'),
                                  // style: TextStyle(fontSize: 7),
                                 ),
@@ -427,7 +483,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Featured Auctions",
+                                  "Auction products",
                                   //AppLocalizations.of(context).home_screen_featured_products,
                                   style: TextStyle(fontSize: 13),
 //                                 onPressed: () {
@@ -443,9 +499,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                     primary: Colors.red, // background
                                     onPrimary: Colors.white, // foreground
                                   ),
-//                                   onPressed: () {
-//                                     //Navigator.pushNamed(context, loginPageRoute);
-//                                   },
+                                   onPressed: () {
+                                     Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const SecondRoute()),
+                                     );
+                                   }
                                   child: Text('See More'),
                                  // style: TextStyle(fontSize: 7),
                                 ),
