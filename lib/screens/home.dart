@@ -54,7 +54,9 @@ class Home extends StatefulWidget {
 
 
 class FirstRoute extends StatelessWidget {
-  const FirstRoute({super.key});
+  const FirstRoute({Key key, this.title, this.show_back_button = false, go_back = true});
+      : super(key: key);
+  //{super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +80,9 @@ class FirstRoute extends StatelessWidget {
 }
 
 class SecondRoute extends StatelessWidget {
-  const SecondRoute({super.key});
+  const SecondRoute({Key key, this.title, this.show_back_button = false, go_back = true});
+      : super(key: key);
+  //{super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -435,7 +439,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                       context,
                                       MaterialPageRoute(builder: (context) => const SecondRoute()),
                                      );
-                                   }
+                                   },
                                   child: Text('See More'),
                                  // style: TextStyle(fontSize: 7),
                                 ),
@@ -486,13 +490,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                   "Auction products",
                                   //AppLocalizations.of(context).home_screen_featured_products,
                                   style: TextStyle(fontSize: 13),
-//                                 onPressed: () {
-//                                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-//                                   return Filter(
-//                                   selected_filter: "sellers",
-//                                   );
-//                                   }));
-//                                 })),
                                 ),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
@@ -502,9 +499,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                    onPressed: () {
                                      Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => const SecondRoute()),
+                                      MaterialPageRoute(builder: (context) => const FirstRoute()),
                                      );
-                                   }
+                                   },
                                   child: Text('See More'),
                                  // style: TextStyle(fontSize: 7),
                                 ),
