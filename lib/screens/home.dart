@@ -1292,7 +1292,7 @@ class _AuctionState extends State<Auction> with TickerProviderStateMixin {
           _productPage++;
         });
         _showProductLoadingContainer = true;
-        fetchAuctionProducts();
+        // fetchAuctionProducts();
       }
     });
   }
@@ -1594,7 +1594,7 @@ class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
           _productPage++;
         });
         _showProductLoadingContainer = true;
-        fetchFeaturedProducts();
+        //fetchFeaturedProducts();
       }
     });
   }
