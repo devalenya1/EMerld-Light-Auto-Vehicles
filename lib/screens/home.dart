@@ -32,8 +32,7 @@ import 'filter.dart';
 import 'flash_deal_list.dart';
 
 class Auction extends StatefulWidget {
-  Auction({Key key, this.title, this.show_back_button = true, go_back = false})
-      : super(key: key);
+  Auction({Key key, this.title}) : super(key: key);
   final String title;
   bool show_back_button;
   bool go_back;
@@ -43,8 +42,7 @@ class Auction extends StatefulWidget {
 }
 
 class Featured extends StatefulWidget {
-  Featured({Key key, this.title, this.show_back_button = true, go_back = false})
-      : super(key: key);
+  Featured({Key key, this.title}) : super(key: key);
   final String title;
   bool show_back_button;
   bool go_back;
@@ -1365,8 +1363,8 @@ class _AuctionState extends State<Auction> with TickerProviderStateMixin {
 
     return WillPopScope(
       onWillPop: () async {
-        CommonFunctions(context).appExitDialog();
-        return widget.go_back;
+        //CommonFunctions(context).appExitDialog();
+        return widget.show_back_button; //widget.go_back;
       },
       child: Directionality(
         textDirection:
@@ -1548,6 +1546,122 @@ class _AuctionState extends State<Auction> with TickerProviderStateMixin {
     return productDetails;
   }
 
+  AppBar buildAppBar(double statusBarHeight, BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.white,
+      leading: GestureDetector(
+        onTap: () {
+          _scaffoldKey.currentState.openDrawer();
+        },
+        child: widget.show_back_button
+            ? Builder(
+                builder: (context) => IconButton(
+                    icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+                    onPressed: () {
+                      if (!widget.go_back) {
+                        return;
+                      }
+                      return Navigator.of(context).pop();
+                    }),
+              )
+            : Builder(
+                builder: (context) => Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 18.0, horizontal: 0.0),
+                  child: Container(
+                    child: Image.asset(
+                      'assets/plus.png',
+                      height: 16,
+                      //color: MyTheme.dark_grey,
+                      color: MyTheme.dark_grey,
+                    ),
+                  ),
+                ),
+              ),
+      ),
+      title: Container(
+        height: kToolbarHeight +
+            statusBarHeight -
+            (MediaQuery.of(context).viewPadding.top > 40 ? 16.0 : 16.0),
+        //MediaQuery.of(context).viewPadding.top is the statusbar height, with a notch phone it results almost 50, without a notch it shows 24.0.For safety we have checked if its greater than thirty
+        child: Container(
+          child: Padding(
+              padding: app_language_rtl.$
+                  ? const EdgeInsets.only(top: 14.0, bottom: 14, left: 12)
+                  : const EdgeInsets.only(top: 14.0, bottom: 14, right: 12),
+              // when notification bell will be shown , the right padding will cease to exist.
+              child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return Filter();
+                    }));
+                  },
+                  child: buildHomeSearchBox(context))),
+        ),
+      ),
+      elevation: 0.0,
+      titleSpacing: 0,
+      actions: <Widget>[
+        InkWell(
+          onTap: () {
+            ToastComponent.showDialog(
+                AppLocalizations.of(context).common_coming_soon,
+                gravity: Toast.center,
+                duration: Toast.lengthLong);
+          },
+          child: Visibility(
+            visible: false,
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
+              child: Image.asset(
+                'assets/bell.png',
+                height: 16,
+                color: MyTheme.dark_grey,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  buildHomeSearchBox(BuildContext context) {
+    return TextField(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return Filter();
+        }));
+      },
+      autofocus: false,
+      decoration: InputDecoration(
+          hintText: AppLocalizations.of(context).home_screen_search,
+          hintStyle: TextStyle(fontSize: 12.0, color: MyTheme.textfield_grey),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: MyTheme.textfield_grey, width: 0.5),
+            borderRadius: const BorderRadius.all(
+              const Radius.circular(16.0),
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: MyTheme.textfield_grey, width: 1.0),
+            borderRadius: const BorderRadius.all(
+              const Radius.circular(16.0),
+            ),
+          ),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.search,
+              color: MyTheme.textfield_grey,
+              size: 20,
+            ),
+          ),
+          contentPadding: EdgeInsets.all(0.0)),
+    );
+  }
+
   Container buildProductLoadingContainer() {
     return Container(
       height: _showProductLoadingContainer ? 36 : 0,
@@ -1560,8 +1674,6 @@ class _AuctionState extends State<Auction> with TickerProviderStateMixin {
       ),
     );
   }
-
-  buildAppBar(double statusBarHeight, BuildContext context) {}
 }
 
 class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
@@ -1594,7 +1706,7 @@ class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
           _productPage++;
         });
         _showProductLoadingContainer = true;
-        //fetchFeaturedProducts();
+        fetchFeaturedProducts();
       }
     });
   }
@@ -1665,8 +1777,8 @@ class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
 
     return WillPopScope(
       onWillPop: () async {
-        CommonFunctions(context).appExitDialog();
-        return widget.go_back;
+        //CommonFunctions(context).appExitDialog();
+        return widget.show_back_button; //widget.go_back;
       },
       child: Directionality(
         textDirection:
@@ -1809,7 +1921,7 @@ class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
                       vertical: 18.0, horizontal: 0.0),
                   child: Container(
                     child: Image.asset(
-                      'assets/hamburger.png',
+                      'assets/plus.png',
                       height: 16,
                       //color: MyTheme.dark_grey,
                       color: MyTheme.dark_grey,
