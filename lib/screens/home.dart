@@ -31,14 +31,8 @@ import 'category_products.dart';
 import 'filter.dart';
 import 'flash_deal_list.dart';
 
-// void main() {
-//   runApp(const MaterialApp(
-//     home: Home(),
-//   ));
-// }
-
 class Auction extends StatefulWidget {
-  Auction({Key key, this.title, this.show_back_button = false, go_back = true})
+  Auction({Key key, this.title, this.show_back_button = true, go_back = false})
       : super(key: key);
   final String title;
   bool show_back_button;
@@ -46,34 +40,11 @@ class Auction extends StatefulWidget {
 
   @override
   _AuctionState createState() => _AuctionState();
-  // const AuctionRoute({Key key}) : super(key: key);
-  // AuctionRoute({Key key}) : super(key: key);
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       title: const Text('Featured Products'),
-  //       backgroundColor: Colors.red,
-  //     ),
-  //     // body: Center(
-  //     //   child: ElevatedButton(
-  //     //       child: const Text('Click Me!'),
-  //     //       onPressed: () {
-  //     //         Navigator.push(
-  //     //           context,
-  //     //           MaterialPageRoute(builder: (context) => const SecondRoute()),
-  //     //         );
-  //     //       }),
-  //     // ),
-  //   );
-  // }
 }
 
 class Featured extends StatefulWidget {
-  Featured({Key key, this.title, this.show_back_button = false, go_back = true})
+  Featured({Key key, this.title, this.show_back_button = true, go_back = false})
       : super(key: key);
-
   final String title;
   bool show_back_button;
   bool go_back;
