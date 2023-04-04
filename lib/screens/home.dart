@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, must_be_immutable
+
 import 'dart:developer';
 
 import 'package:SAFAQAT/screens/todays_deal_products.dart';
@@ -7,8 +9,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:toast/toast.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-
 
 // import 'package:SAFAQAT/route/route.dart' as route;
 // import 'package:SAFAQAT/screens/auction.dart';
@@ -31,59 +31,56 @@ import 'category_products.dart';
 import 'filter.dart';
 import 'flash_deal_list.dart';
 
-
 // void main() {
 //   runApp(const MaterialApp(
 //     home: Home(),
 //   ));
 // }
- 
-class AuctionRoute extends StatelessWidget {
-  const AuctionRoute({Key key}) : super(key: key);
- 
+
+class Auction extends StatefulWidget {
+  Auction({Key key, this.title, this.show_back_button = false, go_back = true})
+      : super(key: key);
+  final String title;
+  bool show_back_button;
+  bool go_back;
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Geeks for Geeks'),
-        backgroundColor: Colors.green,
-      ),
-      body: Center(
-        child: ElevatedButton(
-            child: const Text('Click Me!'),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SecondRoute()),
-              );
-            }),
-      ),
-    );
-  }
-}
- 
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({Key key}) : super(key: key);
- 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Click Me Page"),
-        backgroundColor: Colors.green,
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Home!'),
-        ),
-      ),
-    );
-  }
+  _AuctionState createState() => _AuctionState();
+  // const AuctionRoute({Key key}) : super(key: key);
+  // AuctionRoute({Key key}) : super(key: key);
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       title: const Text('Featured Products'),
+  //       backgroundColor: Colors.red,
+  //     ),
+  //     // body: Center(
+  //     //   child: ElevatedButton(
+  //     //       child: const Text('Click Me!'),
+  //     //       onPressed: () {
+  //     //         Navigator.push(
+  //     //           context,
+  //     //           MaterialPageRoute(builder: (context) => const SecondRoute()),
+  //     //         );
+  //     //       }),
+  //     // ),
+  //   );
+  // }
 }
 
+class Featured extends StatefulWidget {
+  Featured({Key key, this.title, this.show_back_button = false, go_back = true})
+      : super(key: key);
+
+  final String title;
+  bool show_back_button;
+  bool go_back;
+
+  @override
+  _FeaturedState createState() => _FeaturedState();
+}
 
 class Home extends StatefulWidget {
   Home({Key key, this.title, this.show_back_button = false, go_back = true})
@@ -105,8 +102,6 @@ class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
-
-
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -196,7 +191,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     setState(() {});
   }
 
-
   fetchAuctionProducts() async {
     var productResponse = await ProductRepository().getAuctionProducts(
       page: _productPage,
@@ -220,7 +214,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     _showProductLoadingContainer = false;
     setState(() {});
   }
-
 
   reset() {
     _carouselImageList.clear();
@@ -267,6 +260,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    // ignore: todo
     // TODO: implement dispose
     super.dispose();
     pirated_logo_controller?.dispose();
@@ -428,20 +422,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 ),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    primary: Colors.red, // background
-                                    onPrimary: Colors.white, // foreground
+                                    foregroundColor: Colors.white,
+                                    backgroundColor: Colors.red, // foreground
                                   ),
                                   onPressed: () {
                                     Navigator.push(
-                                     context,
-                                     MaterialPageRoute(builder: (context) => const AuctionRoute()),
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Featured()),
                                     );
                                   },
                                   child: Text('See More'),
-                                 // style: TextStyle(fontSize: 7),
+                                  // style: TextStyle(fontSize: 7),
                                 ),
-                                
-                                
                               ],
                             ),
                           ),
@@ -490,23 +483,23 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 ),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    primary: Colors.red, // background
-                                    onPrimary: Colors.white, // foreground
+                                    foregroundColor: Colors.white,
+                                    backgroundColor: Colors.red, // foreground
                                   ),
                                   onPressed: () {
                                     Navigator.push(
-                                     context,
-                                     MaterialPageRoute(builder: (context) => const AuctionRoute()),
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Auction()),
                                     );
                                   },
                                   child: Text('See More'),
-                                 // style: TextStyle(fontSize: 7),
+                                  // style: TextStyle(fontSize: 7),
                                 ),
-                                
                               ],
                             ),
                           ),
-                         SingleChildScrollView(
+                          SingleChildScrollView(
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(
                                   4.0, 16.0, 8.0, 0.0),
@@ -580,7 +573,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           )
                         ]),
                       ),
-                     
                       SliverList(
                         delegate: SliverChildListDelegate([
                           Padding(
@@ -700,8 +692,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     log(productDetailsResponse.toString());
     return productDetails;
   }
-
-
 
   buildHomeAllProducts(context) {
     if (_isProductInitial && _allProductList.length == 0) {
@@ -1293,6 +1283,660 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       color: Colors.white,
       child: Center(
         child: Text(_totalProductData == _allProductList.length
+            ? AppLocalizations.of(context).common_no_more_products
+            : AppLocalizations.of(context).common_loading_more_products),
+      ),
+    );
+  }
+}
+
+class _AuctionState extends State<Auction> with TickerProviderStateMixin {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  ScrollController _auctionProductScrollController;
+  ScrollController _mainScrollController = ScrollController();
+
+  AnimationController pirated_logo_controller;
+  Animation pirated_logo_animation;
+
+  var _auctionProductList = [];
+  bool _isProductInitial = true;
+  int _totalProductData = 0;
+  int _productPage = 1;
+  bool _showProductLoadingContainer = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (AppConfig.purchase_code == "") {
+      initPiratedAnimation();
+    }
+
+    fetchAll();
+
+    _mainScrollController.addListener(() {
+      if (_mainScrollController.position.pixels ==
+          _mainScrollController.position.maxScrollExtent) {
+        setState(() {
+          _productPage++;
+        });
+        _showProductLoadingContainer = true;
+        fetchAuctionProducts();
+      }
+    });
+  }
+
+  fetchAll() {
+    fetchAuctionProducts();
+  }
+
+  fetchAuctionProducts() async {
+    var productResponse = await ProductRepository().getAuctionProducts(
+      page: _productPage,
+    );
+
+    _auctionProductList.addAll(productResponse.products);
+    _isProductInitial = false;
+    _totalProductData = productResponse.meta.total;
+    _showProductLoadingContainer = false;
+    setState(() {});
+  }
+
+  reset() {
+    setState(() {});
+
+    resetProductList();
+  }
+
+  Future<void> _onRefresh() async {
+    reset();
+    fetchAll();
+  }
+
+  resetProductList() {
+    _auctionProductList.clear();
+    _isProductInitial = true;
+    _totalProductData = 0;
+    _productPage = 1;
+    _showProductLoadingContainer = false;
+    setState(() {});
+  }
+
+  initPiratedAnimation() {
+    pirated_logo_controller = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 2000));
+    pirated_logo_animation = Tween(begin: 40.0, end: 60.0).animate(
+        CurvedAnimation(
+            curve: Curves.bounceOut, parent: pirated_logo_controller));
+
+    pirated_logo_controller.addStatusListener((AnimationStatus status) {
+      if (status == AnimationStatus.completed) {
+        pirated_logo_controller.repeat();
+      }
+    });
+
+    pirated_logo_controller.forward();
+  }
+
+  @override
+  void dispose() {
+    // ignore: todo
+    // TODO: implement dispose
+    super.dispose();
+    pirated_logo_controller?.dispose();
+    _mainScrollController.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
+    //print(MediaQuery.of(context).viewPadding.top);
+
+    return WillPopScope(
+      onWillPop: () async {
+        CommonFunctions(context).appExitDialog();
+        return widget.go_back;
+      },
+      child: Directionality(
+        textDirection:
+            app_language_rtl.$ ? TextDirection.rtl : TextDirection.ltr,
+        child: Scaffold(
+            key: _scaffoldKey,
+            backgroundColor: Colors.white,
+            appBar: buildAppBar(statusBarHeight, context),
+            drawer: MainDrawer(),
+            body: Stack(
+              children: [
+                RefreshIndicator(
+                  color: MyTheme.accent_color,
+                  backgroundColor: Colors.white,
+                  onRefresh: _onRefresh,
+                  displacement: 0,
+                  child: CustomScrollView(
+                    controller: _mainScrollController,
+                    physics: const BouncingScrollPhysics(
+                        parent: AlwaysScrollableScrollPhysics()),
+                    slivers: <Widget>[
+                      SliverList(
+                        delegate: SliverChildListDelegate([
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(
+                              16.0,
+                              16.0,
+                              16.0,
+                              0.0,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Auction products",
+                                  //AppLocalizations.of(context).home_screen_featured_products,
+                                  style: TextStyle(fontSize: 13),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  4.0, 16.0, 8.0, 0.0),
+                              child: Column(
+                                children: [
+                                  GridView.builder(
+                                    itemCount: _auctionProductList.length,
+                                    controller: _auctionProductScrollController,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 2,
+                                            crossAxisSpacing: 10,
+                                            mainAxisSpacing: 10,
+                                            // childAspectRatio: 0.518,
+                                            childAspectRatio: 2 / 4.3
+                                            // childAspectRatio: 0.7,
+                                            ),
+                                    padding: EdgeInsets.all(8),
+                                    physics: NeverScrollableScrollPhysics(),
+                                    shrinkWrap: true,
+                                    itemBuilder: (context, index) {
+                                      return FutureBuilder<DetailedProduct>(
+                                        future: getAuctionProductFuture(
+                                            _auctionProductList[index].id),
+                                        // initialData: initialData,
+                                        builder: (BuildContext context,
+                                            AsyncSnapshot snapshot) {
+                                          if (snapshot.connectionState ==
+                                              ConnectionState.waiting)
+                                            return Container(
+                                              width: 30,
+                                              height: 30,
+                                              child: FittedBox(
+                                                fit: BoxFit.scaleDown,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  color: MyTheme.accent_color,
+                                                ),
+                                              ),
+                                            );
+
+                                          // return Container(
+                                          //   child: Text(snapshot.data.toString()),
+                                          return ProductCard(
+                                              id: _auctionProductList[index].id,
+                                              image: _auctionProductList[index]
+                                                  .thumbnail_image,
+                                              name: _auctionProductList[index]
+                                                  .name,
+                                              main_price:
+                                                  _auctionProductList[index]
+                                                      .main_price,
+                                              stroked_price:
+                                                  _auctionProductList[index]
+                                                      .stroked_price,
+                                              isAuction: true,
+                                              productDetails: snapshot.data,
+                                              has_discount:
+                                                  _auctionProductList[index]
+                                                      .has_discount);
+                                        },
+                                      );
+                                    },
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: 80,
+                          )
+                        ]),
+                      ),
+                    ],
+                  ),
+                ),
+                Align(
+                    alignment: Alignment.center,
+                    child: buildProductLoadingContainer())
+              ],
+            )),
+      ),
+    );
+  }
+
+  buildHomeAuctionProducts(context) async {
+    if (_isProductInitial && _auctionProductList.length == 0) {
+      return SingleChildScrollView(
+          child: ShimmerHelper().buildProductGridShimmer(
+              scontroller: _auctionProductScrollController));
+    } else if (_auctionProductList.length > 0) {
+      //snapshot.hasData
+
+      return GridView.builder(
+        // 2
+        //addAutomaticKeepAlives: true,
+        itemCount: _auctionProductList.length,
+        controller: _auctionProductScrollController,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 0.518),
+        padding: EdgeInsets.all(8),
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          // 3
+          // _auctionProductList[index].
+
+          return ProductCard(
+              id: _auctionProductList[index].id,
+              image: _auctionProductList[index].thumbnail_image,
+              name: _auctionProductList[index].name,
+              main_price: _auctionProductList[index].main_price,
+              stroked_price: _auctionProductList[index].stroked_price,
+              isAuction: true,
+              has_discount: _auctionProductList[index].has_discount);
+        },
+      );
+    } else if (_totalProductData == 0) {
+      return Center(
+          child: Text(
+              AppLocalizations.of(context).common_no_product_is_available));
+    } else {
+      return Container(); // should never be happening
+    }
+  }
+
+  Future<DetailedProduct> getAuctionProductFuture(id) async {
+    log("Start working");
+
+    var productDetailsResponse =
+        await ProductRepository().getProductDetails(id: id);
+    var productDetails = productDetailsResponse.detailed_products[0];
+    log(productDetailsResponse.toString());
+    return productDetails;
+  }
+
+  Container buildProductLoadingContainer() {
+    return Container(
+      height: _showProductLoadingContainer ? 36 : 0,
+      width: double.infinity,
+      color: Colors.white,
+      child: Center(
+        child: Text(_totalProductData == _auctionProductList.length
+            ? AppLocalizations.of(context).common_no_more_products
+            : AppLocalizations.of(context).common_loading_more_products),
+      ),
+    );
+  }
+
+  buildAppBar(double statusBarHeight, BuildContext context) {}
+}
+
+class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  ScrollController _featuredProductScrollController;
+  ScrollController _mainScrollController = ScrollController();
+
+  AnimationController pirated_logo_controller;
+  Animation pirated_logo_animation;
+
+  var _featuredProductList = [];
+  bool _isProductInitial = true;
+  int _totalProductData = 0;
+  int _productPage = 1;
+  bool _showProductLoadingContainer = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (AppConfig.purchase_code == "") {
+      initPiratedAnimation();
+    }
+
+    fetchAll();
+
+    _mainScrollController.addListener(() {
+      if (_mainScrollController.position.pixels ==
+          _mainScrollController.position.maxScrollExtent) {
+        setState(() {
+          _productPage++;
+        });
+        _showProductLoadingContainer = true;
+        fetchFeaturedProducts();
+      }
+    });
+  }
+
+  fetchAll() {
+    fetchFeaturedProducts();
+  }
+
+  fetchFeaturedProducts() async {
+    var productResponse = await ProductRepository().getFeaturedProducts(
+      page: _productPage,
+    );
+
+    _featuredProductList.addAll(productResponse.products);
+    _isProductInitial = false;
+    _totalProductData = productResponse.meta.total;
+    _showProductLoadingContainer = false;
+    setState(() {});
+  }
+
+  reset() {
+    setState(() {});
+
+    resetProductList();
+  }
+
+  Future<void> _onRefresh() async {
+    reset();
+    fetchAll();
+  }
+
+  resetProductList() {
+    _featuredProductList.clear();
+    _isProductInitial = true;
+    _totalProductData = 0;
+    _productPage = 1;
+    _showProductLoadingContainer = false;
+    setState(() {});
+  }
+
+  initPiratedAnimation() {
+    pirated_logo_controller = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 2000));
+    pirated_logo_animation = Tween(begin: 40.0, end: 60.0).animate(
+        CurvedAnimation(
+            curve: Curves.bounceOut, parent: pirated_logo_controller));
+
+    pirated_logo_controller.addStatusListener((AnimationStatus status) {
+      if (status == AnimationStatus.completed) {
+        pirated_logo_controller.repeat();
+      }
+    });
+
+    pirated_logo_controller.forward();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    pirated_logo_controller?.dispose();
+    _mainScrollController.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
+    //print(MediaQuery.of(context).viewPadding.top);
+
+    return WillPopScope(
+      onWillPop: () async {
+        CommonFunctions(context).appExitDialog();
+        return widget.go_back;
+      },
+      child: Directionality(
+        textDirection:
+            app_language_rtl.$ ? TextDirection.rtl : TextDirection.ltr,
+        child: Scaffold(
+            key: _scaffoldKey,
+            backgroundColor: Colors.white,
+            appBar: buildAppBar(statusBarHeight, context),
+            drawer: MainDrawer(),
+            body: Stack(
+              children: [
+                RefreshIndicator(
+                  color: MyTheme.accent_color,
+                  backgroundColor: Colors.white,
+                  onRefresh: _onRefresh,
+                  displacement: 0,
+                  child: CustomScrollView(
+                    controller: _mainScrollController,
+                    physics: const BouncingScrollPhysics(
+                        parent: AlwaysScrollableScrollPhysics()),
+                    slivers: <Widget>[
+                      SliverList(
+                        delegate: SliverChildListDelegate([
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(
+                              16.0,
+                              16.0,
+                              16.0,
+                              0.0,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Featured Products",
+                                  //AppLocalizations.of(context)
+                                  //.home_screen_featured_products,
+                                  style: TextStyle(fontSize: 13),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                    4.0,
+                                    16.0,
+                                    8.0,
+                                    0.0,
+                                  ),
+                                  child: buildHomeFeaturedProducts(context),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: 80,
+                          )
+                        ]),
+                      ),
+                    ],
+                  ),
+                ),
+                Align(
+                    alignment: Alignment.center,
+                    child: buildProductLoadingContainer())
+              ],
+            )),
+      ),
+    );
+  }
+
+  buildHomeFeaturedProducts(context) {
+    if (_isProductInitial && _featuredProductList.length == 0) {
+      return SingleChildScrollView(
+          child: ShimmerHelper().buildProductGridShimmer(
+              scontroller: _featuredProductScrollController));
+    } else if (_featuredProductList.length > 0) {
+      //snapshot.hasData
+
+      return GridView.builder(
+        // 2
+        //addAutomaticKeepAlives: true,
+        itemCount: _featuredProductList.length,
+        //controller: _featuredProductScrollController,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 0.518),
+        padding: EdgeInsets.all(8),
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          // 3
+          return ProductCard(
+              id: _featuredProductList[index].id,
+              image: _featuredProductList[index].thumbnail_image,
+              name: _featuredProductList[index].name,
+              main_price: _featuredProductList[index].main_price,
+              isAuction: false,
+              stroked_price: _featuredProductList[index].stroked_price,
+              // isAuction: false,
+
+              has_discount: _featuredProductList[index].has_discount);
+        },
+      );
+    } else if (_totalProductData == 0) {
+      return Center(
+          child: Text(
+              AppLocalizations.of(context).common_no_product_is_available));
+    } else {
+      return Container(); // should never be happening
+    }
+  }
+
+  AppBar buildAppBar(double statusBarHeight, BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.white,
+      leading: GestureDetector(
+        onTap: () {
+          _scaffoldKey.currentState.openDrawer();
+        },
+        child: widget.show_back_button
+            ? Builder(
+                builder: (context) => IconButton(
+                    icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+                    onPressed: () {
+                      if (!widget.go_back) {
+                        return;
+                      }
+                      return Navigator.of(context).pop();
+                    }),
+              )
+            : Builder(
+                builder: (context) => Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 18.0, horizontal: 0.0),
+                  child: Container(
+                    child: Image.asset(
+                      'assets/hamburger.png',
+                      height: 16,
+                      //color: MyTheme.dark_grey,
+                      color: MyTheme.dark_grey,
+                    ),
+                  ),
+                ),
+              ),
+      ),
+      title: Container(
+        height: kToolbarHeight +
+            statusBarHeight -
+            (MediaQuery.of(context).viewPadding.top > 40 ? 16.0 : 16.0),
+        //MediaQuery.of(context).viewPadding.top is the statusbar height, with a notch phone it results almost 50, without a notch it shows 24.0.For safety we have checked if its greater than thirty
+        child: Container(
+          child: Padding(
+              padding: app_language_rtl.$
+                  ? const EdgeInsets.only(top: 14.0, bottom: 14, left: 12)
+                  : const EdgeInsets.only(top: 14.0, bottom: 14, right: 12),
+              // when notification bell will be shown , the right padding will cease to exist.
+              child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return Filter();
+                    }));
+                  },
+                  child: buildHomeSearchBox(context))),
+        ),
+      ),
+      elevation: 0.0,
+      titleSpacing: 0,
+      actions: <Widget>[
+        InkWell(
+          onTap: () {
+            ToastComponent.showDialog(
+                AppLocalizations.of(context).common_coming_soon,
+                gravity: Toast.center,
+                duration: Toast.lengthLong);
+          },
+          child: Visibility(
+            visible: false,
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
+              child: Image.asset(
+                'assets/bell.png',
+                height: 16,
+                color: MyTheme.dark_grey,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  buildHomeSearchBox(BuildContext context) {
+    return TextField(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return Filter();
+        }));
+      },
+      autofocus: false,
+      decoration: InputDecoration(
+          hintText: AppLocalizations.of(context).home_screen_search,
+          hintStyle: TextStyle(fontSize: 12.0, color: MyTheme.textfield_grey),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: MyTheme.textfield_grey, width: 0.5),
+            borderRadius: const BorderRadius.all(
+              const Radius.circular(16.0),
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: MyTheme.textfield_grey, width: 1.0),
+            borderRadius: const BorderRadius.all(
+              const Radius.circular(16.0),
+            ),
+          ),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.search,
+              color: MyTheme.textfield_grey,
+              size: 20,
+            ),
+          ),
+          contentPadding: EdgeInsets.all(0.0)),
+    );
+  }
+
+  Container buildProductLoadingContainer() {
+    return Container(
+      height: _showProductLoadingContainer ? 36 : 0,
+      width: double.infinity,
+      color: Colors.white,
+      child: Center(
+        child: Text(_totalProductData == _featuredProductList.length
             ? AppLocalizations.of(context).common_no_more_products
             : AppLocalizations.of(context).common_loading_more_products),
       ),
