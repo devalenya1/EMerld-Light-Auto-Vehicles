@@ -32,7 +32,8 @@ import 'filter.dart';
 import 'flash_deal_list.dart';
 
 class Auction extends StatefulWidget {
-  Auction({Key key, this.title}) : super(key: key);
+  Auction({Key key, this.title, this.show_back_button = true, go_back = false})
+      : super(key: key);
   final String title;
   bool show_back_button;
   bool go_back;
@@ -42,7 +43,8 @@ class Auction extends StatefulWidget {
 }
 
 class Featured extends StatefulWidget {
-  Featured({Key key, this.title}) : super(key: key);
+  Featured({Key key, this.title, this.show_back_button = true, go_back = false})
+      : super(key: key);
   final String title;
   bool show_back_button;
   bool go_back;
@@ -392,7 +394,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     foregroundColor: Colors.white,
-                                    backgroundColor: Colors.red, // foreground
+                                    backgroundColor:
+                                        MyTheme.accent_color, // foreground
                                   ),
                                   onPressed: () {
                                     Navigator.push(
@@ -453,7 +456,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     foregroundColor: Colors.white,
-                                    backgroundColor: Colors.red, // foreground
+                                    backgroundColor:
+                                        MyTheme.accent_color, // foreground
                                   ),
                                   onPressed: () {
                                     Navigator.push(
@@ -1363,7 +1367,7 @@ class _AuctionState extends State<Auction> with TickerProviderStateMixin {
 
     return WillPopScope(
       onWillPop: () async {
-        //CommonFunctions(context).appExitDialog();
+        CommonFunctions(context).appExitDialog();
         return widget.show_back_button; //widget.go_back;
       },
       child: Directionality(
@@ -1777,7 +1781,7 @@ class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
 
     return WillPopScope(
       onWillPop: () async {
-        //CommonFunctions(context).appExitDialog();
+        CommonFunctions(context).appExitDialog();
         return widget.show_back_button; //widget.go_back;
       },
       child: Directionality(
