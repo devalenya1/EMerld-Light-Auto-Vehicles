@@ -1270,7 +1270,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
 class _AuctionState extends State<Auction> with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
   ScrollController _auctionProductScrollController;
   ScrollController _mainScrollController = ScrollController();
 
@@ -1358,12 +1357,105 @@ class _AuctionState extends State<Auction> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    // ignore: todo
-    // TODO: implement dispose
     super.dispose();
     pirated_logo_controller?.dispose();
     _mainScrollController.dispose();
   }
+//   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+//   ScrollController _auctionProductScrollController;
+//   ScrollController _mainScrollController = ScrollController();
+
+//   AnimationController pirated_logo_controller;
+//   Animation pirated_logo_animation;
+
+//   var _auctionProductList = [];
+//   bool _isProductInitial = true;
+//   int _totalProductData = 0;
+//   int _productPage = 1;
+//   bool _showProductLoadingContainer = false;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     if (AppConfig.purchase_code == "") {
+//       initPiratedAnimation();
+//     }
+
+//     fetchAll();
+
+//     _mainScrollController.addListener(() {
+//       if (_mainScrollController.position.pixels ==
+//           _mainScrollController.position.maxScrollExtent) {
+//         setState(() {
+//           _productPage++;
+//         });
+//         _showProductLoadingContainer = true;
+//         fetchAuctionProducts();
+//       }
+//     });
+//   }
+
+//   fetchAll() {
+//     fetchAuctionProducts();
+//   }
+
+//   fetchAuctionProducts() async {
+//     var productResponse = await ProductRepository().getAuctionProducts(
+//       page: _productPage,
+//     );
+
+//     _auctionProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
+
+//   reset() {
+//     setState(() {});
+
+//     resetProductList();
+//   }
+
+//   Future<void> _onRefresh() async {
+//     reset();
+//     fetchAll();
+//   }
+
+//   resetProductList() {
+//     _auctionProductList.clear();
+//     _isProductInitial = true;
+//     _totalProductData = 0;
+//     _productPage = 1;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
+
+//   initPiratedAnimation() {
+//     pirated_logo_controller = AnimationController(
+//         vsync: this, duration: Duration(milliseconds: 2000));
+//     pirated_logo_animation = Tween(begin: 40.0, end: 60.0).animate(
+//         CurvedAnimation(
+//             curve: Curves.bounceOut, parent: pirated_logo_controller));
+
+//     pirated_logo_controller.addStatusListener((AnimationStatus status) {
+//       if (status == AnimationStatus.completed) {
+//         pirated_logo_controller.repeat();
+//       }
+//     });
+
+//     pirated_logo_controller.forward();
+//   }
+
+//   @override
+//   void dispose() {
+//     // ignore: todo
+//     // TODO: implement dispose
+//     super.dispose();
+//     pirated_logo_controller?.dispose();
+//     _mainScrollController.dispose();
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -1372,7 +1464,7 @@ class _AuctionState extends State<Auction> with TickerProviderStateMixin {
 
     return WillPopScope(
       onWillPop: () async {
-        CommonFunctions(context).appExitDialog();
+        //CommonFunctions(context).appExitDialog();
         return widget.show_back_button;
       },
       child: Directionality(
@@ -1409,7 +1501,6 @@ class _AuctionState extends State<Auction> with TickerProviderStateMixin {
                               children: [
                                 Text(
                                   "Auction products",
-                                  //AppLocalizations.of(context).home_screen_featured_products,
                                   style: TextStyle(fontSize: 13),
                                 ),
                               ],
@@ -1672,7 +1763,7 @@ class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
 
     return WillPopScope(
       onWillPop: () async {
-        CommonFunctions(context).appExitDialog();
+        //CommonFunctions(context).appExitDialog();
         return widget.show_back_button;
       },
       child: Directionality(
@@ -1709,8 +1800,6 @@ class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
                               children: [
                                 Text(
                                   "Featured Products",
-                                  //AppLocalizations.of(context)
-                                  //.home_screen_featured_products,
                                   style: TextStyle(fontSize: 13),
                                 ),
                               ],
