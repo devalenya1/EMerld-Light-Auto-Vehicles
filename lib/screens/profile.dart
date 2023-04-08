@@ -13,6 +13,8 @@ import '../repositories/profile_repository.dart';
 import '../custom/toast_component.dart';
 import 'package:toast/toast.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:http/http.dart' as http;
+import '../screens/common_webview_screen.dart';
 
 class Profile extends StatefulWidget {
   Profile({Key key, this.show_back_button = false}) : super(key: key);
@@ -369,6 +371,87 @@ class _ProfileState extends State<Profile> {
               ),
             ),
           ),
+          InkWell(
+            onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return CommonWebviewScreen(
+                            url:
+                                "${AppConfig.RAW_BASE_URL}/customer/apply_for_verification",
+                            page_name: "Verification Status",
+                          );
+                        }));
+                      },
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 16.0),
+              child: Row(
+                children: [
+                  Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                        ),
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: "Verification Status",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: MyTheme.font_grey, fontSize: 14),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          
+//           InkWell(
+//             onTap: () {
+//                         Navigator.push(context,
+//                             MaterialPageRoute(builder: (context) {
+//                           return CommonWebviewScreen(
+//                             url:
+//                                 "${AppConfig.RAW_BASE_URL}/customer/apply_for_verification",
+//                             page_name: "My Bids",
+//                           );
+//                         }));
+//                       },
+//             child: Padding(
+//               padding: const EdgeInsets.only(bottom: 16.0),
+//               child: Row(
+//                 children: [
+//                   Container(
+//                       height: 40,
+//                       width: 40,
+//                       decoration: BoxDecoration(
+//                         color: Colors.green,
+//                         shape: BoxShape.circle,
+//                       ),
+//                       child: Padding(
+//                         padding: const EdgeInsets.all(8.0),
+//                         child: Icon(
+//                           Icons.profile,
+//                           color: Colors.white,
+//                         ),
+//                       )),
+//                   Padding(
+//                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
+//                     child: "Auction Bids",
+//                       textAlign: TextAlign.center,
+//                       style: TextStyle(color: MyTheme.font_grey, fontSize: 14),
+//                     ),
+//                   )
+//                 ],
+//               ),
+//             ),
+//           ),
           InkWell(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
