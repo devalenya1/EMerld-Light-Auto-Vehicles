@@ -373,14 +373,13 @@ class _ProfileState extends State<Profile> {
           ),
           InkWell(
             onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return CommonWebviewScreen(
-                            url:
-                                "${AppConfig.RAW_BASE_URL}/customer/apply_for_verification",
-                            page_name: "Verification Status",
-                          );
-                        }));
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return CommonWebviewScreen(
+                  url:
+                      "${AppConfig.RAW_BASE_URL}/customer/apply_for_verification",
+                  page_name: "Verification Status",
+                );
+              }));
             },
             child: Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
@@ -402,7 +401,8 @@ class _ProfileState extends State<Profile> {
                       )),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: "Verification Status",
+                    child: Text(
+                      "Verification Status",
                       textAlign: TextAlign.center,
                       style: TextStyle(color: MyTheme.font_grey, fontSize: 14),
                     ),
