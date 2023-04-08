@@ -381,7 +381,6 @@ class _ProfileState extends State<Profile> {
                             page_name: "Verification Status",
                           );
                         }));
-                      };
             child: Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
               child: Row(
