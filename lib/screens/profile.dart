@@ -380,7 +380,8 @@ class _ProfileState extends State<Profile> {
                                 "${AppConfig.RAW_BASE_URL}/customer/apply_for_verification",
                             page_name: "Verification Status",
                           );
-                        })),
+                        }));
+            },
             child: Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
               child: Row(
