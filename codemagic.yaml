@@ -1,7 +1,14 @@
-
-
-environment:
-  java: 17
-
-gradle:
-  version: 7.2
+workflows:
+  flutter-workflow:
+    name: Flutter Workdlow
+    environment:
+      java: 17
+    gradle:
+      version: 7.2
+    instance_type: mac_pro
+    scripts:
+      - flutter pub get
+      - flutter clean
+      - flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/airsoft.apk
