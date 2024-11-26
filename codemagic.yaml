@@ -1,0 +1,7 @@
+
+
+environment:
+  java: 17
+
+gradle:
+  version: 7.2
