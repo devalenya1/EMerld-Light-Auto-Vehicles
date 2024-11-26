@@ -3,7 +3,7 @@ workflows:
     name: Flutter Workdlow
     environment:
       java: 17
-    instance_type: mac_pro
+    instance_type: macOS_M2
     scripts:
       - flutter pub get
       - flutter clean
