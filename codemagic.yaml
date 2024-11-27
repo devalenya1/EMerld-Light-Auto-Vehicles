@@ -2,9 +2,8 @@ workflows:
   flutter-workflow:
     name: Flutter Workdlow
     environment:
-      _JAVA_OPTIONS: "--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED"
       java: 11
-      flutter: 3.3.4
+      flutter: 3.0.0
     instance_type: mac_mini_m2
     scripts:
       - flutter pub get
