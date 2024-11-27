@@ -8,6 +8,6 @@ workflows:
     scripts:
       - flutter pub get
       - flutter clean
-      - flutter build apk --release --stacktrace
+      - flutter build apk --debug
     artifacts:
       - build/app/outputs/flutter-apk/airsoft.apk
