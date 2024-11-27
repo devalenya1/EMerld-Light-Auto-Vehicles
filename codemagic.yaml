@@ -2,6 +2,7 @@ workflows:
   flutter-workflow:
     name: Flutter Workdlow
     environment:
+      _JAVA_OPTIONS: "--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED"
       java: 17
       flutter: 3.3.4
     instance_type: mac_mini_m2
