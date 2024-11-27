@@ -1,4 +1,4 @@
-9workflows:
+workflows:
   flutter-workflow:
     name: Flutter Workdlow
     environment:
