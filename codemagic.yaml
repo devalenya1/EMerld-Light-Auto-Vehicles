@@ -1,13 +1,13 @@
-workflows:
+9workflows:
   flutter-workflow:
     name: Flutter Workdlow
     environment:
       java: 11
-      flutter: 3.0.0
+      flutter: 3.3.4
     instance_type: mac_mini_m2
     scripts:
       - flutter pub get
       - flutter clean
-      - flutter build apk --release
+      - flutter build apk --release --stacktrace
     artifacts:
       - build/app/outputs/flutter-apk/airsoft.apk
