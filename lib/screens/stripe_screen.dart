@@ -158,7 +158,7 @@ class _StripeScreenState extends State<StripeScreen> {
       title: Text(
         AppLocalizations.of(context).stripe_screen_pay_with_stripe,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
-      ),
+      ), 
       elevation: 0.0,
       titleSpacing: 0,
     );
