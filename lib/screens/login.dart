@@ -15,6 +15,7 @@ import '../screens/main.dart';
 import '../screens/password_forget.dart';
 import '../custom/toast_component.dart';
 import 'package:toast/toast.dart';
+import '../screens/loginseller.dart';
 import '../repositories/auth_repository.dart';
 import '../helpers/auth_helper.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -557,6 +558,43 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4.0),
+                          child: Container(
+                            height: 45,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: MyTheme.textfield_grey, width: 1),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(12.0))),
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                minimumSize:
+                                    Size(MediaQuery.of(context).size.width, 50),
+                                //height: 50,
+                                backgroundColor: MyTheme.accent_color,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(12.0))),
+                              ),
+                              child: Text(
+                                AppLocalizations.of(context)
+                                    .seller_login,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              onPressed: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return Loginseller();
+                                }));
+                              },
+                            ),
+                          ),
+                        ),
+
                         Padding(
                           padding: const EdgeInsets.only(top: 20.0),
                           child: Center(

@@ -27,7 +27,7 @@ class _FileUploadWebViewState extends State<FileUploadWebView> {
       appBar: AppBar(title: Text(AppLocalizations.of(context).seller_area,
         style: TextStyle(fontSize: 14, color: MyTheme.accent_color),)),
       body: WebView(
-        initialUrl: "${AppConfig.BASE_URL}/shops/create-app", 
+        initialUrl: "${AppConfig.BASE_URL}/users/login-app", 
         javascriptMode: JavascriptMode.unrestricted,
         onWebViewCreated: (controller) {
           _controller = controller;
