@@ -14,6 +14,8 @@ import '../repositories/auth_repository.dart';
 import '../helpers/shared_value_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:validators/validators.dart';
+import 'package:http/http.dart' as http;
+import '../screens/common_webview_screen.dart';
 
 class Registration extends StatefulWidget {
   @override
