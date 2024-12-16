@@ -377,7 +377,7 @@ class _ProfileState extends State<Profile> {
                 return CommonWebviewScreen(
                   url:
                       "${AppConfig.RAW_BASE_URL}/customer/apply_for_verification",
-                  page_name: "Verification Status",
+                  page_name: "Verification Status", 
                 );
               }));
             },

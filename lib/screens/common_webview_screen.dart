@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-
-import '../helpers/shared_value_helper.dart';
-import '../my_theme.dart';
-
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class CommonWebviewScreen extends StatefulWidget {
-  String url;
-  String page_name;
+  final String url;
+  final String page_name;
 
   CommonWebviewScreen({Key key, this.url = "", this.page_name = ""})
       : super(key: key);
@@ -17,61 +13,39 @@ class CommonWebviewScreen extends StatefulWidget {
 }
 
 class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
-  WebViewController _webViewController;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  InAppWebViewController _webViewController;
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: app_language_rtl.$ ? TextDirection.rtl : TextDirection.ltr,
-      child: Scaffold(
+    return Scaffold(
+      appBar: AppBar(
         backgroundColor: Colors.white,
-        appBar: buildAppBar(context),
-        body: buildBody(),
-      ),
-    );
-  }
-
-  buildBody() {
-    return SizedBox.expand(
-      child: Container(
-        child: WebView(
-          debuggingEnabled: false,
-          javascriptMode: JavascriptMode.unrestricted,
-          onWebViewCreated: (controller) {
-            _webViewController = controller;
-            _webViewController.loadUrl(widget.url);
-          },
-          onWebResourceError: (error) {},
-          onPageFinished: (page) {
-            //print(page.toString());
-          },
-        ),
-      ),
-    );
-  }
-
-  AppBar buildAppBar(BuildContext context) {
-    return AppBar(
-backgroundColor: Colors.white,
-      centerTitle: true,
-      leading: Builder(
-        builder: (context) => IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.grey),
           onPressed: () => Navigator.of(context).pop(),
         ),
+        title: Text(
+          widget.page_name,
+          style: TextStyle(fontSize: 16, color: Colors.blue),
+        ),
+        elevation: 0.0,
       ),
-      title: Text(
-        "${widget.page_name}",
-        style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
+      body: InAppWebView(
+        initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
+        initialOptions: InAppWebViewGroupOptions(
+          crossPlatform: InAppWebViewOptions(
+            mediaPlaybackRequiresUserGesture: false,
+            javaScriptEnabled: true,
+          ),
+        ),
+        onWebViewCreated: (controller) {
+          _webViewController = controller;
+        },
+        onConsoleMessage: (controller, consoleMessage) {
+          print(consoleMessage.message);
+        },
       ),
-      elevation: 0.0,
-      titleSpacing: 0,
     );
   }
 }

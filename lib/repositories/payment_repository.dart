@@ -203,7 +203,7 @@ class PaymentRepository {
       "amount": "${amount}",
       "payment_details": "${payment_details}"
     });
-
+ 
     Uri url = Uri.parse("${AppConfig.BASE_URL}/paystack/success");
     final response = await http.post(url,
         headers: {

@@ -118,7 +118,7 @@ class _StripeScreenState extends State<StripeScreen> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: WebView(
-            debuggingEnabled: false,
+            debuggingEnabled: true,
             javascriptMode: JavascriptMode.unrestricted,
             onWebViewCreated: (controller) {
               _webViewController = controller;

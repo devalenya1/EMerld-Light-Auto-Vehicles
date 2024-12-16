@@ -183,7 +183,7 @@ backgroundColor: Colors.white,
           icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
           onPressed: () => Navigator.of(context).pop(),
         ),
-      ),
+      ), 
       title: Text(
         "Pay with Flutterwave",
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
