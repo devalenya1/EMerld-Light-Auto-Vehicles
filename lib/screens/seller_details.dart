@@ -37,6 +37,8 @@ class _SellerDetailsState extends State<SellerDetails> {
   bool _topProductInit = false;
   List<dynamic> _featuredProducts = [];
   bool _featuredProductInit = false;
+  List<dynamic> _auctionProducts = [];
+  bool _auctionProductInit = false;
 
   @override
   void initState() {
@@ -54,6 +56,7 @@ class _SellerDetailsState extends State<SellerDetails> {
     fetchNewArrivalProducts();
     fetchTopProducts();
     fetchFeaturedProducts();
+    fetchAuctionProducts();
   }
 
   fetchProductDetails() async {
@@ -97,6 +100,13 @@ class _SellerDetailsState extends State<SellerDetails> {
     _featuredProductInit = true;
   }
 
+  fetchAuctionProducts() async {
+    var auctionProductResponse =
+        await ShopRepository().getAuctionFromThisSellerProducts(id: widget.id);
+    _auctionProducts.addAll(auctionProductResponse.products);
+    _auctionProductInit = true;
+  }
+
   reset() {
     _shopDetails = null;
     _carouselImageList.clear();
@@ -104,9 +114,11 @@ class _SellerDetailsState extends State<SellerDetails> {
     _newArrivalProducts.clear();
     _topProducts.clear();
     _featuredProducts.clear();
+    _auctionProducts.clear();
     _topProductInit = false;
     _newArrivalProductInit = false;
     _featuredProductInit = false;
+    _auctionProductInit = false;
     setState(() {});
   }
 
@@ -220,7 +232,31 @@ class _SellerDetailsState extends State<SellerDetails> {
                           16.0,
                           0.0,
                         ),
-                        child: buildfeaturedProductList())
+                        child: buildfeaturedProductList()),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                        16.0,
+                        16.0,
+                        16.0,
+                        0.0,
+                      ),
+                      child: Text(
+                        AppLocalizations.of(context)
+                            .home_screen_auction_products,
+                        style: TextStyle(
+                            color: MyTheme.font_grey,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                          16.0,
+                          16.0,
+                          16.0,
+                          0.0,
+                        ),
+                        child: buildauctionProductList())
                   ]),
                 )
               ],
@@ -255,7 +291,51 @@ class _SellerDetailsState extends State<SellerDetails> {
               name: _featuredProducts[index].name,
               main_price: _featuredProducts[index].main_price,
               stroked_price: _featuredProducts[index].stroked_price,
+              // buyToWinProducts: false,
+              // isAuction: false,
               has_discount: _featuredProducts[index].has_discount);
+        },
+      );
+    } else {
+      return Container(
+          height: 100,
+          child: Center(
+              child: Text(
+                  AppLocalizations.of(context)
+                      .seller_details_screen_no_featured_porducts,
+                  style: TextStyle(color: MyTheme.font_grey))));
+    }
+  }
+
+  buildauctionProductList() {
+    if (_auctionProductInit == false && _auctionProducts.length == 0) {
+      return SingleChildScrollView(
+          child: ShimmerHelper()
+              .buildProductGridShimmer(scontroller: _scrollController));
+    } else if (_auctionProducts.length > 0) {
+      return GridView.builder(
+        // 2
+        //addAutomaticKeepAlives: true,
+        itemCount: _auctionProducts.length,
+        //controller: _scrollController,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 0.618),
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          // 3
+          return ProductCard(
+              id: _auctionProducts[index].id,
+              image: _auctionProducts[index].thumbnail_image,
+              name: _auctionProducts[index].name,
+              main_price: _auctionProducts[index].main_price,
+              stroked_price: _auctionProducts[index].stroked_price,
+              // buyToWinProducts: false,
+              // isAuction: true,
+              has_discount: _auctionProducts[index].has_discount);
         },
       );
     } else {
@@ -420,6 +500,8 @@ class _SellerDetailsState extends State<SellerDetails> {
                   name: _topProducts[index].name,
                   main_price: _topProducts[index].main_price,
                   stroked_price: _topProducts[index].stroked_price,
+                  // buyToWinProducts: false,
+                  // isAuction: false,
                   has_discount: _topProducts[index].has_discount),
             );
           },
@@ -474,6 +556,8 @@ class _SellerDetailsState extends State<SellerDetails> {
                   name: _newArrivalProducts[index].name,
                   main_price: _newArrivalProducts[index].main_price,
                   stroked_price: _newArrivalProducts[index].stroked_price,
+                  // buyToWinProducts: false,
+                  // isAuction: false,
                   has_discount: _newArrivalProducts[index].has_discount,
                 ),
               );

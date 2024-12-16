@@ -493,16 +493,16 @@ class _RegistrationState extends State<Registration> {
           //     ),
           //   ),
           // ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20.0),
-                          child: Center(
-                              child: Text(
-                            AppLocalizations.of(context)
-                                .registration_screen_become_a_seller,
-                            style: TextStyle(
-                                color: MyTheme.medium_grey, fontSize: 12),
-                          )),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(top: 20.0),
+                        //   child: Center(
+                        //       child: Text(
+                        //     AppLocalizations.of(context)
+                        //         .registration_screen_become_a_seller,
+                        //     style: TextStyle(
+                        //         color: MyTheme.medium_grey, fontSize: 12),
+                        //   )),
+                        // ),
                         Padding(
                           padding: const EdgeInsets.only(top: 4.0),
                           child: Container(
