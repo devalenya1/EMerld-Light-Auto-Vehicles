@@ -592,12 +592,7 @@ class _LoginState extends State<Login> {
                                     MaterialPageRoute(builder: (context) {
                                   return CommonWebviewScreen(
                                       url: "${AppConfig.RAW_BASE_URL}/users/login-app",
-                                      page_name: Text( AppLocalizations.of(context).seller_login,
-                                        style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600),
-                                      ), 
+                                      page_name: AppLocalizations.of(context).seller_login, 
                                   );
                                 }));
                               },
