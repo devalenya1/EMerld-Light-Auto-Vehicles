@@ -1,5 +1,9 @@
 {
   "common_login_warning": "Vous devez vous connecter",
+  "registration_screen_become_a_seller": "Have Products To Sell?",
+  "registration_screen_seller_register": "Create Seller Account",
+  "seller_area": "Sellers Portal",
+  "seller_login": "Login Sellers Portal",
   "common_nothing_to_pay": "Rien \u00e0 payer",
   "common_see_details": "voir les d\u00e9tails",
   "common_no_payment_method_added": "Aucun moyen de paiement n'est ajout\u00e9",
