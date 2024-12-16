@@ -4,7 +4,7 @@ workflows:
     environment:
       java: 11
       # flutter: 3.3.4
-      flutter: 3.5.0
+      flutter: 3.7.0
     instance_type: mac_mini_m2
     scripts:
       - flutter pub get
