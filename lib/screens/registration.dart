@@ -450,6 +450,47 @@ class _RegistrationState extends State<Registration> {
                             ),
                           ),
                         ),
+          //               InkWell(
+          //   onTap: () {
+          //     Navigator.push(context, MaterialPageRoute(builder: (context) {
+          //       return CommonWebviewScreen(
+          //         url:
+          //             "${AppConfig.RAW_BASE_URL}/shops/create-app",
+          //         page_name: AppLocalizations.of(context)
+          //                       .registration_screen_become_a_seller, 
+          //       );
+          //     }));
+          //   },
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(bottom: 16.0),
+          //     child: Row(
+          //       children: [
+          //         Container(
+          //             height: 40,
+          //             width: 40,
+          //             decoration: BoxDecoration(
+          //               color: Colors.green,
+          //               shape: BoxShape.circle,
+          //             ),
+          //             child: Padding(
+          //               padding: const EdgeInsets.all(8.0),
+          //               child: Icon(
+          //                 Icons.person,
+          //                 color: Colors.white,
+          //               ),
+          //             )),
+          //         Padding(
+          //           padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          //           child: Text(
+          //             "Verification Status",
+          //             textAlign: TextAlign.center,
+          //             style: TextStyle(color: MyTheme.font_grey, fontSize: 14),
+          //           ),
+          //         )
+          //       ],
+          //     ),
+          //   ),
+          // ),
                         Padding(
                           padding: const EdgeInsets.only(top: 20.0),
                           child: Center(
@@ -490,7 +531,11 @@ class _RegistrationState extends State<Registration> {
                               onPressed: () {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return Selleraccount();
+                                  return CommonWebviewScreen(
+                                      url: "${AppConfig.RAW_BASE_URL}/shops/create-app",
+                                      page_name: AppLocalizations.of(context)
+                                .registration_screen_become_a_seller, 
+                                  );
                                 }));
                               },
                             ),

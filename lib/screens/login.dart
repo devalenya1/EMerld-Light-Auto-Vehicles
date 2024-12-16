@@ -588,7 +588,15 @@ class _LoginState extends State<Login> {
                               onPressed: () {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return Loginseller();
+                                  return CommonWebviewScreen(
+                                      url: "${AppConfig.RAW_BASE_URL}/users/login-app",
+                                      page_name: Text( AppLocalizations.of(context).seller_login,
+                                        style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600),
+                                      ), 
+                                  );
                                 }));
                               },
                             ),
