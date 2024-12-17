@@ -17,6 +17,7 @@ import 'package:photo_view/photo_view.dart';
 import 'package:social_share/social_share.dart';
 import 'package:timer_builder/timer_builder.dart';
 import 'package:toast/toast.dart';
+import '../helpers/auth_helper.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -943,7 +944,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 
                 SliverList(
                     delegate: SliverChildListDelegate([
-                  // widget.isAuction == true
+                  widget.isAuction == true
                   Padding(
                     padding: const EdgeInsets.fromLTRB(
                       16.0,
@@ -1514,20 +1515,29 @@ class _ProductDetailsState extends State<ProductDetails> {
                 : EdgeInsets.only(right: 8.0),
             child: Container(
               width: 75,
-              child: Text(
-                AppLocalizations.of(context).product_screen_start_bid,
+              child: Text("For",
                 //AppLocalizations.of(context).product_details_screen_total_price,
                 style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
               ),
             ),
           ),
-          Text(
-            _productDetails.verified,
+          if (_productDetails.verified == 1) {
+          Text("Verified Buyers",
             style: TextStyle(
                 color: MyTheme.accent_color,
-                fontSize: 18.0,
+                fontSize: 24.0,
                 fontWeight: FontWeight.w600),
           )
+
+          } else {
+          Text("Everyone",
+            style: TextStyle(
+                color: MyTheme.accent_color,
+                fontSize: 25.0,
+                fontWeight: FontWeight.w600),
+          )
+
+          }
         ],
       );
     
@@ -1565,7 +1575,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
 
   Row buildUnitRow() {
-    if (_productDetails.starting_bid != null) {
+    if (_productDetails.auction_end_date != null) {
       return Row(
         children: [
           Padding(
@@ -2196,6 +2206,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
 
   buildBottomAppBar(BuildContext context, _addedToCartSnackbar, isAuction) {
+    if (_productDetails.verified != 1) {
     if (_productDetails.auction_end_date != null) {
       int dateNow = DateTime.now().millisecondsSinceEpoch;
       int endDate = int.parse(_productDetails.auction_end_date + "000");
@@ -2479,6 +2490,26 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
         );
       });
+    }
+    } else if (_productDetails.verified == 1 && verified_user.$ == 0 ) {
+        return Container(
+          height: 40,
+          child: Material(
+            borderRadius: BorderRadius.circular(8.0),
+            color: MyTheme.accent_color,
+            child: Center(
+                child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                child: Text("For Verified Buyers",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
+            )),
+          ),
+        );
+
     }
   }
 

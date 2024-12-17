@@ -18,13 +18,15 @@ class AuthHelper {
       user_email.save();
       user_phone.$ = loginResponse.user.phone;
       user_phone.save();
+      verified_user.$ = loginResponse.user.verified_user;
+      verified_user.save();
       avatar_original.$ = loginResponse.user.avatar_original;
       avatar_original.save();
     }
   }
 
   clearUserData() {
-      is_logged_in.$ = false;
+      is_logged_ in.$ = false;
       is_logged_in.save();
       access_token.$ = "";
       access_token.save();
@@ -36,6 +38,8 @@ class AuthHelper {
       user_email.save();
       user_phone.$ = "";
       user_phone.save();
+      verified_user.$ = 0;
+      verified_user.save();
       avatar_original.$ = "";
       avatar_original.save();
   }
@@ -53,6 +57,8 @@ class AuthHelper {
       user_name.save();
       user_email.$ = userByTokenResponse.email;
       user_email.save();
+      verified_user.$ = userByTokenResponse.verified_user;
+      verified_user.save();
       user_phone.$ = userByTokenResponse.phone;
       user_phone.save();
       avatar_original.$ = userByTokenResponse.avatar_original;
@@ -62,6 +68,8 @@ class AuthHelper {
       is_logged_in.save();
       user_id.$ = 0;
       user_id.save();
+      verified_user.$ = 0;
+      verified_user.save();
       user_name.$ = "";
       user_name.save();
       user_email.$ = "";
