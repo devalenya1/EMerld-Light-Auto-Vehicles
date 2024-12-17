@@ -777,21 +777,21 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                 ])),
 
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        16.0,
-                        8.0,
-                        16.0,
-                        0.0,
-                      ),
-                      child: _productDetails != null
-                          ? buildWin(_productDetails)
-                          : ShimmerHelper().buildBasicShimmer(
-                              height: 30.0,
-                            )),
-                ])),
+                // SliverList(
+                //     delegate: SliverChildListDelegate([
+                //   Padding(
+                //       padding: const EdgeInsets.fromLTRB(
+                //         16.0,
+                //         8.0,
+                //         16.0,
+                //         0.0,
+                //       ),
+                //       child: _productDetails != null
+                //           ? buildWin(_productDetails)
+                //           : ShimmerHelper().buildBasicShimmer(
+                //               height: 30.0,
+                //             )),
+                // ])),
 
                 // SliverList(
                 //     delegate: SliverChildListDelegate([
@@ -2480,6 +2480,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         );
       });
     }
+  }
 
   buildRatingAndWishButtonRow() {
     return Row(
