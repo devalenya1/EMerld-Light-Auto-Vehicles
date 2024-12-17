@@ -23,7 +23,7 @@ final SharedValue<String> avatar_original = SharedValue(
 );
 
 final SharedValue<String> verified_user = SharedValue(
-  value: "", // initial value
+  value: 0, // initial value
   key: "verified_user", // disk storage key for shared_preferences
 );
 

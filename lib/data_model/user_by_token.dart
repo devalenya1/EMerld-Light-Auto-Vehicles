@@ -16,6 +16,7 @@ class UserByTokenResponse {
     this.email,
     this.avatar,
     this.avatar_original,
+    this.verified_user,
     this.phone,
   });
 
@@ -25,6 +26,7 @@ class UserByTokenResponse {
   String email;
   String avatar;
   String avatar_original;
+  int verified_user;
   String phone;
 
   factory UserByTokenResponse.fromJson(Map<String, dynamic> json) => UserByTokenResponse(
@@ -34,6 +36,7 @@ class UserByTokenResponse {
     email: json["email"] == null ? null : json["email"],
     avatar: json["avatar"] == null ? null : json["avatar"],
     avatar_original: json["avatar_original"] == null ? null : json["avatar_original"],
+    verified_user: json["verified_user"] == null ? null : json["verified_user"],
     phone: json["phone"] == null ? null : json["phone"],
   );
 
@@ -44,6 +47,7 @@ class UserByTokenResponse {
     "email": email == null ? null : email,
     "avatar": avatar == null ? null : avatar,
     "avatar_original": avatar_original == null ? null : avatar_original,
+    "verified_user": verified_user == null ? null : verified_user,
     "phone": phone == null ? null : phone,
   };
 }
