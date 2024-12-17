@@ -766,22 +766,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                 ])),
 
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        16.0,
-                        8.0,
-                        16.0,
-                        0.0,
-                      ),
-                      child: _productDetails != null
-                          ? buildWin(_productDetails)
-                          : ShimmerHelper().buildBasicShimmer(
-                              height: 30.0,
-                            )),
-                ])),
-
                 // SliverList(
                 //     delegate: SliverChildListDelegate([
                 //   Padding(
@@ -792,30 +776,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                 //         0.0,
                 //       ),
                 //       child: _productDetails != null
-                //           ? buildDescription(_productDetails)
+                //           ? buildWin(_productDetails)
                 //           : ShimmerHelper().buildBasicShimmer(
                 //               height: 30.0,
                 //             )),
                 // ])),
-
-                // SliverList(
-                //     delegate: SliverChildListDelegate([
-                //   Padding(
-                //       padding: const EdgeInsets.fromLTRB(
-                //         8.0,
-                //         8.0,
-                //         16.0,
-                //         0.0,
-                //       ),
-                //       child: _productDetails != null
-                //           ? buildTimer(_productDetails)
-                //           : ShimmerHelper().buildBasicShimmer(
-                //               height: 30.0,
-                //             )),
-                // ])),
-
-// MY ADDITION ENDS
-
                 SliverList(
                     delegate: SliverChildListDelegate([
                   Padding(
@@ -838,37 +803,55 @@ class _ProductDetailsState extends State<ProductDetails> {
                               height: 30.0,
                             )),
                 ])),
+                // SliverList(
+                //     delegate: SliverChildListDelegate([
+                //   Padding(
+                //       padding: const EdgeInsets.fromLTRB(
+                //         16.0,
+                //         8.0,
+                //         16.0,
+                //         0.0,
+                //       ),
+                //       child: _productDetails != null
+                //           ? buildDescription(_productDetails)
+                //           : ShimmerHelper().buildBasicShimmer(
+                //               height: 30.0,
+                //             )),
+                // ])),
+                // SliverList(
+                //     delegate: SliverChildListDelegate([
+                //   Padding(
+                //       padding: const EdgeInsets.fromLTRB(
+                //         8.0,
+                //         8.0,
+                //         16.0,
+                //         0.0,
+                //       ),
+                //       child: _productDetails != null
+                //           ? buildTimer(_productDetails, widget.isAuction,
+                //               widget.buyToWinProducts)
+                //           : ShimmerHelper().buildBasicShimmer(
+                //               height: 30.0,
+                //             )),
+                // ])),
                 SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        16.0,
-                        8.0,
-                        16.0,
-                        0.0,
-                      ),
-                      child: _productDetails != null
-                          ? buildDescription(_productDetails)
-                          : ShimmerHelper().buildBasicShimmer(
-                              height: 30.0,
-                            )),
+                  delegate: SliverChildListDelegate([
+                       Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                            16.0,
+                            8.0,
+                            16.0,
+                            0.0,
+                          ),
+                          child: _productDetails != null
+                              ? buildVerifiedRow()
+                              : ShimmerHelper().buildBasicShimmer(
+                                  height: 30.0,
+                                ),
+                        )
+                      : SizedBox(),
                 ])),
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        8.0,
-                        8.0,
-                        16.0,
-                        0.0,
-                      ),
-                      child: _productDetails != null
-                          ? buildTimer(_productDetails, widget.isAuction,
-                              widget.buyToWinProducts)
-                          : ShimmerHelper().buildBasicShimmer(
-                              height: 30.0,
-                            )),
-                ])),
+
                 SliverList(
                     delegate: SliverChildListDelegate([
                   Padding(
@@ -947,22 +930,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       : SizedBox(),
                 ])),
 
-                /*SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                      16.0,
-                      8.0,
-                      16.0,
-                      0.0,
-                    ),
-                    child: _productDetails != null
-                        ? buildMainPriceRow()
-                        : ShimmerHelper().buildBasicShimmer(
-                            height: 30.0,
-                          ),
-                  ),
-                ])),*/
+                
 
                 //-----------------
                 //----------------
@@ -1419,46 +1387,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     );
   }
 
-  TimerBuilder buildDescription(dynamic productDetails) {
-    if (productDetails.buytowin_description != null) {
-      int dateNow = DateTime.now().millisecondsSinceEpoch;
-      int endDate = int.parse(productDetails.buytowin_end_date + "000");
-      if (dateNow < endDate) {
-        return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-          return Container(
-            width: 35,
-            height: 40,
-            child: Material(
-              borderRadius: BorderRadius.circular(8.0),
-              color: MyTheme.accent_color,
-              child: Center(
-                  child: Text(
-                productDetails.buytowin_description.toString(),
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              )),
-            ),
-          );
-        });
-      }
-    }
-  }
-
-  TimerBuilder buildWin(dynamic productDetails) {
-    if (productDetails.buytowin_end_date != null) {
-      int dateNow = DateTime.now().millisecondsSinceEpoch;
-      return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-        int endDate = int.parse(productDetails.buytowin_end_date + "000");
-        if (dateNow < endDate) {
-          return Text(
-            "WIN:",
-            style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.red),
-          );
-        }
-        return Container();
-      });
-    } else {}
-  }
+ 
 
   Row buildSellerRow(BuildContext context) {
     //print("sl:" +  _productDetails.shop_logo);
@@ -1542,6 +1471,35 @@ class _ProductDetailsState extends State<ProductDetails> {
       ],
     );
   }
+
+
+  Row buildVerifiedRow() {
+    return Row(
+      children: [
+        Padding(
+          padding: app_language_rtl.$
+              ? EdgeInsets.only(left: 8.0)
+              : EdgeInsets.only(right: 8.0),
+          child: Container(
+            width: 75,
+            child: Text(
+              "For",
+              //AppLocalizations.of(context).product_details_screen_total_price,
+              style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
+            ),
+          ),
+        ),
+        Text(
+          _productDetails.verified.toString(),
+          style: TextStyle(
+              color: MyTheme.accent_color,
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600),
+        )
+      ],
+    );
+  }
+
 
 //MY ADDITION STARTS
 //---------------
@@ -2213,8 +2171,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
 
   buildBottomAppBar(BuildContext context, _addedToCartSnackbar, isAuction) {
-    
-if (productDetails.auction_product != null) {
+  if (productDetails.auction_product != null) {
     int dateNow = DateTime.now().millisecondsSinceEpoch;
     int endDate = int.parse(productDetails.auction_end_date + "000");
     return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
@@ -2399,8 +2356,7 @@ if (productDetails.auction_product != null) {
                                   ));
                         },
                       ),
-                    )
-                  
+                    ),
               SizedBox(width: 1,),
                    Expanded(
                       child: TextButton(
@@ -2426,9 +2382,7 @@ if (productDetails.auction_product != null) {
                         },
                       ),
                     )
-                  : SizedBox()
-
-
+                  : SizedBox(),
             ],
           ),
         ),
@@ -2437,9 +2391,14 @@ if (productDetails.auction_product != null) {
   }
 })
 } else {
-
-
-    
+    return Builder(builder: (BuildContext context) {
+      return BottomAppBar(
+        child: Container(
+          color: Colors.transparent,
+          height: 50,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
                   : Expanded(
                       child: TextButton(
                         style: TextButton.styleFrom(
@@ -2493,9 +2452,13 @@ if (productDetails.auction_product != null) {
                       ),
                     )
                   : SizedBox()
-    }
+            ],
+          ),
+        ),
+      ),
+    });
 
-
+    },
   }
 
   buildRatingAndWishButtonRow() {
@@ -3027,11 +2990,11 @@ DetailedProduct productDetails, isAuction) {
                 ],
               ),
             );
-          },
+          }
         );
-      }
+      },
     });
-  }
+  },
 }
 
 Padding buildTextTimer(String text, String time) {
