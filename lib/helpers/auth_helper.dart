@@ -26,7 +26,7 @@ class AuthHelper {
   }
 
   clearUserData() {
-      is_logged_ in.$ = false;
+      is_logged_in.$ = false;
       is_logged_in.save();
       access_token.$ = "";
       access_token.save();

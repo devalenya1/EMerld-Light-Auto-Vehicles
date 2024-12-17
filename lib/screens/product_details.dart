@@ -944,7 +944,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 
                 SliverList(
                     delegate: SliverChildListDelegate([
-                  widget.isAuction == true
+                  // widget.isAuction == true
                   Padding(
                     padding: const EdgeInsets.fromLTRB(
                       16.0,
@@ -1507,6 +1507,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 //---------------
 //---------------
   Row buildVerifiedRow() {
+    if (_productDetails.verified == 1) {
       return Row(
         children: [
           Padding(
@@ -1521,27 +1522,38 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
             ),
           ),
-          if (_productDetails.verified == 1) {
           Text("Verified Buyers",
             style: TextStyle(
                 color: MyTheme.accent_color,
                 fontSize: 24.0,
                 fontWeight: FontWeight.w600),
           )
-
-          } else {
-          Text("Everyone",
-            style: TextStyle(
-                color: MyTheme.accent_color,
-                fontSize: 25.0,
-                fontWeight: FontWeight.w600),
-          )
-
-          }
         ],
       );
-    
-    
+      } else {
+      return Row(
+        children: [
+          Padding(
+            padding: app_language_rtl.$
+                ? EdgeInsets.only(left: 8.0)
+                : EdgeInsets.only(right: 8.0),
+            child: Container(
+              width: 75,
+              child: Text("For",
+                //AppLocalizations.of(context).product_details_screen_total_price,
+                style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
+              ),
+            ),
+          ),
+          Text("Verified Buyers",
+            style: TextStyle(
+                color: MyTheme.accent_color,
+                fontSize: 24.0,
+                fontWeight: FontWeight.w600),
+          )
+        ],
+      );
+    }
   }
 
   Row buildStartingBidRow() {
