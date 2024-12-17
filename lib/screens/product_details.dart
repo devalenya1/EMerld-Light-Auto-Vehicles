@@ -45,14 +45,6 @@ import '../ui_elements/list_product_card.dart';
 import '../ui_elements/mini_product_card.dart';
 import 'package:http/http.dart' as http;
 
-// _launchURLApp() async {
-//   var url = Uri.parse("https://www.geeksforgeeks.org/");
-//   if (await canLaunchUrl(url)) {
-//     await launchUrl(url);
-//   } else {
-//     throw 'Could not launch $url';
-//   }
-// }
 
 class ProductDetails extends StatefulWidget {
   int id;
