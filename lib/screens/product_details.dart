@@ -3030,188 +3030,14 @@ class ProductDetailController extends GetxController {
 
 
 TimerBuilder buildTimer(
-    DetailedProduct productDetails, isAuction, buyToWinProducts) {
-  log("Voucher  1x${productDetails.voucher_end_date.toString()}");
-  log("BuyTOWin  1x${productDetails.buytowin_end_date.toString()}");
-  log("Auction  1x${productDetails.auction_end_date.toString()}");
-  if (productDetails.buytowin_end_date != null) {
-    // log("Voucher product is here");
-    int dateNow = DateTime.now().millisecondsSinceEpoch;
-    return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-      int endDate = int.parse(productDetails.buytowin_end_date + "000");
-
-      if (dateNow > endDate) {
-        // buyTowinStatus = true;
-        return Container(
-          // width: 35,
-          height: 40,
-          child: Material(
-            borderRadius: BorderRadius.circular(8.0),
-            color: MyTheme.accent_color,
-            child: Center(
-                child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                child: Text(
-                  AppLocalizations.of(context).product_screen_deal_has_ended,
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            )),
-          ),
-        );
-      } else {
-        // buyTowinStatus = false;
-
-        return CountdownTimer(
-          endTime: endDate,
-          widgetBuilder: (_, CurrentRemainingTime time) {
-            if (time == null) {}
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 34.0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        AppLocalizations.of(context).product_screen_closing_at,
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      buildTextTimer(
-                          AppLocalizations.of(context).product_screen_day,
-                          time.days.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer(
-                          AppLocalizations.of(context).product_screen_hour,
-                          time.hours.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer(
-                          AppLocalizations.of(context).product_screen_min,
-                          time.min.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer(
-                          AppLocalizations.of(context).product_screen_sec,
-                          time.sec.toString()),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      }
-    });
-  } else if (productDetails.voucher_end_date != null) {
-    log("Voucher product is here");
-    int dateNow = DateTime.now().millisecondsSinceEpoch;
-    int endDate = int.parse(productDetails.voucher_end_date + "000");
-
-    return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-      if (dateNow > endDate) {
-        // voucherDateStatus = true;
-        return TimerBuilder.periodic(
-          const Duration(seconds: 1),
-          builder: (context) {
-            return Container(
-              width: 35,
-              height: 40,
-              child: Material(
-                borderRadius: BorderRadius.circular(8.0),
-                color: MyTheme.accent_color,
-                child: Center(
-                    child: Text(
-                  AppLocalizations.of(context).product_screen_voucher_has_ended,
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                )),
-              ),
-            );
-          },
-        );
-      } else {
-        // voucherDateStatus = false;
-
-        return CountdownTimer(
-          endTime: endDate,
-          widgetBuilder: (_, CurrentRemainingTime time) {
-            if (time == null) {}
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        AppLocalizations.of(context).product_screen_closing_at,
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      buildTextTimer(
-                          AppLocalizations.of(context).product_screen_day,
-                          time.days.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer(
-                          AppLocalizations.of(context).product_screen_hour,
-                          time.hours.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer(
-                          AppLocalizations.of(context).product_screen_min,
-                          time.min.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      Center(child: Text(":")),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer(
-                          AppLocalizations.of(context).product_screen_sec,
-                          time.sec.toString()),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      }
-    });
-  } else if (productDetails.auction_end_date != null) {
+  DetailedProduct productDetails, isAuction) {
+    if (productDetails.auction_end_date != null) {
     int dateNow = DateTime.now().millisecondsSinceEpoch;
 
     int endDate = int.parse(productDetails.auction_end_date + "000");
 
     return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
       if (dateNow > endDate) {
-        // auctionStatus = true;
         return Container(
           height: 40,
           child: Material(
@@ -3292,6 +3118,7 @@ TimerBuilder buildTimer(
       }
     });
   }
+}
  
 
 Padding buildTextTimer(String text, String time) {

@@ -445,4 +445,53 @@
   "seller_details_screen_no_new_arrival": "Pas de nouveaut\u00e9s",
   "seller_details_screen_btn_view_all_products": "Voir tous les produits de ce vendeur",
   "seller_products_screen_search_products_of_shop": "Rechercher les produits de la boutique"
+
+
+  "home_screen_auction_products": "Auction Product",
+  "home_screen_see_more": "See More",
+  "home_screen_buy_to_win": "Buy To Win Products",
+  "home_screen_video_game": "Video Game",
+  "home_screen_mobile_accessories": "Mobile Accessories",
+  "home_screen_fashion_products": "Fashion Products",
+  "home_screen_home_products": "Home Appliances",
+  "home_screen_phone_products": "Mobile Phones",
+  "home_screen_baby_products": "Baby Product",
+
+  "home_screen_computing_products": "Computing Product",
+  "product_screen_start_bid": "Start Bid",
+  "product_screen_deal_has_ended": "Deal Has Ended",
+
+  "home_screen_health_and_beauty": "Health and Beauty",
+  "home_screen_electronic_products": "Electronic Product",
+  "home_screen_ffree_delivery_products": "Free Delivery",
+  "home_screen_Mathematical_products": "Mathematical Products",
+  "home_screen_geoceries_products": "Groceries",
+  "home_screen_all_products": "All Products",
+  "product_screen_win": "WIN",
+  "product_screen_condition": "Condition",
+  "product_screen_sold": "Sold",
+  "product_screen_out_of": "Out Of",
+  "product_screen_bid_now": "Bid Now",
+  "product_screen_place_bid_price": "Bid Price",
+  "product_screen_product_screen_your_bid_has_been_placed_sucessfully": "Your bid has been places sucessfully",
+  "product_screen_product_screen_cant_bid_less_than_the_min_bid_amount": "You cant bid less than the minimum bid",
+  "product_screen_submit": "Submit",
+  "product_screen_closing_at": "Closing At",
+  "product_screen_day": "Day",
+  "product_screen_hour": "Hour",
+  "product_screen_min": "Min",
+  "product_screen_sec": "Sec",
+  "product_screen_voucher_has_ended": "Voucher Has Ended",
+  "product_screen_auction_has_ended": "Auction Has Ended",
+  "product_screen_auction_ends": "Auction Ends",
+  "product_screen_time": "Time",
+  "home_screen_all_sellers": "All Sellers",
+
+  
+  "check_balance": "Check Card Balance",
+  "tract_order": "Track Order",
+
+  
+  "seller_details_screen_btn_view_all_products": "View All Products From This Seller",
+  "seller_products_screen_search_products_of_shop": "Search products of shop"
 }
