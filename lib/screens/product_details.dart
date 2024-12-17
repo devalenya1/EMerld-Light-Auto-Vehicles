@@ -855,6 +855,39 @@ class _ProductDetailsState extends State<ProductDetails> {
                 SliverList(
                     delegate: SliverChildListDelegate([
                   Padding(
+<<<<<<< HEAD
+                      padding: const EdgeInsets.fromLTRB(
+                        16.0,
+                        8.0,
+                        16.0,
+                        0.0,
+                      ),
+                      child: _productDetails != null
+                          ? buildDescription(_productDetails)
+                          : ShimmerHelper().buildBasicShimmer(
+                              height: 30.0,
+                            )),
+                ])),
+                SliverList(
+                    delegate: SliverChildListDelegate([
+                  Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                        8.0,
+                        8.0,
+                        16.0,
+                        0.0,
+                      ),
+                      child: _productDetails != null
+                          ? buildTimer(_productDetails, widget.isAuction)
+                          : ShimmerHelper().buildBasicShimmer(
+                              height: 30.0,
+                            )),
+                ])),
+                SliverList(
+                    delegate: SliverChildListDelegate([
+                  Padding(
+=======
+>>>>>>> 56c765652fdc8c8537a7d2ec78db2ff049c9daec
                     padding: const EdgeInsets.fromLTRB(
                       16.0,
                       8.0,
@@ -1387,10 +1420,9 @@ class _ProductDetailsState extends State<ProductDetails> {
     );
   }
 
- 
+
 
   Row buildSellerRow(BuildContext context) {
-    //print("sl:" +  _productDetails.shop_logo);
     return Row(
       children: [
         _productDetails.added_by == "admin"
@@ -2170,7 +2202,36 @@ class _ProductDetailsState extends State<ProductDetails> {
     );
   }
 
+
+
+
+
+
   buildBottomAppBar(BuildContext context, _addedToCartSnackbar, isAuction) {
+<<<<<<< HEAD
+    if (_productDetails.auction_end_date != null) {
+      int dateNow = DateTime.now().millisecondsSinceEpoch;
+      int endDate = int.parse(_productDetails.auction_end_date + "000");
+      if (dateNow < endDate) {
+        return Builder(builder: (BuildContext context) {
+          return BottomAppBar(
+            child: Container(
+              color: Colors.transparent,
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        minimumSize: Size(
+                            MediaQuery.of(context).size.width / 2 - .5, 50),
+                        backgroundColor: MyTheme.golden,
+                        disabledBackgroundColor: Colors.grey,
+                        // padding: EdgeInsets.all(0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+=======
   if (productDetails.auction_product != null) {
     int dateNow = DateTime.now().millisecondsSinceEpoch;
     int endDate = int.parse(productDetails.auction_end_date + "000");
@@ -2197,103 +2258,178 @@ class _ProductDetailsState extends State<ProductDetails> {
                           ),
                           //  side:
                           //   BorderSide(color: Colors.black, width: 1.0)
+>>>>>>> 56c765652fdc8c8537a7d2ec78db2ff049c9daec
                         ),
-                        child: Text(
-                          "Bid Now",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        onPressed: () {
-                          // onPressBuyNow(context);
-                          final controller = TextEditingController();
-                          final productDetailsController =
-                              ProductDetailController();
-                          showDialog(
-                              context: context,
-                              builder: (context) => AlertDialog(
-                                    // clipBehavior: ,
-                                    title: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                            'Bid for Product (Min Bid Amound: ' +
-                                                _productDetails.starting_bid +
-                                                " )"),
-                                        Divider(
-                                          height: 2,
-                                        ),
-                                        SizedBox(
-                                          height: 20,
-                                        ),
-                                        Text("Place Bid Price*"),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        TextField(
-                                          autofocus: false,
-                                          controller: controller,
-                                          decoration: InputDecoration(
-                                              hintText: "Enter Amount",
-                                              hintStyle: TextStyle(
-                                                  fontSize: 12.0,
-                                                  color:
-                                                      MyTheme.textfield_grey),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color:
-                                                        MyTheme.textfield_grey,
-                                                    width: 0.5),
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                  const Radius.circular(16.0),
-                                                ),
+                        //  side:
+                        //   BorderSide(color: Colors.black, width: 1.0)
+                      ),
+                      child: Text(
+                        AppLocalizations.of(context).product_screen_bid_now,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      onPressed: () {
+                        // onPressBuyNow(context);
+                        final controller = TextEditingController();
+                        final productDetailsController =
+                            ProductDetailController();
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  // clipBehavior: ,
+                                  title: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Bid for Product (Min Bid Amound: ' +
+                                          _productDetails.starting_bid +
+                                          " )"),
+                                      Divider(
+                                        height: 2,
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(AppLocalizations.of(context)
+                                          .product_screen_place_bid_price),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        autofocus: false,
+                                        controller: controller,
+                                        decoration: InputDecoration(
+                                            hintText: "Enter Amount",
+                                            hintStyle: TextStyle(
+                                                fontSize: 12.0,
+                                                color: MyTheme.textfield_grey),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: MyTheme.textfield_grey,
+                                                  width: 0.5),
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                const Radius.circular(16.0),
                                               ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color:
-                                                        MyTheme.textfield_grey,
-                                                    width: 1.0),
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                  const Radius.circular(16.0),
-                                                ),
-                                              ),
-                                              contentPadding:
-                                                  EdgeInsets.all(4.0)),
-                                        ),
-                                        SizedBox(
-                                          height: 5,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Obx(() => productDetailsController
-                                                        .isStartBidding.value ==
-                                                    true
-                                                ? CircularProgressIndicator()
-                                                : SizedBox()),
-                                            SizedBox(
-                                              width: 5,
                                             ),
-                                            ElevatedButton(
-                                                onPressed: () async {
-                                                  productDetailsController
-                                                      .isStartBidding
-                                                      .value = true;
-                                                  RegExp regExp = new RegExp(
-                                                    r"^[1-9]\d*$",
-                                                    caseSensitive: false,
-                                                    multiLine: false,
-                                                  );
-                                                  if (regExp.hasMatch(controller
-                                                          .text
-                                                          .toString()) &&
-                                                      double.parse(controller
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: MyTheme.textfield_grey,
+                                                  width: 1.0),
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                const Radius.circular(16.0),
+                                              ),
+                                            ),
+                                            contentPadding:
+                                                EdgeInsets.all(4.0)),
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Obx(() => productDetailsController
+                                                      .isStartBidding.value ==
+                                                  true
+                                              ? CircularProgressIndicator()
+                                              : SizedBox()),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          ElevatedButton(
+                                            onPressed: () async {
+                                              productDetailsController
+                                                  .isStartBidding.value = true;
+                                              RegExp regExp = new RegExp(
+                                                r"^[1-9]\d*$",
+                                                caseSensitive: false,
+                                                multiLine: false,
+                                              );
+                                              if (regExp.hasMatch(controller
+                                                      .text
+                                                      .toString()) &&
+                                                  double.parse(controller.text
+                                                          .toString()) >
+                                                      double.parse(
+                                                          _productDetails
+                                                              .starting_bid)) {
+                                                Uri url2 = Uri.parse(
+                                                  "${AppConfig.BASE_URL}/products/bid",
+                                                );
+                                                final response2 =
+                                                    await http.post(url2,
+                                                        headers: {
+                                                          'Content-Type':
+                                                              'application/json',
+                                                          'Accept':
+                                                              'application/json',
+                                                          'Authorization':
+                                                              "Bearer ${access_token.$}",
+                                                        },
+                                                        body: jsonEncode({
+                                                          "product_id": widget
+                                                              .id
+                                                              .toString(),
+                                                          "user_id": user_id.$
+                                                              .toString(),
+                                                          "amount": controller
                                                               .text
+<<<<<<< HEAD
+                                                              .toString(),
+                                                          "type": "1"
+                                                        }));
+                                                log("value ${controller.text}");
+                                                Navigator.pop(context);
+                                                const snackBar = SnackBar(
+                                                  content: Text(
+                                                      'Your bid has been placed sucessfully'),
+                                                );
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(snackBar);
+                                              } else {
+                                                const snackBar = SnackBar(
+                                                  content: Text(
+                                                      'Cant bid less than the min bidamount'),
+                                                );
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(snackBar);
+                                              }
+                                              // productDetails.type
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                                foregroundColor: MyTheme.white,
+                                                backgroundColor:
+                                                    MyTheme.accent_color),
+                                            child: const Text('submit'),
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ));
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    width: 1,
+                  ),
+
+                  //BUY NOW STARTS
+                  Expanded(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        minimumSize: Size(
+                            MediaQuery.of(context).size.width / 2 - .55, 50),
+                        backgroundColor: MyTheme.accent_color,
+                        // padding: EdgeInsets.all(0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+=======
                                                               .toString()) >
                                                           double.parse(
                                                               _productDetails
@@ -2409,47 +2545,102 @@ class _ProductDetailsState extends State<ProductDetails> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0),
                           ),
+>>>>>>> 56c765652fdc8c8537a7d2ec78db2ff049c9daec
                         ),
-                        child: Text(
-                          AppLocalizations.of(context)
-                              .product_details_screen_button_add_to_cart,
-                          // 'Let see',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        onPressed: () {
-                          onPressAddToCart(context, _addedToCartSnackbar);
-                        },
+                      ),
+                      child: Text(
+                        AppLocalizations.of(context)
+                            .product_details_screen_button_buy_now,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      onPressed: () {
+                        onPressBuyNow(context);
+                      },
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+      }
+      ;
+    }
+    // NORMAL PRODUCTS STARTS
+    if (_productDetails.auction_end_date == null) {
+      return Builder(builder: (BuildContext context) {
+        return BottomAppBar(
+          child: Container(
+            color: Colors.transparent,
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      minimumSize:
+                          Size(MediaQuery.of(context).size.width / 2 - .5, 50),
+                      backgroundColor: MyTheme.golden,
+                      padding: EdgeInsets.all(0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(0.0),
+                      ),
+<<<<<<< HEAD
+                    ),
+                    child: Text(
+                      AppLocalizations.of(context)
+                          .product_details_screen_button_add_to_cart,
+                      // 'Let see',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    onPressed: () {
+                      onPressAddToCart(context, _addedToCartSnackbar);
+                    },
+                  ),
+                ),
+                SizedBox(
+                  width: 1,
+                ),
+
+                //BUY NOW STARTS
+                Expanded(
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      minimumSize:
+                          Size(MediaQuery.of(context).size.width / 2 - .55, 50),
+                      backgroundColor: MyTheme.accent_color,
+                      // padding: EdgeInsets.all(0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-              SizedBox(
-                width: 1,
-              ),
-                   Expanded(
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          minimumSize: Size(
-                              MediaQuery.of(context).size.width / 2 - .55, 50),
-                          backgroundColor: MyTheme.accent_color,
-                          // padding: EdgeInsets.all(0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                        child: Text(
-                          AppLocalizations.of(context)
-                              .product_details_screen_button_buy_now,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        onPressed: () {
-                          onPressBuyNow(context);
-                        },
-                      ),
+                    child: Text(
+                      AppLocalizations.of(context)
+                          .product_details_screen_button_buy_now,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    onPressed: () {
+                      onPressBuyNow(context);
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      });
+    }
+=======
                     )
                   : SizedBox()
             ],
@@ -2457,9 +2648,19 @@ class _ProductDetailsState extends State<ProductDetails> {
         ),
       ),
     });
+>>>>>>> 56c765652fdc8c8537a7d2ec78db2ff049c9daec
 
+<<<<<<< HEAD
+
+=======
     },
   }
+>>>>>>> 56c765652fdc8c8537a7d2ec78db2ff049c9daec
+
+
+
+
+
 
   buildRatingAndWishButtonRow() {
     return Row(
