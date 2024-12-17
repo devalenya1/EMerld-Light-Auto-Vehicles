@@ -240,9 +240,7 @@ class _SellerDetailsState extends State<SellerDetails> {
                         16.0,
                         0.0,
                       ),
-                      child: Text(
-                        AppLocalizations.of(context)
-                            .home_screen_auction_products,
+                      child: Text("All Auction Products",
                         style: TextStyle(
                             color: MyTheme.font_grey,
                             fontSize: 16,
