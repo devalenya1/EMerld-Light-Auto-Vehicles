@@ -115,7 +115,6 @@ class _ProductDetailsState extends State<ProductDetails> {
       _productDetails = productDetailsResponse.detailed_products[0];
       sellerChatTitleController.text =
           productDetailsResponse.detailed_products[0].name;
-      // log("coucher ${_productDetails.voucher_end_date}");
     }
 
     setProductDetailValues();
@@ -2214,8 +2213,12 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
 
   buildBottomAppBar(BuildContext context, _addedToCartSnackbar, isAuction) {
-    // int dateNow = DateTime.now().millisecondsSinceEpoch;
-    // int endDate = int.parse(_productDetails.buytowin_end_date + "000");
+    
+if (productDetails.auction_product != null) {
+    int dateNow = DateTime.now().millisecondsSinceEpoch;
+    int endDate = int.parse(productDetails.auction_end_date + "000");
+    return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
+      if (dateNow > endDate) {
     return Builder(builder: (BuildContext context) {
       return BottomAppBar(
         child: Container(
@@ -2224,16 +2227,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              isAuction == true && auctionStatus == false
-                  ? Expanded(
-                      // child: FlatButton(
-                      //   minWidth: MediaQuery.of(context).size.width / 2 - .5,
-                      //   height: 50,
-                      //   color: MyTheme.golden,
-                      //   disabledColor: Colors.grey,
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(0.0),
-                      //   ),
+                   Expanded(
                       child: TextButton(
                         style: TextButton.styleFrom(
                           minimumSize: Size(
@@ -2406,13 +2400,46 @@ class _ProductDetailsState extends State<ProductDetails> {
                         },
                       ),
                     )
-                  : SizedBox(),
-              isAuction == true ||
-                      normalProduct == false ||
-                      (widget.buyToWinProducts == true &&
-                          buyTowinStatus == true) ||
-                      raffelStatus == true
-                  ? SizedBox()
+                  
+              SizedBox(width: 1,),
+                   Expanded(
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          minimumSize: Size(
+                              MediaQuery.of(context).size.width / 2 - .55, 50),
+                          backgroundColor: MyTheme.accent_color,
+                          // padding: EdgeInsets.all(0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                        child: Text(
+                          AppLocalizations.of(context)
+                              .product_details_screen_button_buy_now,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        onPressed: () {
+                          onPressBuyNow(context);
+                        },
+                      ),
+                    )
+                  : SizedBox()
+
+
+            ],
+          ),
+        ),
+      );
+    });
+  }
+})
+} else {
+
+
+    
                   : Expanded(
                       child: TextButton(
                         style: TextButton.styleFrom(
@@ -2441,24 +2468,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               SizedBox(
                 width: 1,
               ),
-              // raffelStatus == false
-              (isAuction == true && auctionStatus == false) ||
-                      (isAuction == false && buyTowinStatus == false) ||
-                      (isAuction == false && voucherDateStatus == false) ||
-                      // (isAuction == false && raffelStatus == false) ||
-                      (normalProduct == true &&
-                          widget.buyToWinProducts == false &&
-                          isAuction == false)
-                  // (auctionStatus == true && buyTowinStatus == true ||
-                  //         voucherDateStatus == true)
-                  ? Expanded(
-                      // child: FlatButton(
-                      //   minWidth: MediaQuery.of(context).size.width / 2 - .5,
-                      //   height: 50,
-                      //   color: MyTheme.accent_color,
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(0.0),
-                      //   ),
+                   Expanded(
                       child: TextButton(
                         style: TextButton.styleFrom(
                           minimumSize: Size(
@@ -2483,11 +2493,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                     )
                   : SizedBox()
-            ],
-          ),
-        ),
-      );
-    });
+    }
+
+
   }
 
   buildRatingAndWishButtonRow() {
@@ -2943,206 +2951,17 @@ class ProductDetailController extends GetxController {
   var isStartBidding = false.obs;
 }
 
-bool auctionStatus; // true mean to disable
-bool buyTowinStatus;
-bool voucherDateStatus;
-bool normalProduct;
-bool raffelStatus = false;
+
 TimerBuilder buildTimer(
-    DetailedProduct productDetails, isAuction, buyToWinProducts) {
-  log("Voucher  1x${productDetails.voucher_end_date.toString()}");
-  log("BuyTOWin  1x${productDetails.buytowin_end_date.toString()}");
+DetailedProduct productDetails, isAuction) {
   log("Auction  1x${productDetails.auction_end_date.toString()}");
-  if (productDetails.buytowin_end_date != null) {
-    // log("Voucher product is here");
+  if (productDetails.auction_product != null) {
     int dateNow = DateTime.now().millisecondsSinceEpoch;
-    return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-      int endDate = int.parse(productDetails.buytowin_end_date + "000");
-
-      if (dateNow > endDate) {
-        buyTowinStatus = true;
-        return Container(
-          // width: 35,
-          height: 40,
-          child: Material(
-            borderRadius: BorderRadius.circular(8.0),
-            color: MyTheme.accent_color,
-            child: Center(
-                child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                child: Text(
-                  "Deal Has Ended:",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            )),
-          ),
-        );
-      } else {
-        buyTowinStatus = false;
-
-        return CountdownTimer(
-          endTime: endDate,
-          widgetBuilder: (_, CurrentRemainingTime time) {
-            if (time == null) {}
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 34.0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Closing at:",
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      buildTextTimer("Day", time.days.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Hour", time.hours.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Min", time.min.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Sec", time.sec.toString()),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      }
-    });
-  } else if (productDetails.voucher_end_date != null) {
-    log("Voucher product is here");
-    int dateNow = DateTime.now().millisecondsSinceEpoch;
-    int endDate = int.parse(productDetails.voucher_end_date + "000");
-
-    return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-      if (dateNow > endDate) {
-        voucherDateStatus = true;
-        return TimerBuilder.periodic(
-          const Duration(seconds: 1),
-          builder: (context) {
-            return Container(
-              width: 35,
-              height: 40,
-              child: Material(
-                borderRadius: BorderRadius.circular(8.0),
-                color: MyTheme.accent_color,
-                child: Center(
-                    child: Text(
-                  "Voucher Has Ended:",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                )),
-              ),
-            );
-          },
-        );
-      } else {
-        voucherDateStatus = false;
-
-        return CountdownTimer(
-          endTime: endDate,
-          widgetBuilder: (_, CurrentRemainingTime time) {
-            if (time == null) {}
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Closing at:",
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      buildTextTimer("Day", time.days.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Hour", time.hours.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Min", time.min.toString()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      Center(child: Text(":")),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(":"),
-                      ),
-                      buildTextTimer("Sec", time.sec.toString()),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      }
-    });
-  }
-  // else if (widget.buyToWinProducts == true) {
-  //   return TimerBuilder.periodic(
-  //     const Duration(seconds: 1),
-  //     builder: (context) {
-  //       return Container(
-  //         width: 35,
-  //         height: 40,
-  //         child: Material(
-  //           borderRadius: BorderRadius.circular(8.0),
-  //           color: MyTheme.accent_color,
-  //           child: Center(
-  //               child: Text(
-  //             "Voucher Has Ended:",
-  //             style: TextStyle(color: Colors.white, fontSize: 20),
-  //           )),
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
-
-  else if (productDetails.auction_product != null && isAuction == true) {
-    int dateNow = DateTime.now().millisecondsSinceEpoch;
-
     int endDate = int.parse(productDetails.auction_end_date + "000");
-
-    // int endDate = productDetails.auction_end_date == null
-    //     ? 0
-    //     : int.parse(productDetails.auction_end_date + "000");
     return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
       if (dateNow > endDate) {
-        auctionStatus = true;
+        // auctionStatus = true;
         return Container(
-          // width: 35,
-          // width: double.infinity,
           height: 40,
           child: Material(
             borderRadius: BorderRadius.circular(8.0),
@@ -3161,7 +2980,7 @@ TimerBuilder buildTimer(
           ),
         );
       } else {
-        auctionStatus = false;
+        // auctionStatus = false;
         return CountdownTimer(
           endTime: endDate,
           widgetBuilder: (_, CurrentRemainingTime time) {
@@ -3212,32 +3031,6 @@ TimerBuilder buildTimer(
         );
       }
     });
-  } else {
-    normalProduct = true;
-    if (buyToWinProducts == true) {
-      normalProduct = false;
-      raffelStatus = true;
-      return TimerBuilder.periodic(const Duration(seconds: 1),
-          builder: (context) => Container(
-                // width: 35,
-                height: 40,
-                child: Material(
-                  borderRadius: BorderRadius.circular(8.0),
-                  color: MyTheme.accent_color,
-                  child: Center(
-                      child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      child: Text(
-                        "Deal Has Ended:",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                    ),
-                  )),
-                ),
-              ));
-    }
   }
 }
 
