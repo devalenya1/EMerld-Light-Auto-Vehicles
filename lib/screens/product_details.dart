@@ -765,22 +765,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                     child: buildProductImageSection(),
                   ),
                 ])),
-
-                // SliverList(
-                //     delegate: SliverChildListDelegate([
-                //   Padding(
-                //       padding: const EdgeInsets.fromLTRB(
-                //         16.0,
-                //         8.0,
-                //         16.0,
-                //         0.0,
-                //       ),
-                //       child: _productDetails != null
-                //           ? buildWin(_productDetails)
-                //           : ShimmerHelper().buildBasicShimmer(
-                //               height: 30.0,
-                //             )),
-                // ])),
                 SliverList(
                     delegate: SliverChildListDelegate([
                   Padding(
@@ -803,37 +787,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                               height: 30.0,
                             )),
                 ])),
-                // SliverList(
-                //     delegate: SliverChildListDelegate([
-                //   Padding(
-                //       padding: const EdgeInsets.fromLTRB(
-                //         16.0,
-                //         8.0,
-                //         16.0,
-                //         0.0,
-                //       ),
-                //       child: _productDetails != null
-                //           ? buildDescription(_productDetails)
-                //           : ShimmerHelper().buildBasicShimmer(
-                //               height: 30.0,
-                //             )),
-                // ])),
-                // SliverList(
-                //     delegate: SliverChildListDelegate([
-                //   Padding(
-                //       padding: const EdgeInsets.fromLTRB(
-                //         8.0,
-                //         8.0,
-                //         16.0,
-                //         0.0,
-                //       ),
-                //       child: _productDetails != null
-                //           ? buildTimer(_productDetails, widget.isAuction,
-                //               widget.buyToWinProducts)
-                //           : ShimmerHelper().buildBasicShimmer(
-                //               height: 30.0,
-                //             )),
-                // ])),
                 SliverList(
                   delegate: SliverChildListDelegate([
                        Padding(
@@ -855,39 +808,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                 SliverList(
                     delegate: SliverChildListDelegate([
                   Padding(
-<<<<<<< HEAD
-                      padding: const EdgeInsets.fromLTRB(
-                        16.0,
-                        8.0,
-                        16.0,
-                        0.0,
-                      ),
-                      child: _productDetails != null
-                          ? buildDescription(_productDetails)
-                          : ShimmerHelper().buildBasicShimmer(
-                              height: 30.0,
-                            )),
-                ])),
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        8.0,
-                        8.0,
-                        16.0,
-                        0.0,
-                      ),
-                      child: _productDetails != null
-                          ? buildTimer(_productDetails, widget.isAuction)
-                          : ShimmerHelper().buildBasicShimmer(
-                              height: 30.0,
-                            )),
-                ])),
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-=======
->>>>>>> 56c765652fdc8c8537a7d2ec78db2ff049c9daec
                     padding: const EdgeInsets.fromLTRB(
                       16.0,
                       8.0,
@@ -2208,7 +2128,8 @@ class _ProductDetailsState extends State<ProductDetails> {
 
 
   buildBottomAppBar(BuildContext context, _addedToCartSnackbar, isAuction) {
-<<<<<<< HEAD
+
+    // int dateNow = DateTime.now().millisecondsSinceEpoch;
     if (_productDetails.auction_end_date != null) {
       int dateNow = DateTime.now().millisecondsSinceEpoch;
       int endDate = int.parse(_productDetails.auction_end_date + "000");
@@ -2231,34 +2152,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                         // padding: EdgeInsets.all(0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
-=======
-  if (productDetails.auction_product != null) {
-    int dateNow = DateTime.now().millisecondsSinceEpoch;
-    int endDate = int.parse(productDetails.auction_end_date + "000");
-    return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {
-      if (dateNow > endDate) {
-    return Builder(builder: (BuildContext context) {
-      return BottomAppBar(
-        child: Container(
-          color: Colors.transparent,
-          height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-                   Expanded(
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          minimumSize: Size(
-                              MediaQuery.of(context).size.width / 2 - .5, 50),
-                          backgroundColor: MyTheme.golden,
-                          disabledBackgroundColor: Colors.grey,
-                          // padding: EdgeInsets.all(0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          //  side:
-                          //   BorderSide(color: Colors.black, width: 1.0)
->>>>>>> 56c765652fdc8c8537a7d2ec78db2ff049c9daec
                         ),
                         //  side:
                         //   BorderSide(color: Colors.black, width: 1.0)
@@ -2379,7 +2272,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                                                               .toString(),
                                                           "amount": controller
                                                               .text
-<<<<<<< HEAD
                                                               .toString(),
                                                           "type": "1"
                                                         }));
@@ -2429,123 +2321,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                         // padding: EdgeInsets.all(0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
-=======
-                                                              .toString()) >
-                                                          double.parse(
-                                                              _productDetails
-                                                                  .starting_bid)) {
-                                                    Uri url2 = Uri.parse(
-                                                      "${AppConfig.BASE_URL}/products/bid",
-                                                    );
-                                                    final response2 =
-                                                        await http.post(url2,
-                                                            headers: {
-                                                              'Content-Type':
-                                                                  'application/json',
-                                                              'Accept':
-                                                                  'application/json',
-                                                              'Authorization':
-                                                                  "Bearer ${access_token.$}",
-                                                            },
-                                                            body: jsonEncode({
-                                                              "product_id": widget
-                                                                  .id
-                                                                  .toString(),
-                                                              "user_id": user_id
-                                                                  .$
-                                                                  .toString(),
-                                                              "amount": controller
-                                                                  .text
-                                                                  .toString(),
-                                                              "type": "1"
-                                                            }));
-                                                    log("value ${controller.text}");
-                                                    Navigator.pop(context);
-                                                    const snackBar = SnackBar(
-                                                      content: Text(
-                                                          'Your Bid has been placed, Successfully..'),
-                                                    );
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(snackBar);
-                                                  } else {
-                                                    const snackBar = SnackBar(
-                                                      content: Text(
-                                                          'Cant bid less than the min amount.'),
-                                                    );
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(snackBar);
-                                                  }
-                                                  // productDetails.type
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                    foregroundColor:
-                                                        MyTheme.white,
-                                                    backgroundColor:
-                                                        MyTheme.accent_color),
-                                                child: const Text('Submit')),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ));
-                        },
-                      ),
-                    ),
-              SizedBox(width: 1,),
-                   Expanded(
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          minimumSize: Size(
-                              MediaQuery.of(context).size.width / 2 - .55, 50),
-                          backgroundColor: MyTheme.accent_color,
-                          // padding: EdgeInsets.all(0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                        child: Text(
-                          AppLocalizations.of(context)
-                              .product_details_screen_button_buy_now,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        onPressed: () {
-                          onPressBuyNow(context);
-                        },
-                      ),
-                    )
-                  : SizedBox(),
-            ],
-          ),
-        ),
-      );
-    });
-  }
-})
-} else {
-    return Builder(builder: (BuildContext context) {
-      return BottomAppBar(
-        child: Container(
-          color: Colors.transparent,
-          height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-                  : Expanded(
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          minimumSize: Size(
-                              MediaQuery.of(context).size.width / 2 - .5, 50),
-                          backgroundColor: MyTheme.golden,
-                          padding: EdgeInsets.all(0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0.0),
-                          ),
->>>>>>> 56c765652fdc8c8537a7d2ec78db2ff049c9daec
                         ),
                       ),
                       child: Text(
@@ -2589,7 +2364,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(0.0),
                       ),
-<<<<<<< HEAD
                     ),
                     child: Text(
                       AppLocalizations.of(context)
@@ -2640,25 +2414,6 @@ class _ProductDetailsState extends State<ProductDetails> {
         );
       });
     }
-=======
-                    )
-                  : SizedBox()
-            ],
-          ),
-        ),
-      ),
-    });
->>>>>>> 56c765652fdc8c8537a7d2ec78db2ff049c9daec
-
-<<<<<<< HEAD
-
-=======
-    },
-  }
->>>>>>> 56c765652fdc8c8537a7d2ec78db2ff049c9daec
-
-
-
 
 
 
