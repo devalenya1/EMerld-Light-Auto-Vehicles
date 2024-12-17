@@ -574,7 +574,7 @@ class _LoginState extends State<Login> {
                                 minimumSize:
                                     Size(MediaQuery.of(context).size.width, 50),
                                 //height: 50,
-                                backgroundColor: MyTheme.accent_color,
+                                backgroundColor: MyTheme.golden,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: const BorderRadius.all(
                                         Radius.circular(12.0))),
