@@ -639,22 +639,7 @@ class _FilterState extends State<Filter> {
                                       Navigator.pop(context);
                                     },
                                   ),
-                                  RadioListTile(
-                                    dense: true,
-                                    value: "auction",
-                                    groupValue: _selectedSort,
-                                    activeColor: MyTheme.font_grey,
-                                    controlAffinity:
-                                        ListTileControlAffinity.leading,
-                                    title: "Auction",
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _selectedSort = value;
-                                      });
-                                      _onSortChange();
-                                      Navigator.pop(context);
-                                    },
-                                  ),
+                                  
 
                                 ],
                               );
