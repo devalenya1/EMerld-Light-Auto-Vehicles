@@ -19,7 +19,7 @@ import 'package:timer_builder/timer_builder.dart';
 import 'package:toast/toast.dart';
 import '../helpers/auth_helper.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -2502,7 +2502,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
         );
       });
-    }
+    } 
     } else if (_productDetails.verified == "1" && verified_user.$ != null && verified_user.$ == "0" ) {
         return Container(
           height: 40,
