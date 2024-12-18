@@ -1507,7 +1507,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 //---------------
 //---------------
   Row buildVerifiedRow() {
-    if (_productDetails.verified = "1") {
+    if (_productDetails.verified == "1") {
       return Row(
         children: [
           Padding(
