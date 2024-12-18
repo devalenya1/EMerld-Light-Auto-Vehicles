@@ -755,37 +755,37 @@ class _OrderDetailsState extends State<OrderDetails> {
   //   return Future.value(result);
   // }
 
-  // buildTimeLineShimmer() {
-  //   return Column(
-  //     children: [
-  //       Row(
-  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //         children: [
-  //           Padding(
-  //             padding: EdgeInsets.all(8.0),
-  //             child: ShimmerHelper().buildBasicShimmer(height: 40, width: 40.0),
-  //           ),
-  //           Padding(
-  //             padding: EdgeInsets.all(8.0),
-  //             child: ShimmerHelper().buildBasicShimmer(height: 40, width: 40.0),
-  //           ),
-  //           Padding(
-  //             padding: EdgeInsets.all(8.0),
-  //             child: ShimmerHelper().buildBasicShimmer(height: 40, width: 40.0),
-  //           ),
-  //           Padding(
-  //             padding: EdgeInsets.all(8.0),
-  //             child: ShimmerHelper().buildBasicShimmer(height: 40, width: 40.0),
-  //           )
-  //         ],
-  //       ),
-  //       Padding(
-  //         padding: EdgeInsets.all(8.0),
-  //         child: ShimmerHelper().buildBasicShimmer(height: 20, width: 250.0),
-  //       )
-  //     ],
-  //   );
-  // }
+  buildTimeLineShimmer() {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: ShimmerHelper().buildBasicShimmer(height: 40, width: 40.0),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: ShimmerHelper().buildBasicShimmer(height: 40, width: 40.0),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: ShimmerHelper().buildBasicShimmer(height: 40, width: 40.0),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: ShimmerHelper().buildBasicShimmer(height: 40, width: 40.0),
+            )
+          ],
+        ),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: ShimmerHelper().buildBasicShimmer(height: 20, width: 250.0),
+        )
+      ],
+    );
+  }
 
   buildTimeLineTiles() {
     print(_orderDetails.delivery_status);

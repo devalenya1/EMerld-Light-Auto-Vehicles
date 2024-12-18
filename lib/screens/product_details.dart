@@ -2218,7 +2218,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
 
   buildBottomAppBar(BuildContext context, _addedToCartSnackbar, isAuction) {
-    if (_productDetails.verified = "0") {
+    if (_productDetails.verified == "0") {
     if (_productDetails.auction_end_date != null) {
       int dateNow = DateTime.now().millisecondsSinceEpoch;
       int endDate = int.parse(_productDetails.auction_end_date + "000");
