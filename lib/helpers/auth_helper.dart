@@ -68,7 +68,7 @@ class AuthHelper {
       is_logged_in.save();
       user_id.$ = 0;
       user_id.save();
-      verified_user.$ "";
+      verified_user.$ = "";
       verified_user.save();
       user_name.$ = "";
       user_name.save();
