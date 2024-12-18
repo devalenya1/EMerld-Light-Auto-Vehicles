@@ -2503,7 +2503,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         );
       });
     }
-    } else if (_productDetails.verified == "1" && verified_user.$ = 0 ) {
+    } else if (_productDetails.verified == "1" && verified_user.$ != null && verified_user.$ == 0 ) {
         return Container(
           height: 40,
           child: Material(
@@ -2734,9 +2734,9 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
           );
         });
+      };
       }
-      ;
-    }
+    
     // NORMAL PRODUCTS STARTS
     if (_productDetails.auction_end_date == null) {
       return Builder(builder: (BuildContext context) {
@@ -2806,7 +2806,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
         );
       });
-    
+    }
     }
   }
 
