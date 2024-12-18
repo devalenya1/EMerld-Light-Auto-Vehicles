@@ -2503,7 +2503,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         );
       });
     }
-    } else if (_productDetails.verified == 1 && verified_user.$ == 0 ) {
+    } else if (_productDetails.verified == "1" && verified_user.$ = 0 ) {
         return Container(
           height: 40,
           child: Material(

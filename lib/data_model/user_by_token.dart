@@ -26,7 +26,7 @@ class UserByTokenResponse {
   String email;
   String avatar;
   String avatar_original;
-  int verified_user;
+  String verified_user;
   String phone;
 
   factory UserByTokenResponse.fromJson(Map<String, dynamic> json) => UserByTokenResponse(

@@ -38,7 +38,7 @@ class AuthHelper {
       user_email.save();
       user_phone.$ = "";
       user_phone.save();
-      verified_user.$ = 0;
+      verified_user.$ = "";
       verified_user.save();
       avatar_original.$ = "";
       avatar_original.save();
@@ -68,7 +68,7 @@ class AuthHelper {
       is_logged_in.save();
       user_id.$ = 0;
       user_id.save();
-      verified_user.$ = 0;
+      verified_user.$ "";
       verified_user.save();
       user_name.$ = "";
       user_name.save();
