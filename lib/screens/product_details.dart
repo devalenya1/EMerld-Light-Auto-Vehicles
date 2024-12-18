@@ -1557,7 +1557,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
 
   Row buildStartingBidRow() {
-    if (_productDetails.starting_bid != null) {
+    if (_productDetails.auction_end_date != null) {
       return Row(
         children: [
           Padding(
