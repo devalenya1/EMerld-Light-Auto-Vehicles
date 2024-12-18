@@ -41,7 +41,14 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
         ),
         onWebViewCreated: (controller) {
           _webViewController = controller;
+          _webViewController.addJavaScriptHandler(
+            handlerName: 'fileUploadHandler',
+            callback: (args) {
+            // Custom handler logic if needed
+            },
+          );
         },
+        
         onConsoleMessage: (controller, consoleMessage) {
           print(consoleMessage.message);
         },
