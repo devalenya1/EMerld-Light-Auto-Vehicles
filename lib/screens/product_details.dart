@@ -1507,7 +1507,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 //---------------
 //---------------
   Row buildVerifiedRow() {
-    if (_productDetails.verified == 1) {
+    if (_productDetails.verified = "1") {
       return Row(
         children: [
           Padding(
@@ -2218,7 +2218,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   }
 
   buildBottomAppBar(BuildContext context, _addedToCartSnackbar, isAuction) {
-    if (_productDetails.verified == 0) {
+    if (_productDetails.verified = "0") {
     if (_productDetails.auction_end_date != null) {
       int dateNow = DateTime.now().millisecondsSinceEpoch;
       int endDate = int.parse(_productDetails.auction_end_date + "000");
@@ -2503,7 +2503,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         );
       });
     }
-    } else if (_productDetails.verified == "1" && verified_user.$ != null && verified_user.$ == 0 ) {
+    } else if (_productDetails.verified == "1" && verified_user.$ != null && verified_user.$ == "0" ) {
         return Container(
           height: 40,
           child: Material(
