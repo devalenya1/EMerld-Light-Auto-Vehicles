@@ -1,15 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
+import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:file_picker/file_picker.dart'; // Add for file picking
 import '../helpers/shared_value_helper.dart';
 import '../my_theme.dart';
 
-
 class CommonWebviewScreen extends StatefulWidget {
-  String url;
-  String page_name;
+  final String url;
+  final String page_name;
 
-  CommonWebviewScreen({Key key, this.url = "", this.page_name = ""})
+  CommonWebviewScreen({Key? key, this.url = "", this.page_name = ""})
       : super(key: key);
 
   @override
@@ -17,13 +18,8 @@ class CommonWebviewScreen extends StatefulWidget {
 }
 
 class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
-  WebViewController _webViewController;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  late InAppWebViewController _webViewController;
+  final GlobalKey webViewKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -37,28 +33,73 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
     );
   }
 
-  buildBody() {
+  Widget buildBody() {
     return SizedBox.expand(
-      child: Container(
-        child: WebView(
-          debuggingEnabled: false,
-          javascriptMode: JavascriptMode.unrestricted,
-          onWebViewCreated: (controller) {
-            _webViewController = controller;
-            _webViewController.loadUrl(widget.url);
-          },
-          onWebResourceError: (error) {},
-          onPageFinished: (page) {
-            //print(page.toString());
-          },
+      child: InAppWebView(
+        key: webViewKey,
+        initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
+        initialOptions: InAppWebViewGroupOptions(
+          crossPlatform: InAppWebViewOptions(
+            javaScriptEnabled: true,
+            javaScriptCanOpenWindowsAutomatically: true,
+            mediaPlaybackRequiresUserGesture: false,
+          ),
+          android: AndroidInAppWebViewOptions(
+            useHybridComposition: true,
+          ),
+          ios: IOSInAppWebViewOptions(
+            allowsInlineMediaPlayback: true,
+          ),
         ),
+        onWebViewCreated: (controller) {
+          _webViewController = controller;
+        },
+        onShowFileChooser: (controller, fileChooserParams) async {
+          // File picking logic
+          List<String>? filePaths = await pickFiles();
+          return FileChooserResponse(
+            filePaths: filePaths,
+            action: FileChooserActionType.SELECT,
+          );
+        },
+        onConsoleMessage: (controller, consoleMessage) {
+          debugPrint(consoleMessage.message);
+        },
+        onReceivedServerTrustAuthRequest: (controller, challenge) async {
+          return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
+        },
+        androidOnPermissionRequest: (controller, origin, resources) async {
+          return PermissionRequestResponse(
+            resources: resources,
+            action: PermissionRequestResponseAction.GRANT,
+          );
+        },
+        onReceivedHttpAuthRequest: (controller, challenge) async {
+          return HttpAuthResponse(action: HttpAuthResponseAction.PROCEED);
+        },
+        androidOnGeolocationPermissionsShowPrompt: (controller, origin) async {
+          return GeolocationPermissionShowPromptResponse(
+            origin: origin,
+            allow: true,
+            retain: true,
+          );
+        },
+        onReceivedError: (controller, request, error) {
+          debugPrint('Error: ${error.description}');
+        },
+        onLoadStop: (controller, url) async {
+          debugPrint('Page finished loading: $url');
+        },
+        onLoadHttpError: (controller, url, statusCode, description) {
+          debugPrint('HTTP error: $statusCode, $description');
+        },
       ),
     );
   }
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       centerTitle: true,
       leading: Builder(
         builder: (context) => IconButton(
@@ -67,11 +108,22 @@ backgroundColor: Colors.white,
         ),
       ),
       title: Text(
-        "${widget.page_name}",
+        widget.page_name,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
       titleSpacing: 0,
     );
+  }
+
+  // File picking logic
+  Future<List<String>?> pickFiles() async {
+    try {
+      final result = await FilePicker.platform.pickFiles(allowMultiple: false);
+      return result?.files.map((file) => file.path ?? "").toList();
+    } catch (e) {
+      debugPrint("File picking error: $e");
+      return null;
+    }
   }
 }
