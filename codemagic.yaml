@@ -8,7 +8,6 @@ workflows:
     instance_type: mac_mini_m2
     scripts:
       - flutter pub get
-      - dart migrate
       - flutter clean
       - flutter build apk --release
     artifacts:
