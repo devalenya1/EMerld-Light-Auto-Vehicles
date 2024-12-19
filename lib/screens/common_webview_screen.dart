@@ -21,7 +21,7 @@ class CommonWebviewScreen extends StatefulWidget {
 }
 
 class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
-  late InAppWebViewController _webViewController;
+  InAppWebViewController _webViewController;
   final GlobalKey webViewKey = GlobalKey();
 
   @override
@@ -116,7 +116,7 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
   }
 
   // File picking logic
-  Future<List<String>?> pickFiles() async {
+  Future<List<String>> pickFiles() async {
     try {
       final result = await FilePicker.platform.pickFiles(allowMultiple: false);
       return result?.files.map((file) => file.path ?? "").toList();
