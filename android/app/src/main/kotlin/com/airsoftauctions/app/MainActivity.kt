@@ -7,9 +7,11 @@ import android.net.Uri
 import android.webkit.WebChromeClient
 import android.webkit.ValueCallback
 import android.webkit.WebView
-import com.pichillilorenzo.flutter_inappwebview.InAppWebView.FlutterWebView
 
-
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 class MainActivity : FlutterActivity() {
     private var filePathCallback: ValueCallback<Array<Uri>>? = null
@@ -54,5 +56,12 @@ class MainActivity : FlutterActivity() {
         }
     }
 
-    
+    private fun checkStoragePermission(): Boolean {
+        val permission = Manifest.permission.READ_EXTERNAL_STORAGE
+        return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestStoragePermission() {
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 101)
+    }
 }
