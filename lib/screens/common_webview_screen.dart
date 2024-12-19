@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../helpers/shared_value_helper.dart';
@@ -54,7 +55,6 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
             return NavigationDecision.navigate;
           },
           initialMediaPlaybackPolicy: AutoMediaPlaybackPolicy.require_user_action_for_all_media_types,
-          allowFileURLs: true,
           fileUpload: true, // Enable file upload
         ),
       ),
