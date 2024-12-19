@@ -49,9 +49,9 @@ dependencies:
   timeline_list: ^0.0.3
   progress_dialog: ^1.2.4
   after_init: ^0.1.2
-  flutter_inappwebview: ^5.4.0
-  # webview_flutter: ^2.1.1
-  # file_picker: ^5.2.3
+  # flutter_inappwebview: ^5.4.0
+  webview_flutter: ^2.1.1
+  file_picker: ^5.2.3
   clipboard: ^0.1.2+8
   google_fonts: ^3.0.1
   flutter_rating_bar: ^4.0.0
