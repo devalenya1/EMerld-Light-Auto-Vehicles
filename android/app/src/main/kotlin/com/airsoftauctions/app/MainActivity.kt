@@ -8,7 +8,6 @@ import android.webkit.WebChromeClient
 import android.webkit.ValueCallback
 import android.webkit.WebView
 import com.pichillilorenzo.flutter_inappwebview.InAppWebView.FlutterWebView
-import io.flutter.embedding.android.FlutterActivity
 
 import android.Manifest
 import android.content.pm.PackageManager
