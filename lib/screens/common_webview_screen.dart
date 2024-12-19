@@ -9,7 +9,7 @@ class CommonWebviewScreen extends StatefulWidget {
   final String url;
   final String page_name;
 
-  CommonWebviewScreen({Key? key, this.url = "", this.page_name = ""})
+  CommonWebviewScreen({Key key, this.url = "", this.page_name = ""})
       : super(key: key);
 
   @override
@@ -75,9 +75,9 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
             retain: true,
           );
         },
-        onReceivedError: (controller, request, error) {
-          debugPrint('Error: ${error.description}');
-        },
+        // onReceivedError: (controller, request, error) {
+        //   debugPrint('Error: ${error.description}');
+        // },
         onLoadStop: (controller, url) async {
           debugPrint('Page finished loading: $url');
         },
