@@ -3,12 +3,10 @@ workflows:
     name: Flutter Workdlow
     environment:
       java: 11
-      # flutter: 3.3.4
-      flutter channel stable
+      flutter: 3.3.4
 
     instance_type: mac_mini_m2
     scripts:
-      - flutter --version
       - flutter pub get
       - dart migrate
       - flutter clean

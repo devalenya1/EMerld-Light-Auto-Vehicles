@@ -1,8 +1,7 @@
-
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:file_picker/file_picker.dart'; // Add for file picking
+import 'package:file_picker/file_picker.dart';
 import '../helpers/shared_value_helper.dart';
 import '../my_theme.dart';
 
@@ -54,14 +53,6 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
         onWebViewCreated: (controller) {
           _webViewController = controller;
         },
-        onShowFileChooser: (controller, fileChooserParams) async {
-          // File picking logic
-          List<String>? filePaths = await pickFiles();
-          return FileChooserResponse(
-            filePaths: filePaths,
-            action: FileChooserActionType.SELECT,
-          );
-        },
         onConsoleMessage: (controller, consoleMessage) {
           debugPrint(consoleMessage.message);
         },
@@ -92,6 +83,10 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
         },
         onLoadHttpError: (controller, url, statusCode, description) {
           debugPrint('HTTP error: $statusCode, $description');
+        },
+        onDownloadStart: (controller, url) async {
+          // Handle file download, if required
+          debugPrint("Download started: $url");
         },
       ),
     );
@@ -125,5 +120,21 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
       debugPrint("File picking error: $e");
       return null;
     }
+  }
+
+  // Handle file upload using JavaScript and trigger it from the webview
+  Future<void> handleFileUpload() async {
+    // Create a JavaScript function to trigger the file input element
+    await _webViewController.evaluateJavascript(source: """
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.click();
+      input.onchange = function(event) {
+        var files = event.target.files;
+        if (files.length > 0) {
+          // Handle the file uploading logic here
+        }
+      };
+    """);
   }
 }
