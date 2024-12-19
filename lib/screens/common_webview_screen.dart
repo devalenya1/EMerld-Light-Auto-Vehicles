@@ -1,8 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import '../helpers/shared_value_helper.dart';
-import '../my_theme.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class CommonWebviewScreen extends StatefulWidget {
   String url;
@@ -15,7 +13,7 @@ class CommonWebviewScreen extends StatefulWidget {
 }
 
 class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
-  WebViewController _webViewController;
+  InAppWebViewController _webViewController;
 
   @override
   void initState() {
@@ -37,25 +35,24 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
   buildBody() {
     return SizedBox.expand(
       child: Container(
-        child: WebView(
-          debuggingEnabled: false,
-          javascriptMode: JavascriptMode.unrestricted,
+        child: InAppWebView(
+          initialUrl: widget.url,
+          initialHeaders: {},
+          initialOptions: InAppWebViewGroupOptions(
+            crossPlatform: InAppWebViewOptions(
+              debuggingEnabled: false,
+              javaScriptEnabled: true,
+            ),
+          ),
           onWebViewCreated: (controller) {
             _webViewController = controller;
-            _webViewController.loadUrl(widget.url);
           },
-          onWebResourceError: (error) {},
-          onPageFinished: (page) {
-            //print(page.toString());
+          onLoadStart: (controller, url) {},
+          onLoadStop: (controller, url) {},
+          onFileUpload: (controller, fileUpload) async {
+            // Handle file upload
+            await fileUpload.start();
           },
-          navigationDelegate: (NavigationRequest request) {
-            if (request.url.startsWith('file://')) {
-              return NavigationDecision.prevent;
-            }
-            return NavigationDecision.navigate;
-          },
-          initialMediaPlaybackPolicy: AutoMediaPlaybackPolicy.require_user_action_for_all_media_types,
-          fileUpload: true, // Enable file upload
         ),
       ),
     );
