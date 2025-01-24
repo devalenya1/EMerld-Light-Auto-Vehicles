@@ -376,8 +376,8 @@ class _ProfileState extends State<Profile> {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return CommonWebviewScreen(
                   url:
-                      "${AppConfig.RAW_BASE_URL}/customer/apply_for_verification",
-                  page_name: "Verification Status", 
+                      "${AppConfig.RAW_BASE_URL}/customer/apply_for_verification?email=${user_email.$}",
+                  page_name: "User Verification", 
                 );
               }));
             },
@@ -403,6 +403,46 @@ class _ProfileState extends State<Profile> {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       "Verification Status",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: MyTheme.font_grey, fontSize: 14),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return CommonWebviewScreen(
+                  url:
+                      "${AppConfig.RAW_BASE_URL}/seller-dashboard?email=${user_email.$}",
+                  page_name: "Dashboard", 
+                );
+              }));
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 16.0),
+              child: Row(
+                children: [
+                  Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                        ),
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(
+                      "Sellers Portal",
                       textAlign: TextAlign.center,
                       style: TextStyle(color: MyTheme.font_grey, fontSize: 14),
                     ),

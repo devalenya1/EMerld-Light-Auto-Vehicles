@@ -416,46 +416,47 @@ class _RegistrationState extends State<Registration> {
                         //         color: MyTheme.medium_grey, fontSize: 12),
                         //   )),
                         // ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4.0),
-                          child: Container(
-                            height: 45,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: MyTheme.textfield_grey, width: 1),
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(12.0))),
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                minimumSize:
-                                    Size(MediaQuery.of(context).size.width, 50),
-                                //height: 50,
-                                backgroundColor: MyTheme.accent_color,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(12.0))),
-                              ),
-                              child: Text(
-                                AppLocalizations.of(context)
-                                    .registration_screen_seller_register,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              onPressed: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return CommonWebviewScreen(
-                                      url: "${AppConfig.RAW_BASE_URL}/shops/create-app",
-                                      page_name: AppLocalizations.of(context)
-                                .registration_screen_become_a_seller, 
-                                  );
-                                }));
-                              },
-                            ),
-                          ),
-                        ),
+                        
+                        // Padding(
+                        //   padding: const EdgeInsets.only(top: 4.0),
+                        //   child: Container(
+                        //     height: 45,
+                        //     decoration: BoxDecoration(
+                        //         border: Border.all(
+                        //             color: MyTheme.textfield_grey, width: 1),
+                        //         borderRadius: const BorderRadius.all(
+                        //             Radius.circular(12.0))),
+                        //     child: TextButton(
+                        //       style: TextButton.styleFrom(
+                        //         minimumSize:
+                        //             Size(MediaQuery.of(context).size.width, 50),
+                        //         //height: 50,
+                        //         backgroundColor: MyTheme.accent_color,
+                        //         shape: RoundedRectangleBorder(
+                        //             borderRadius: const BorderRadius.all(
+                        //                 Radius.circular(12.0))),
+                        //       ),
+                        //       child: Text(
+                        //         AppLocalizations.of(context)
+                        //             .registration_screen_seller_register,
+                        //         style: TextStyle(
+                        //             color: Colors.white,
+                        //             fontSize: 14,
+                        //             fontWeight: FontWeight.w600),
+                        //       ),
+                        //       onPressed: () {
+                        //         Navigator.push(context,
+                        //             MaterialPageRoute(builder: (context) {
+                        //           return CommonWebviewScreen(
+                        //               url: "${AppConfig.RAW_BASE_URL}/shops/create-app",
+                        //               page_name: AppLocalizations.of(context)
+                        //         .registration_screen_become_a_seller, 
+                        //           );
+                        //         }));
+                        //       },
+                        //     ),
+                        //   ),
+                        // ),
                         Padding(
                           padding: const EdgeInsets.only(top: 20.0),
                           child: Center(

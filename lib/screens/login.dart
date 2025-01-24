@@ -560,45 +560,45 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4.0),
-                          child: Container(
-                            height: 45,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: MyTheme.textfield_grey, width: 1),
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(12.0))),
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                minimumSize:
-                                    Size(MediaQuery.of(context).size.width, 50),
-                                //height: 50,
-                                backgroundColor: MyTheme.golden,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(12.0))),
-                              ),
-                              child: Text(
-                                AppLocalizations.of(context)
-                                    .seller_login,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              onPressed: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return CommonWebviewScreen(
-                                      url: "${AppConfig.RAW_BASE_URL}/users/login-app",
-                                      page_name: AppLocalizations.of(context).seller_login, 
-                                  );
-                                }));
-                              },
-                            ),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(top: 4.0),
+                        //   child: Container(
+                        //     height: 45,
+                        //     decoration: BoxDecoration(
+                        //         border: Border.all(
+                        //             color: MyTheme.textfield_grey, width: 1),
+                        //         borderRadius: const BorderRadius.all(
+                        //             Radius.circular(12.0))),
+                        //     child: TextButton(
+                        //       style: TextButton.styleFrom(
+                        //         minimumSize:
+                        //             Size(MediaQuery.of(context).size.width, 50),
+                        //         //height: 50,
+                        //         backgroundColor: MyTheme.golden,
+                        //         shape: RoundedRectangleBorder(
+                        //             borderRadius: const BorderRadius.all(
+                        //                 Radius.circular(12.0))),
+                        //       ),
+                        //       child: Text(
+                        //         AppLocalizations.of(context)
+                        //             .seller_login,
+                        //         style: TextStyle(
+                        //             color: Colors.white,
+                        //             fontSize: 14,
+                        //             fontWeight: FontWeight.w600),
+                        //       ),
+                        //       onPressed: () {
+                        //         Navigator.push(context,
+                        //             MaterialPageRoute(builder: (context) {
+                        //           return CommonWebviewScreen(
+                        //               url: "${AppConfig.RAW_BASE_URL}/users/login-app",
+                        //               page_name: AppLocalizations.of(context).seller_login, 
+                        //           );
+                        //         }));
+                        //       },
+                        //     ),
+                        //   ),
+                        // ),
 
                         Padding(
                           padding: const EdgeInsets.only(top: 20.0),

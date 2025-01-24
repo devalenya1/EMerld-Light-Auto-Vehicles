@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
@@ -23,6 +22,32 @@ class CommonWebviewScreen extends StatefulWidget {
 class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
   InAppWebViewController _webViewController;
   final GlobalKey webViewKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    requestPermissions();
+  }
+
+  Future<void> requestPermissions() async {
+    // Request necessary permissions
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.storage,
+      Permission.camera,
+      Permission.microphone,
+    ].request();
+
+    // Check individual permissions
+    if (statuses[Permission.camera] != PermissionStatus.granted) {
+      debugPrint("Camera permission not granted");
+    }
+    if (statuses[Permission.microphone] != PermissionStatus.granted) {
+      debugPrint("Microphone permission not granted");
+    }
+    if (statuses[Permission.storage] != PermissionStatus.granted) {
+      debugPrint("Storage permission not granted");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,17 +82,30 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
         onWebViewCreated: (controller) {
           _webViewController = controller;
         },
+        androidOnPermissionRequest: (controller, origin, resources) async {
+          if (resources.contains('android.webkit.resource.VIDEO_CAPTURE')) {
+            // Handle camera permission
+            await Permission.camera.request();
+          }
+          if (resources.contains('android.webkit.resource.AUDIO_CAPTURE')) {
+            // Handle microphone permission
+            await Permission.microphone.request();
+          }
+          if (resources.contains('android.webkit.resource.PROTECTED_MEDIA_ID')) {
+            // Handle storage permission
+            await Permission.storage.request();
+          }
+
+          return PermissionRequestResponse(
+            resources: resources,
+            action: PermissionRequestResponseAction.GRANT,
+          );
+        },
         onConsoleMessage: (controller, consoleMessage) {
           debugPrint(consoleMessage.message);
         },
         onReceivedServerTrustAuthRequest: (controller, challenge) async {
           return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
-        },
-        androidOnPermissionRequest: (controller, origin, resources) async {
-          return PermissionRequestResponse(
-            resources: resources,
-            action: PermissionRequestResponseAction.GRANT,
-          );
         },
         onReceivedHttpAuthRequest: (controller, challenge) async {
           return HttpAuthResponse(action: HttpAuthResponseAction.PROCEED);
@@ -79,9 +117,6 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
             retain: true,
           );
         },
-        // onReceivedError: (controller, request, error) {
-        //   debugPrint('Error: ${error.description}');
-        // },
         onLoadStop: (controller, url) async {
           debugPrint('Page finished loading: $url');
         },
@@ -89,7 +124,6 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
           debugPrint('HTTP error: $statusCode, $description');
         },
         onDownloadStart: (controller, url) async {
-          // Handle file download, if required
           debugPrint("Download started: $url");
         },
       ),
@@ -115,20 +149,17 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
     );
   }
 
-  // File picking logic
   Future<List<String>> pickFiles() async {
     try {
       final result = await FilePicker.platform.pickFiles(allowMultiple: false);
       return result?.files.map((file) => file.path ?? "").toList();
     } catch (e) {
       debugPrint("File picking error: $e");
-      return null;
+      return [];
     }
   }
 
-  // Handle file upload using JavaScript and trigger it from the webview
   Future<void> handleFileUpload() async {
-    // Create a JavaScript function to trigger the file input element
     await _webViewController.evaluateJavascript(source: """
       var input = document.createElement('input');
       input.type = 'file';
@@ -142,3 +173,4 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
     """);
   }
 }
+
