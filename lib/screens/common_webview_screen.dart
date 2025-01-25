@@ -23,31 +23,31 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
   InAppWebViewController _webViewController;
   final GlobalKey webViewKey = GlobalKey();
 
-  @override
-  void initState() {
-    super.initState();
-    requestPermissions();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   requestPermissions();
+  // }
 
-  Future<void> requestPermissions() async {
-    // Request necessary permissions
-    Map<Permission, PermissionStatus> statuses = await [
-      Permission.storage,
-      Permission.camera,
-      Permission.microphone,
-    ].request();
+  // Future<void> requestPermissions() async {
+  //   // Request necessary permissions
+  //   Map<Permission, PermissionStatus> statuses = await [
+  //     Permission.storage,
+  //     Permission.camera,
+  //     Permission.microphone,
+  //   ].request();
 
-    // Check individual permissions
-    if (statuses[Permission.camera] != PermissionStatus.granted) {
-      debugPrint("Camera permission not granted");
-    }
-    if (statuses[Permission.microphone] != PermissionStatus.granted) {
-      debugPrint("Microphone permission not granted");
-    }
-    if (statuses[Permission.storage] != PermissionStatus.granted) {
-      debugPrint("Storage permission not granted");
-    }
-  }
+  //   // Check individual permissions
+  //   if (statuses[Permission.camera] != PermissionStatus.granted) {
+  //     debugPrint("Camera permission not granted");
+  //   }
+  //   if (statuses[Permission.microphone] != PermissionStatus.granted) {
+  //     debugPrint("Microphone permission not granted");
+  //   }
+  //   if (statuses[Permission.storage] != PermissionStatus.granted) {
+  //     debugPrint("Storage permission not granted");
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -83,18 +83,18 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
           _webViewController = controller;
         },
         androidOnPermissionRequest: (controller, origin, resources) async {
-          if (resources.contains('android.webkit.resource.VIDEO_CAPTURE')) {
-            // Handle camera permission
-            await Permission.camera.request();
-          }
-          if (resources.contains('android.webkit.resource.AUDIO_CAPTURE')) {
-            // Handle microphone permission
-            await Permission.microphone.request();
-          }
-          if (resources.contains('android.webkit.resource.PROTECTED_MEDIA_ID')) {
-            // Handle storage permission
-            await Permission.storage.request();
-          }
+          // if (resources.contains('android.webkit.resource.VIDEO_CAPTURE')) {
+          //   // Handle camera permission
+          //   await Permission.camera.request();
+          // }
+          // if (resources.contains('android.webkit.resource.AUDIO_CAPTURE')) {
+          //   // Handle microphone permission
+          //   await Permission.microphone.request();
+          // }
+          // if (resources.contains('android.webkit.resource.PROTECTED_MEDIA_ID')) {
+          //   // Handle storage permission
+          //   await Permission.storage.request();
+          // }
 
           return PermissionRequestResponse(
             resources: resources,
@@ -135,15 +135,15 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
       backgroundColor: Colors.white,
       centerTitle: true,
       leading: Builder(
-        // builder: (context) => IconButton(
-        //   icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
-        //   onPressed: () => Navigator.of(context).pop(),
-        // ),
+        builder: (context) => IconButton(
+          icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
-      // title: Text(
-      //   widget.page_name,
-      //   style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
-      // ),
+      title: Text(
+        widget.page_name,
+        style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
+      ),
       elevation: 0.0,
       titleSpacing: 0,
     );
@@ -155,7 +155,7 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
       return result?.files.map((file) => file.path ?? "").toList();
     } catch (e) {
       debugPrint("File picking error: $e");
-      return [];
+      return mull;
     }
   }
 
