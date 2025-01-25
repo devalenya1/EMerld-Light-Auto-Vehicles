@@ -376,7 +376,7 @@ class _ProfileState extends State<Profile> {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return CommonWebviewScreen(
                   url:
-                      "${AppConfig.RAW_BASE_URL}/customer/apply_for_verification/login?email=${user_email.$}",
+                      "${AppConfig.RAW_BASE_URL}/seller-dashboard/login?verify=yes&email=${user_email.$}",
                   page_name: "User Verification", 
                 );
               }));
