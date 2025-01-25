@@ -155,7 +155,7 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
       return result?.files.map((file) => file.path ?? "").toList();
     } catch (e) {
       debugPrint("File picking error: $e");
-      return mull;
+      return null; 
     }
   }
 
