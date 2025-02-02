@@ -1420,4 +1420,3 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 //   }
 // }
 
->>>>>>> c44d5ee5e6552fe76157103e317f3d2b84e5c041
