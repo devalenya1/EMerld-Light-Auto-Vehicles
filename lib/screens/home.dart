@@ -348,62 +348,62 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           ),
                         ),
                       ),
-                      SliverList(
-                        delegate: SliverChildListDelegate([
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(
-                              16.0,
-                              16.0,
-                              16.0,
-                              0.0,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Featured Products",
-                                  //AppLocalizations.of(context)
-                                  //.home_screen_featured_products,
-                                  style: TextStyle(fontSize: 13),
-                                ),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    foregroundColor: Colors.white,
-                                    backgroundColor: Colors.red, // foreground
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Featured()),
-                                    );
-                                  },
-                                  child: Text('See More'),
-                                  // style: TextStyle(fontSize: 7),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                    4.0,
-                                    16.0,
-                                    8.0,
-                                    0.0,
-                                  ),
-                                  child: buildHomeFeaturedProducts(context),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            height: 80,
-                          )
-                        ]),
-                      ),
+                      // SliverList(
+                      //   delegate: SliverChildListDelegate([
+                      //     Padding(
+                      //       padding: const EdgeInsets.fromLTRB(
+                      //         16.0,
+                      //         16.0,
+                      //         16.0,
+                      //         0.0,
+                      //       ),
+                      //       child: Column(
+                      //         crossAxisAlignment: CrossAxisAlignment.start,
+                      //         children: [
+                      //           Text(
+                      //             "Featured Products",
+                      //             //AppLocalizations.of(context)
+                      //             //.home_screen_featured_products,
+                      //             style: TextStyle(fontSize: 13),
+                      //           ),
+                      //           ElevatedButton(
+                      //             style: ElevatedButton.styleFrom(
+                      //               foregroundColor: Colors.white,
+                      //               backgroundColor: Colors.red, // foreground
+                      //             ),
+                      //             onPressed: () {
+                      //               Navigator.push(
+                      //                 context,
+                      //                 MaterialPageRoute(
+                      //                     builder: (context) => Featured()),
+                      //               );
+                      //             },
+                      //             child: Text('See More'),
+                      //             // style: TextStyle(fontSize: 7),
+                      //           ),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //     SingleChildScrollView(
+                      //       child: Column(
+                      //         children: [
+                      //           Padding(
+                      //             padding: const EdgeInsets.fromLTRB(
+                      //               4.0,
+                      //               16.0,
+                      //               8.0,
+                      //               0.0,
+                      //             ),
+                      //             child: buildHomeFeaturedProducts(context),
+                      //           ),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //     Container(
+                      //       height: 80,
+                      //     )
+                      //   ]),
+                      // ),
 
                       /*----- MY ADD STARTS
                       -------
@@ -423,8 +423,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "All Products",
+                                Text( " ",
                                   style: TextStyle(fontSize: 13),
                                 ),
                               ],
@@ -530,46 +529,46 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 --------------
 ------------*/
 
-  buildHomeFeaturedProducts(context) {
-    if (_isProductInitial && _featuredProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _featuredProductScrollController));
-    } else if (_featuredProductList.length > 0) {
-      //snapshot.hasData
+  // buildHomeFeaturedProducts(context) {
+  //   if (_isProductInitial && _featuredProductList.length == 0) {
+  //     return SingleChildScrollView(
+  //         child: ShimmerHelper().buildProductGridShimmer(
+  //             scontroller: _featuredProductScrollController));
+  //   } else if (_featuredProductList.length > 0) {
+  //     //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _featuredProductList.length,
-        //controller: _featuredProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _featuredProductList[index].id,
-              image: _featuredProductList[index].thumbnail_image,
-              name: _featuredProductList[index].name,
-              main_price: _featuredProductList[index].main_price,
-              stroked_price: _featuredProductList[index].stroked_price,
-              has_discount: _featuredProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+  //     return GridView.builder(
+  //       // 2
+  //       //addAutomaticKeepAlives: true,
+  //       itemCount: _featuredProductList.length,
+  //       //controller: _featuredProductScrollController,
+  //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+  //           crossAxisCount: 2,
+  //           crossAxisSpacing: 10,
+  //           mainAxisSpacing: 10,
+  //           childAspectRatio: 0.518),
+  //       padding: EdgeInsets.all(8),
+  //       physics: NeverScrollableScrollPhysics(),
+  //       shrinkWrap: true,
+  //       itemBuilder: (context, index) {
+  //         // 3
+  //         return ProductCard(
+  //             id: _featuredProductList[index].id,
+  //             image: _featuredProductList[index].thumbnail_image,
+  //             name: _featuredProductList[index].name,
+  //             main_price: _featuredProductList[index].main_price,
+  //             stroked_price: _featuredProductList[index].stroked_price,
+  //             has_discount: _featuredProductList[index].has_discount);
+  //       },
+  //     );
+  //   } else if (_totalProductData == 0) {
+  //     return Center(
+  //         child: Text(
+  //             AppLocalizations.of(context).common_no_product_is_available));
+  //   } else {
+  //     return Container(); // should never be happening
+  //   }
+  // }
 
   buildHomeFeaturedCategories(context) {
     if (_isCategoryInitial && _featuredCategoryList.length == 0) {
@@ -1075,349 +1074,349 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
 
 
-class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  ScrollController _featuredProductScrollController;
-  ScrollController _mainScrollController = ScrollController();
+// class _FeaturedState extends State<Featured> with TickerProviderStateMixin {
+//   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+//   ScrollController _featuredProductScrollController;
+//   ScrollController _mainScrollController = ScrollController();
 
-  AnimationController pirated_logo_controller;
-  Animation pirated_logo_animation;
+//   AnimationController pirated_logo_controller;
+//   Animation pirated_logo_animation;
 
-  var _featuredProductList = [];
-  bool _isProductInitial = true;
-  int _totalProductData = 0;
-  int _productPage = 1;
-  bool _showProductLoadingContainer = false;
+//   var _featuredProductList = [];
+//   bool _isProductInitial = true;
+//   int _totalProductData = 0;
+//   int _productPage = 1;
+//   bool _showProductLoadingContainer = false;
 
-  @override
-  void initState() {
-    super.initState();
-    if (AppConfig.purchase_code == "") {
-      initPiratedAnimation();
-    }
+//   @override
+//   void initState() {
+//     super.initState();
+//     if (AppConfig.purchase_code == "") {
+//       initPiratedAnimation();
+//     }
 
-    fetchAll();
+//     fetchAll();
 
-    _mainScrollController.addListener(() {
-      if (_mainScrollController.position.pixels ==
-          _mainScrollController.position.maxScrollExtent) {
-        setState(() {
-          _productPage++;
-        });
-        _showProductLoadingContainer = true;
-        fetchFeaturedProducts();
-      }
-    });
-  }
+//     _mainScrollController.addListener(() {
+//       if (_mainScrollController.position.pixels ==
+//           _mainScrollController.position.maxScrollExtent) {
+//         setState(() {
+//           _productPage++;
+//         });
+//         _showProductLoadingContainer = true;
+//         fetchFeaturedProducts();
+//       }
+//     });
+//   }
 
-  fetchAll() {
-    fetchFeaturedProducts();
-  }
+//   fetchAll() {
+//     fetchFeaturedProducts();
+//   }
 
-  fetchFeaturedProducts() async {
-    var productResponse = await ProductRepository().getFeaturedProducts(
-      page: _productPage,
-    );
+//   fetchFeaturedProducts() async {
+//     var productResponse = await ProductRepository().getFeaturedProducts(
+//       page: _productPage,
+//     );
 
-    _featuredProductList.addAll(productResponse.products);
-    _isProductInitial = false;
-    _totalProductData = productResponse.meta.total;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//     _featuredProductList.addAll(productResponse.products);
+//     _isProductInitial = false;
+//     _totalProductData = productResponse.meta.total;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  reset() {
-    setState(() {});
+//   reset() {
+//     setState(() {});
 
-    resetProductList();
-  }
+//     resetProductList();
+//   }
 
-  Future<void> _onRefresh() async {
-    reset();
-    fetchAll();
-  }
+//   Future<void> _onRefresh() async {
+//     reset();
+//     fetchAll();
+//   }
 
-  resetProductList() {
-    _featuredProductList.clear();
-    _isProductInitial = true;
-    _totalProductData = 0;
-    _productPage = 1;
-    _showProductLoadingContainer = false;
-    setState(() {});
-  }
+//   resetProductList() {
+//     _featuredProductList.clear();
+//     _isProductInitial = true;
+//     _totalProductData = 0;
+//     _productPage = 1;
+//     _showProductLoadingContainer = false;
+//     setState(() {});
+//   }
 
-  initPiratedAnimation() {
-    pirated_logo_controller = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 2000));
-    pirated_logo_animation = Tween(begin: 40.0, end: 60.0).animate(
-        CurvedAnimation(
-            curve: Curves.bounceOut, parent: pirated_logo_controller));
+//   initPiratedAnimation() {
+//     pirated_logo_controller = AnimationController(
+//         vsync: this, duration: Duration(milliseconds: 2000));
+//     pirated_logo_animation = Tween(begin: 40.0, end: 60.0).animate(
+//         CurvedAnimation(
+//             curve: Curves.bounceOut, parent: pirated_logo_controller));
 
-    pirated_logo_controller.addStatusListener((AnimationStatus status) {
-      if (status == AnimationStatus.completed) {
-        pirated_logo_controller.repeat();
-      }
-    });
+//     pirated_logo_controller.addStatusListener((AnimationStatus status) {
+//       if (status == AnimationStatus.completed) {
+//         pirated_logo_controller.repeat();
+//       }
+//     });
 
-    pirated_logo_controller.forward();
-  }
+//     pirated_logo_controller.forward();
+//   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    pirated_logo_controller?.dispose();
-    _mainScrollController.dispose();
-  }
+//   @override
+//   void dispose() {
+//     super.dispose();
+//     pirated_logo_controller?.dispose();
+//     _mainScrollController.dispose();
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
-    //print(MediaQuery.of(context).viewPadding.top);
+//   @override
+//   Widget build(BuildContext context) {
+//     final double statusBarHeight = MediaQuery.of(context).padding.top;
+//     //print(MediaQuery.of(context).viewPadding.top);
 
-    return WillPopScope(
-      onWillPop: () async {
-        //CommonFunctions(context).appExitDialog();
-        return widget.show_back_button;
-      },
-      child: Directionality(
-        textDirection:
-            app_language_rtl.$ ? TextDirection.rtl : TextDirection.ltr,
-        child: Scaffold(
-            key: _scaffoldKey,
-            backgroundColor: Colors.white,
-            appBar: buildAppBar(statusBarHeight, context),
-            drawer: MainDrawer(),
-            body: Stack(
-              children: [
-                RefreshIndicator(
-                  color: MyTheme.accent_color,
-                  backgroundColor: Colors.white,
-                  onRefresh: _onRefresh,
-                  displacement: 0,
-                  child: CustomScrollView(
-                    controller: _mainScrollController,
-                    physics: const BouncingScrollPhysics(
-                        parent: AlwaysScrollableScrollPhysics()),
-                    slivers: <Widget>[
-                      SliverList(
-                        delegate: SliverChildListDelegate([
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(
-                              16.0,
-                              16.0,
-                              16.0,
-                              0.0,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Featured Products",
-                                  style: TextStyle(fontSize: 13),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                    4.0,
-                                    16.0,
-                                    8.0,
-                                    0.0,
-                                  ),
-                                  child: buildHomeFeaturedProducts(context),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            height: 80,
-                          )
-                        ]),
-                      ),
-                    ],
-                  ),
-                ),
-                Align(
-                    alignment: Alignment.center,
-                    child: buildProductLoadingContainer())
-              ],
-            )),
-      ),
-    );
-  }
+//     return WillPopScope(
+//       onWillPop: () async {
+//         //CommonFunctions(context).appExitDialog();
+//         return widget.show_back_button;
+//       },
+//       child: Directionality(
+//         textDirection:
+//             app_language_rtl.$ ? TextDirection.rtl : TextDirection.ltr,
+//         child: Scaffold(
+//             key: _scaffoldKey,
+//             backgroundColor: Colors.white,
+//             appBar: buildAppBar(statusBarHeight, context),
+//             drawer: MainDrawer(),
+//             body: Stack(
+//               children: [
+//                 RefreshIndicator(
+//                   color: MyTheme.accent_color,
+//                   backgroundColor: Colors.white,
+//                   onRefresh: _onRefresh,
+//                   displacement: 0,
+//                   child: CustomScrollView(
+//                     controller: _mainScrollController,
+//                     physics: const BouncingScrollPhysics(
+//                         parent: AlwaysScrollableScrollPhysics()),
+//                     slivers: <Widget>[
+//                       SliverList(
+//                         delegate: SliverChildListDelegate([
+//                           Padding(
+//                             padding: const EdgeInsets.fromLTRB(
+//                               16.0,
+//                               16.0,
+//                               16.0,
+//                               0.0,
+//                             ),
+//                             child: Column(
+//                               crossAxisAlignment: CrossAxisAlignment.start,
+//                               children: [
+//                                 Text(
+//                                   "Featured Products",
+//                                   style: TextStyle(fontSize: 13),
+//                                 ),
+//                               ],
+//                             ),
+//                           ),
+//                           SingleChildScrollView(
+//                             child: Column(
+//                               children: [
+//                                 Padding(
+//                                   padding: const EdgeInsets.fromLTRB(
+//                                     4.0,
+//                                     16.0,
+//                                     8.0,
+//                                     0.0,
+//                                   ),
+//                                   child: buildHomeFeaturedProducts(context),
+//                                 ),
+//                               ],
+//                             ),
+//                           ),
+//                           Container(
+//                             height: 80,
+//                           )
+//                         ]),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//                 Align(
+//                     alignment: Alignment.center,
+//                     child: buildProductLoadingContainer())
+//               ],
+//             )),
+//       ),
+//     );
+//   }
 
-  buildHomeFeaturedProducts(context) {
-    if (_isProductInitial && _featuredProductList.length == 0) {
-      return SingleChildScrollView(
-          child: ShimmerHelper().buildProductGridShimmer(
-              scontroller: _featuredProductScrollController));
-    } else if (_featuredProductList.length > 0) {
-      //snapshot.hasData
+//   buildHomeFeaturedProducts(context) {
+//     if (_isProductInitial && _featuredProductList.length == 0) {
+//       return SingleChildScrollView(
+//           child: ShimmerHelper().buildProductGridShimmer(
+//               scontroller: _featuredProductScrollController));
+//     } else if (_featuredProductList.length > 0) {
+//       //snapshot.hasData
 
-      return GridView.builder(
-        // 2
-        //addAutomaticKeepAlives: true,
-        itemCount: _featuredProductList.length,
-        //controller: _featuredProductScrollController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.518),
-        padding: EdgeInsets.all(8),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          // 3
-          return ProductCard(
-              id: _featuredProductList[index].id,
-              image: _featuredProductList[index].thumbnail_image,
-              name: _featuredProductList[index].name,
-              main_price: _featuredProductList[index].main_price,
-              stroked_price: _featuredProductList[index].stroked_price,
+//       return GridView.builder(
+//         // 2
+//         //addAutomaticKeepAlives: true,
+//         itemCount: _featuredProductList.length,
+//         //controller: _featuredProductScrollController,
+//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//             crossAxisCount: 2,
+//             crossAxisSpacing: 10,
+//             mainAxisSpacing: 10,
+//             childAspectRatio: 0.518),
+//         padding: EdgeInsets.all(8),
+//         physics: NeverScrollableScrollPhysics(),
+//         shrinkWrap: true,
+//         itemBuilder: (context, index) {
+//           // 3
+//           return ProductCard(
+//               id: _featuredProductList[index].id,
+//               image: _featuredProductList[index].thumbnail_image,
+//               name: _featuredProductList[index].name,
+//               main_price: _featuredProductList[index].main_price,
+//               stroked_price: _featuredProductList[index].stroked_price,
 
-              has_discount: _featuredProductList[index].has_discount);
-        },
-      );
-    } else if (_totalProductData == 0) {
-      return Center(
-          child: Text(
-              AppLocalizations.of(context).common_no_product_is_available));
-    } else {
-      return Container(); // should never be happening
-    }
-  }
+//               has_discount: _featuredProductList[index].has_discount);
+//         },
+//       );
+//     } else if (_totalProductData == 0) {
+//       return Center(
+//           child: Text(
+//               AppLocalizations.of(context).common_no_product_is_available));
+//     } else {
+//       return Container(); // should never be happening
+//     }
+//   }
 
-  AppBar buildAppBar(double statusBarHeight, BuildContext context) {
-    // return AppBar(
-    //   backgroundColor: Colors.white,
-    //   leading: GestureDetector(
-    //     onTap: () {
-    //       _scaffoldKey.currentState.openDrawer();
-    //     },
-    //     child: widget.show_back_button
-    //         ? Builder(
-    //             builder: (context) => IconButton(
-    //                 icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
-    //                 onPressed: () {
-    //                   if (!widget.go_back) {
-    //                     return;
-    //                   }
-    //                   return Navigator.of(context).pop();
-    //                 }),
-    //           )
-    //         : Builder(
-    //             builder: (context) => Padding(
-    //               padding: const EdgeInsets.symmetric(
-    //                   vertical: 18.0, horizontal: 0.0),
-    //               child: Container(
-    //                 child: Image.asset(
-    //                   'assets/hamburger.png',
-    //                   height: 16,
-    //                   //color: MyTheme.dark_grey,
-    //                   color: MyTheme.dark_grey,
-    //                 ),
-    //               ),
-    //             ),
-    //           ),
-    //   ),
-    //   title: Container(
-    //     height: kToolbarHeight +
-    //         statusBarHeight -
-    //         (MediaQuery.of(context).viewPadding.top > 40 ? 16.0 : 16.0),
-    //     //MediaQuery.of(context).viewPadding.top is the statusbar height, with a notch phone it results almost 50, without a notch it shows 24.0.For safety we have checked if its greater than thirty
-    //     child: Container(
-    //       child: Padding(
-    //           padding: app_language_rtl.$
-    //               ? const EdgeInsets.only(top: 14.0, bottom: 14, left: 12)
-    //               : const EdgeInsets.only(top: 14.0, bottom: 14, right: 12),
-    //           // when notification bell will be shown , the right padding will cease to exist.
-    //           child: GestureDetector(
-    //               onTap: () {
-    //                 Navigator.push(context,
-    //                     MaterialPageRoute(builder: (context) {
-    //                   return Filter();
-    //                 }));
-    //               },
-    //               child: buildHomeSearchBox(context))),
-    //     ),
-    //   ),
-    //   elevation: 0.0,
-    //   titleSpacing: 0,
-    //   actions: <Widget>[
-    //     InkWell(
-    //       onTap: () {
-    //         ToastComponent.showDialog(
-    //             AppLocalizations.of(context).common_coming_soon,
-    //             gravity: Toast.center,
-    //             duration: Toast.lengthLong);
-    //       },
-    //       child: Visibility(
-    //         visible: false,
-    //         child: Padding(
-    //           padding:
-    //               const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
-    //           child: Image.asset(
-    //             'assets/bell.png',
-    //             height: 16,
-    //             color: MyTheme.dark_grey,
-    //           ),
-    //         ),
-    //       ),
-    //     ),
-    //   ],
-    // );
-  }
+//   AppBar buildAppBar(double statusBarHeight, BuildContext context) {
+//     // return AppBar(
+//     //   backgroundColor: Colors.white,
+//     //   leading: GestureDetector(
+//     //     onTap: () {
+//     //       _scaffoldKey.currentState.openDrawer();
+//     //     },
+//     //     child: widget.show_back_button
+//     //         ? Builder(
+//     //             builder: (context) => IconButton(
+//     //                 icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+//     //                 onPressed: () {
+//     //                   if (!widget.go_back) {
+//     //                     return;
+//     //                   }
+//     //                   return Navigator.of(context).pop();
+//     //                 }),
+//     //           )
+//     //         : Builder(
+//     //             builder: (context) => Padding(
+//     //               padding: const EdgeInsets.symmetric(
+//     //                   vertical: 18.0, horizontal: 0.0),
+//     //               child: Container(
+//     //                 child: Image.asset(
+//     //                   'assets/hamburger.png',
+//     //                   height: 16,
+//     //                   //color: MyTheme.dark_grey,
+//     //                   color: MyTheme.dark_grey,
+//     //                 ),
+//     //               ),
+//     //             ),
+//     //           ),
+//     //   ),
+//     //   title: Container(
+//     //     height: kToolbarHeight +
+//     //         statusBarHeight -
+//     //         (MediaQuery.of(context).viewPadding.top > 40 ? 16.0 : 16.0),
+//     //     //MediaQuery.of(context).viewPadding.top is the statusbar height, with a notch phone it results almost 50, without a notch it shows 24.0.For safety we have checked if its greater than thirty
+//     //     child: Container(
+//     //       child: Padding(
+//     //           padding: app_language_rtl.$
+//     //               ? const EdgeInsets.only(top: 14.0, bottom: 14, left: 12)
+//     //               : const EdgeInsets.only(top: 14.0, bottom: 14, right: 12),
+//     //           // when notification bell will be shown , the right padding will cease to exist.
+//     //           child: GestureDetector(
+//     //               onTap: () {
+//     //                 Navigator.push(context,
+//     //                     MaterialPageRoute(builder: (context) {
+//     //                   return Filter();
+//     //                 }));
+//     //               },
+//     //               child: buildHomeSearchBox(context))),
+//     //     ),
+//     //   ),
+//     //   elevation: 0.0,
+//     //   titleSpacing: 0,
+//     //   actions: <Widget>[
+//     //     InkWell(
+//     //       onTap: () {
+//     //         ToastComponent.showDialog(
+//     //             AppLocalizations.of(context).common_coming_soon,
+//     //             gravity: Toast.center,
+//     //             duration: Toast.lengthLong);
+//     //       },
+//     //       child: Visibility(
+//     //         visible: false,
+//     //         child: Padding(
+//     //           padding:
+//     //               const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
+//     //           child: Image.asset(
+//     //             'assets/bell.png',
+//     //             height: 16,
+//     //             color: MyTheme.dark_grey,
+//     //           ),
+//     //         ),
+//     //       ),
+//     //     ),
+//     //   ],
+//     // );
+//   }
 
-  buildHomeSearchBox(BuildContext context) {
-    return TextField(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return Filter();
-        }));
-      },
-      autofocus: false,
-      decoration: InputDecoration(
-          hintText: AppLocalizations.of(context).home_screen_search,
-          hintStyle: TextStyle(fontSize: 12.0, color: MyTheme.textfield_grey),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: MyTheme.textfield_grey, width: 0.5),
-            borderRadius: const BorderRadius.all(
-              const Radius.circular(16.0),
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: MyTheme.textfield_grey, width: 1.0),
-            borderRadius: const BorderRadius.all(
-              const Radius.circular(16.0),
-            ),
-          ),
-          prefixIcon: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.search,
-              color: MyTheme.textfield_grey,
-              size: 20,
-            ),
-          ),
-          contentPadding: EdgeInsets.all(0.0)),
-    );
-  }
+//   buildHomeSearchBox(BuildContext context) {
+//     return TextField(
+//       onTap: () {
+//         Navigator.push(context, MaterialPageRoute(builder: (context) {
+//           return Filter();
+//         }));
+//       },
+//       autofocus: false,
+//       decoration: InputDecoration(
+//           hintText: AppLocalizations.of(context).home_screen_search,
+//           hintStyle: TextStyle(fontSize: 12.0, color: MyTheme.textfield_grey),
+//           enabledBorder: OutlineInputBorder(
+//             borderSide: BorderSide(color: MyTheme.textfield_grey, width: 0.5),
+//             borderRadius: const BorderRadius.all(
+//               const Radius.circular(16.0),
+//             ),
+//           ),
+//           focusedBorder: OutlineInputBorder(
+//             borderSide: BorderSide(color: MyTheme.textfield_grey, width: 1.0),
+//             borderRadius: const BorderRadius.all(
+//               const Radius.circular(16.0),
+//             ),
+//           ),
+//           prefixIcon: Padding(
+//             padding: const EdgeInsets.all(8.0),
+//             child: Icon(
+//               Icons.search,
+//               color: MyTheme.textfield_grey,
+//               size: 20,
+//             ),
+//           ),
+//           contentPadding: EdgeInsets.all(0.0)),
+//     );
+//   }
 
-  Container buildProductLoadingContainer() {
-    return Container(
-      height: _showProductLoadingContainer ? 36 : 0,
-      width: double.infinity,
-      color: Colors.white,
-      child: Center(
-        child: Text(_totalProductData == _featuredProductList.length
-            ? AppLocalizations.of(context).common_no_more_products
-            : AppLocalizations.of(context).common_loading_more_products),
-      ),
-    );
-  }
-}
+//   Container buildProductLoadingContainer() {
+//     return Container(
+//       height: _showProductLoadingContainer ? 36 : 0,
+//       width: double.infinity,
+//       color: Colors.white,
+//       child: Center(
+//         child: Text(_totalProductData == _featuredProductList.length
+//             ? AppLocalizations.of(context).common_no_more_products
+//             : AppLocalizations.of(context).common_loading_more_products),
+//       ),
+//     );
+//   }
+// }

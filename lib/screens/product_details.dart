@@ -2059,6 +2059,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                       },
                     ),
                   ),
+                  SizedBox(
+                    width: 1,
+                  ),
                   Expanded(
                     child: TextButton(
                       style: TextButton.styleFrom(
@@ -2283,6 +2286,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                         onPressBuyNow(context);
                       },
                     ),
+                  ),
+                  SizedBox(
+                    width: 1,
                   ),
                   Expanded(
                     child: TextButton(
