@@ -1,7 +1,6 @@
 import '../my_theme.dart';
 import 'package:flutter/material.dart';
 import '../screens/product_details.dart';
-// import '../screens/product_details.dart';
 
 class ProductCard extends StatefulWidget {
   int id;
@@ -20,7 +19,7 @@ class ProductCard extends StatefulWidget {
       this.main_price,
       this.stroked_price,
       this.has_discount,
-      this.productDetails,
+      this.productDetails})
       : super(key: key);
 
   @override
