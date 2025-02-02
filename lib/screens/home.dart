@@ -29,7 +29,7 @@ import 'flash_deal_list.dart';
 
 
 
-
+/*
 class Featured extends StatefulWidget {
   Featured({Key key, this.title, this.show_back_button = true, go_back = false})
       : super(key: key);
@@ -40,7 +40,7 @@ class Featured extends StatefulWidget {
 
   @override
   _FeaturedState createState() => _FeaturedState();
-}
+}*/
 
 class Home extends StatefulWidget {
   Home({Key key, this.title, this.show_back_button = false, go_back = true})
@@ -66,7 +66,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   int _current_slider = 0;
-  ScrollController _featuredProductScrollController;
+ // ScrollController _featuredProductScrollController;
   ScrollController _allProductScrollController;
   ScrollController _mainScrollController = ScrollController();
 
@@ -75,7 +75,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   var _carouselImageList = [];
   var _featuredCategoryList = [];
-  var _featuredProductList = [];
+  // var _featuredProductList = [];
   var _allProductList = [];
   bool _isProductInitial = true;
   bool _isCategoryInitial = true;
@@ -116,7 +116,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   fetchAll() {
     fetchCarouselImages();
     fetchFeaturedCategories();
-    fetchFeaturedProducts();
+   // fetchFeaturedProducts();
     fetchAllProducts();
   }
 
@@ -136,7 +136,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     setState(() {});
   }
 
-  fetchFeaturedProducts() async {
+/*  fetchFeaturedProducts() async {
     var productResponse = await ProductRepository().getFeaturedProducts(
       page: _productPage,
     );
@@ -146,7 +146,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     _totalProductData = productResponse.meta.total;
     _showProductLoadingContainer = false;
     setState(() {});
-  }
+  }*/
 
 
 
@@ -179,7 +179,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 
   resetProductList() {
-    _featuredProductList.clear();
+  //  _featuredProductList.clear();
     _allProductList.clear();
     _isProductInitial = true;
     _totalProductData = 0;
