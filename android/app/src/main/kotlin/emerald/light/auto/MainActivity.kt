@@ -1,4 +1,4 @@
-package com.airsoftauctions.app
+package emerald.light.auto
 
 import io.flutter.embedding.android.FlutterActivity
 import android.app.Activity

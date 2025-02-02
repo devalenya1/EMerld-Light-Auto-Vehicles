@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "532943347288",
-    "project_id": "airsoft-auctions-8d89e",
-    "storage_bucket": "airsoft-auctions-8d89e.appspot.com"
+    "project_number": "829862601268",
+    "project_id": "emerald-light-auto",
+    "storage_bucket": "emerald-light-auto.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:532943347288:android:1be06beca2de2493d3f42d",
+        "mobilesdk_app_id": "1:829862601268:android:8e8a8cfe45e771eedba061",
         "android_client_info": {
-          "package_name": "com.airsoftauctions.app"
+          "package_name": "emerald.light.auto"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "532943347288-o1fun3836attl13r203gcucqa85k536l.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAgmers6KZapt8vCdTUK4mWideulTQQlPA"
+          "current_key": "AIzaSyAC7y-HbJGbowfRJf47Ab6-Sm9LaHtHxXM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "532943347288-o1fun3836attl13r203gcucqa85k536l.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
