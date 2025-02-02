@@ -62,12 +62,12 @@ class _ProductCardState extends State<ProductCard> {
                         fit: BoxFit.cover,
                       ))),
               Container(
-                height: 170,
+                height: 20,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                         Container(
-                            height: 80,
+                            height: 10,
                             width: double.infinity,
                             child: FittedBox(
                                 fit: BoxFit.scaleDown,
