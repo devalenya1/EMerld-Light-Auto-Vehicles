@@ -69,16 +69,5 @@ class ShopRepository {
     return productMiniResponseFromJson(response.body);
   }
 
-  Future<ProductMiniResponse> getAuctionFromThisSellerProducts(
-      {int id = 0}) async {
-    Uri url = Uri.parse(
-        "${AppConfig.BASE_URL}/shops/products/auction/" + id.toString());
-    final response = await http.get(
-      url,
-      headers: {
-        "App-Language": app_language.$,
-      },
-    );
-    return productMiniResponseFromJson(response.body);
-  }
+  
 }

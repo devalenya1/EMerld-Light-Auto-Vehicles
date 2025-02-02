@@ -10,8 +10,6 @@ class ProductCard extends StatefulWidget {
   String main_price;
   String stroked_price;
   bool has_discount;
-  bool isAuction;
-  //bool buyToWinProducts;
   var productDetails;
 
   ProductCard(
@@ -23,8 +21,6 @@ class ProductCard extends StatefulWidget {
       this.stroked_price,
       this.has_discount,
       this.productDetails,
-      //this.buyToWinProducts = false,
-      this.isAuction = false})
       : super(key: key);
 
   @override
@@ -40,13 +36,10 @@ class _ProductCardState extends State<ProductCard> {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return ProductDetails(
             id: widget.id,
-            isAuction: widget.isAuction,
-            //buyToWinProducts: widget.buyToWinProducts,
           );
         }));
       },
       child: Card(
-        //clipBehavior: Clip.antiAliasWithSaveLayer,
         shape: RoundedRectangleBorder(
           side: new BorderSide(color: MyTheme.light_grey, width: 1.0),
           borderRadius: BorderRadius.circular(16.0),
@@ -69,27 +62,13 @@ class _ProductCardState extends State<ProductCard> {
                         image: widget.image,
                         fit: BoxFit.cover,
                       ))),
-              // Container(
-              //   width: double.infinity,
-              //   // height: 100,
-              //   // color: Colors.red,
-              //   child: FittedBox(
-              //     fit: BoxFit.fitWidth,
-              //     child: buildTimer(widget.productDetails,
-              //         widget.isAuction, widget.buyToWinProducts),
-              //   ),
-              // ),
               Container(
                 height:
-                    widget.isAuction == true //|| widget.buyToWinProducts == true
-                        // widget.isAuction == true
                         ? 170
                         : 90,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    widget.isAuction == true //|| widget.buyToWinProducts == true
-                        // widget.isAuction == true
                         ? Container(
                             height: 80,
                             width: double.infinity,
@@ -98,12 +77,6 @@ class _ProductCardState extends State<ProductCard> {
                                 fit: BoxFit.scaleDown,
                                 child: buildTimer(
                                   widget.productDetails,
-                                  widget.isAuction, //widget.buyToWinProducts,
-                                  // auctionStatus: false,
-                                  // buyToWinStatus: false,
-                                  // normalProduct: false,
-                                  // voucherDateStatus: false,
-                                  // raffelStatus: true,
                                 )),
                           )
                         : SizedBox(),

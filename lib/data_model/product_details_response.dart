@@ -53,21 +53,12 @@ class DetailedProduct {
       this.colors,
       this.has_discount,
       this.stroked_price,
-      //this.voucher_end_date,
-      this.buytowin_end_date,
-      this.buytowin_description,
-      this.auction_end_date,
-      this.auction_product,
-      this.voucher_product,
-      this.buytowin_product,
-      this.starting_bid,
       this.main_price,
       this.calculable_price,
       this.currency_symbol,
       this.current_stock,
       this.current_stock_fixed,
       this.unit,
-      this.verified,
       this.rating,
       this.rating_count,
       this.earn_point,
@@ -90,17 +81,8 @@ class DetailedProduct {
   List<ChoiceOption> choice_options;
   List<dynamic> colors;
   bool has_discount;
-  //String voucher_end_date;
-  String buytowin_end_date;
-  String buytowin_description;
-  String voucher_product;
-  String buytowin_product;
-  String auction_product;
-  String starting_bid;
-  String auction_end_date;
   String stroked_price;
   String main_price;
-  String verified;
   var calculable_price;
   String currency_symbol;
   int current_stock;
@@ -133,15 +115,6 @@ class DetailedProduct {
         has_discount: json["has_discount"],
         stroked_price: json["stroked_price"],
         main_price: json["main_price"],
-        buytowin_end_date: json["buytowin_end_date"],
-        buytowin_description: json["buytowin_description"],
-        //voucher_end_date: json["voucher_end_date"],
-        voucher_product: json["voucher_product"],
-        buytowin_product: json["buytowin_product"],
-        verified: json["verified"],
-        auction_product: json["auction_product"],
-        auction_end_date: json["auction_end_date"],
-        starting_bid: json["starting_bid"],
         calculable_price: json["calculable_price"],
         currency_symbol: json["currency_symbol"],
         current_stock: json["current_stock"],
@@ -166,7 +139,6 @@ class DetailedProduct {
         "shop_id": shop_id,
         "shop_name": shop_name,
         "shop_logo": shop_logo,
-        "verified": verified,
         "photos": List<dynamic>.from(photos.map((x) => x.toJson())),
         "thumbnail_image": thumbnail_image,
         "tags": List<dynamic>.from(tags.map((x) => x)),
@@ -177,14 +149,6 @@ class DetailedProduct {
         "has_discount": has_discount,
         "stroked_price": stroked_price,
         "main_price": main_price,
-        //"voucher_end_date": voucher_end_date,
-        "buytowin_end_date": buytowin_end_date,
-        "buytowin_description": buytowin_description,
-        "voucher_product": voucher_product,
-        "auction_product": auction_product,
-        "buytowin_product": buytowin_product,
-        "auction_end_date": auction_end_date,
-        "starting_bid": starting_bid,
         "calculable_price": calculable_price,
         "currency_symbol": currency_symbol,
         "current_stock": current_stock,

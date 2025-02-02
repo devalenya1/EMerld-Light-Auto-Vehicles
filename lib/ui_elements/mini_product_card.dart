@@ -9,8 +9,6 @@ class MiniProductCard extends StatefulWidget {
   String main_price;
   String stroked_price;
   bool has_discount;
-  bool isAuction;
-  //bool buyToWinProducts;
 
   MiniProductCard(
       {Key key,
@@ -20,8 +18,6 @@ class MiniProductCard extends StatefulWidget {
       this.main_price,
       this.stroked_price,
       this.has_discount,
-      this.isAuction,
-      //this.buyToWinProducts
       })
       : super(key: key);
 
@@ -35,12 +31,8 @@ class _MiniProductCardState extends State<MiniProductCard> {
     return InkWell(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          // log("Auction filter ${widget.isAuction}");
-          // log("buyToWIn filter  ${widget.buyToWinProducts}");
           return ProductDetails(
             id: widget.id,
-            isAuction: widget.isAuction,
-            //buyToWinProducts: widget.buyToWinProducts,
           );
         }));
       },

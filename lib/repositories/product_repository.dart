@@ -18,18 +18,8 @@ class ProductRepository {
     return productMiniResponseFromJson(response.body);
   }
 
-  /*------
-  --------
-  --------
-  --------*/
-  Future<ProductMiniResponse> getAuctionProducts({page = 1}) async {
-    Uri url = Uri.parse("${AppConfig.BASE_URL}/products/auction?page=${page}");
-    final response = await http.get(url, headers: {
-      "App-Language": app_language.$,
-    });
-    return productMiniResponseFromJson(response.body);
-  }
 
+  
   Future<ProductMiniResponse> getAllProducts({page = 1}) async {
     Uri url = Uri.parse("${AppConfig.BASE_URL}/products?page=${page}");
     final response = await http.get(url, headers: {
