@@ -69,13 +69,12 @@ class _ProductCardState extends State<ProductCard> {
                         Container(
                             height: 80,
                             width: double.infinity,
-                            // color: Colors.red,
                             child: FittedBox(
                                 fit: BoxFit.scaleDown,
-                                child:widget.productDetails,
+                                child: widget.productDetails,
                                 ),
-                          )
-                        : SizedBox(),
+                          ),
+                        // : SizedBox(),
                     Padding(
                       padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
                       child: Text(
