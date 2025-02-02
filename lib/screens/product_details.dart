@@ -906,22 +906,22 @@ class _ProductDetailsState extends State<ProductDetails> {
                           ),
                   ),
                 ),
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                      16.0,
-                      8.0,
-                      16.0,
-                      0.0,
-                    ),
-                    child: _productDetails != null
-                        ? buildQuantityRow()
-                        : ShimmerHelper().buildBasicShimmer(
-                            height: 30.0,
-                          ),
-                  ),
-                ])),
+                // SliverList(
+                //     delegate: SliverChildListDelegate([
+                //   Padding(
+                //     padding: const EdgeInsets.fromLTRB(
+                //       16.0,
+                //       8.0,
+                //       16.0,
+                //       0.0,
+                //     ),
+                //     child: _productDetails != null
+                //         ? buildQuantityRow()
+                //         : ShimmerHelper().buildBasicShimmer(
+                //             height: 30.0,
+                //           ),
+                //   ),
+                // ])),
                 SliverList(
                     delegate: SliverChildListDelegate([
                   Padding(
@@ -2115,7 +2115,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontWeight: FontWeight.w600),
                       ),
                       onPressed: () {
-                        onPressBuyNow(context);
                         // final controller = TextEditingController();
                         // final productDetailsController =
                         //     ProductDetailController();

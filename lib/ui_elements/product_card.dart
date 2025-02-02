@@ -66,14 +66,14 @@ class _ProductCardState extends State<ProductCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                        Container(
-                            height: 10,
-                            width: double.infinity,
-                            child: FittedBox(
-                                fit: BoxFit.scaleDown,
-                                child: widget.productDetails,
-                                ),
-                          ),
+                        // Container(
+                        //     // height: 10,
+                        //     width: double.infinity,
+                        //     child: FittedBox(
+                        //         fit: BoxFit.scaleDown,
+                        //         child: widget.productDetails,
+                        //         ),
+                        //   ),
                         // : SizedBox(),
                     Padding(
                       padding: EdgeInsets.fromLTRB(16, 8, 16, 0),

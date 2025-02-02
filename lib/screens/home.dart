@@ -1,5 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, must_be_immutable
-
+// ignore_for_file: non_constant_identifier_names,
 import 'dart:developer';
 
 import 'package:SAFAQAT/screens/todays_deal_products.dart';
@@ -1420,3 +1419,5 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 //     );
 //   }
 // }
+
+>>>>>>> c44d5ee5e6552fe76157103e317f3d2b84e5c041
