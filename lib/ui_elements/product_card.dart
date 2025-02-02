@@ -63,20 +63,19 @@ class _ProductCardState extends State<ProductCard> {
                       ))),
               Container(
                 height:
-                        ? 170
+                        170
                         : 90,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                        ? Container(
+                        Container(
                             height: 80,
                             width: double.infinity,
                             // color: Colors.red,
                             child: FittedBox(
                                 fit: BoxFit.scaleDown,
-                                child: buildTimer(
-                                  widget.productDetails,
-                                )),
+                                child:widget.productDetails,
+                                ),
                           )
                         : SizedBox(),
                     Padding(
