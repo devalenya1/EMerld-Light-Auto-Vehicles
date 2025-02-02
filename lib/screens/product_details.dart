@@ -2122,9 +2122,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text('Bid for Product (Min Bid Amound: ' +
-                                          _productDetails.starting_bid +
-                                          " )"),
+                                      Text('Bid for Product (Min Bid Amound: 100)'),
+                                      // Text('Bid for Product (Min Bid Amound: ' +
+                                      //     _productDetails.starting_bid +
+                                      //     " )"),
                                       Divider(
                                         height: 2,
                                       ),
@@ -2194,9 +2195,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                                                       .toString()) &&
                                                   double.parse(controller.text
                                                           .toString()) >
-                                                      double.parse(
-                                                          _productDetails
-                                                              .starting_bid)) {
+                                                      // double.parse(
+                                                      //     _productDetails
+                                                      //         .starting_bid)
+                                                              ) {
                                                 Uri url2 = Uri.parse(
                                                   "${AppConfig.BASE_URL}/products/bid",
                                                 );
