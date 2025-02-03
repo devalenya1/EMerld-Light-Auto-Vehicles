@@ -2097,7 +2097,15 @@ class _ProductDetailsState extends State<ProductDetails> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
+                  InkWell(
+                    onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return CommonWebviewScreen(
+                            url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=buy&product_id=${_productDetails.id}&email=${user_email.$}",
+                            page_name: "Buy Vehicle", 
+                          );
+                        }));
+                    },
                     child: TextButton(
                       style: TextButton.styleFrom(
                         minimumSize: Size(
@@ -2114,28 +2122,55 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontSize: 16,
                             fontWeight: FontWeight.w600),
                       ),
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=buy&product_id=${_productDetails.id}&email=${user_email.$}",
-                            page_name: "User Verification", 
-                          );
-                        }));
-                      },
                     ),
                   ),
+
+                  // Expanded(
+                  //   child: TextButton(
+                  //     style: TextButton.styleFrom(
+                  //       minimumSize: Size(
+                  //           MediaQuery.of(context).size.width / 2 - .5, 50),
+                  //       backgroundColor: MyTheme.golden,
+                  //       disabledBackgroundColor: Colors.grey,
+                  //       shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(8.0),
+                  //       ),
+                  //     ),
+                  //     child: Text("Deal",
+                  //       style: TextStyle(
+                  //           color: Colors.white,
+                  //           fontSize: 16,
+                  //           fontWeight: FontWeight.w600),
+                  //     ),
+                  //     onPressed: () {
+                  //       Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //         return CommonWebviewScreen(
+                  //           url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=buy&product_id=${_productDetails.id}&email=${user_email.$}",
+                  //           page_name: "User Verification", 
+                  //         );
+                  //       }));
+                  //     },
+                  //   ),
+                  // ),
                   SizedBox(
                     width: 1,
                   ),
-
-                  //BUY NOW STARTS
-                  Expanded(
+                                    
+                  InkWell(
+                    onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return CommonWebviewScreen(
+                            url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=lending&product_id=${_productDetails.id}&email=${user_email.$}",
+                            page_name: "Get Funding For Vehicle", 
+                          );
+                        }));
+                    },
                     child: TextButton(
                       style: TextButton.styleFrom(
                         minimumSize: Size(
-                            MediaQuery.of(context).size.width / 2 - .55, 50),
-                        backgroundColor: MyTheme.accent_color,
-                        // padding: EdgeInsets.all(0),
+                            MediaQuery.of(context).size.width / 2 - .5, 50),
+                        backgroundColor: MyTheme.golden,
+                        disabledBackgroundColor: Colors.grey,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),
@@ -2146,25 +2181,56 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontSize: 16,
                             fontWeight: FontWeight.w600),
                       ),
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=lending&product_id=${_productDetails.id}&email=${user_email.$}",
-                            page_name: "Get Funding For Vehicle", 
-                          );
-                        }));
-                      },
                     ),
                   ),
+
+                  // //BUY NOW STARTS
+                  // Expanded(
+                  //   child: TextButton(
+                  //     style: TextButton.styleFrom(
+                  //       minimumSize: Size(
+                  //           MediaQuery.of(context).size.width / 2 - .55, 50),
+                  //       backgroundColor: MyTheme.accent_color,
+                  //       // padding: EdgeInsets.all(0),
+                  //       shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(8.0),
+                  //       ),
+                  //     ),
+                  //     child: Text("Lending",
+                  //       style: TextStyle(
+                  //           color: Colors.white,
+                  //           fontSize: 16,
+                  //           fontWeight: FontWeight.w600),
+                  //     ),
+                  //     onPressed: () {
+                  //       Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //         return CommonWebviewScreen(
+                  //           url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=lending&product_id=${_productDetails.id}&email=${user_email.$}",
+                  //           page_name: "Get Funding For Vehicle", 
+                  //         );
+                  //       }));
+                  //     },
+                  //   ),
+                  // ),
                   SizedBox(
                     width: 1,
                   ),
-                  Expanded(
+                                    
+                  InkWell(
+                    onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return CommonWebviewScreen(
+                            url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=insurance&product_id=${_productDetails.id}&email=${user_email.$}",
+                            page_name: "Vehicle Insurance", 
+                          );
+                        }));
+                    },
                     child: TextButton(
                       style: TextButton.styleFrom(
                         minimumSize: Size(
-                            MediaQuery.of(context).size.width / 2 - .55, 50),
-                        backgroundColor: MyTheme.accent_color,
+                            MediaQuery.of(context).size.width / 2 - .5, 50),
+                        backgroundColor: MyTheme.golden,
+                        disabledBackgroundColor: Colors.grey,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),
@@ -2175,16 +2241,36 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontSize: 16,
                             fontWeight: FontWeight.w600),
                       ),
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=insurance&product_id=${_productDetails.id}&email=${user_email.$}",
-                            page_name: "Vehicle Insurance", 
-                          );
-                        }));
-                      },
                     ),
-                  )
+                  ),
+
+                  // Expanded(
+                  //   child: TextButton(
+                  //     style: TextButton.styleFrom(
+                  //       minimumSize: Size(
+                  //           MediaQuery.of(context).size.width / 2 - .55, 50),
+                  //       backgroundColor: MyTheme.accent_color,
+                  //       shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(8.0),
+                  //       ),
+                  //     ),
+                  //     child: Text("Insure",
+                  //       style: TextStyle(
+                  //           color: Colors.white,
+                  //           fontSize: 16,
+                  //           fontWeight: FontWeight.w600),
+                  //     ),
+                  //     onPressed: () {
+                  //       Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //         return CommonWebviewScreen(
+                  //           url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=insurance&product_id=${_productDetails.id}&email=${user_email.$}",
+                  //           page_name: "Vehicle Insurance", 
+                  //         );
+                  //       }));
+                  //     },
+                      
+                  //   ),
+                  // )
                 ],
               ),
             ),
