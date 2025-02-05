@@ -132,20 +132,20 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-      // backgroundColor: Colors.white,
-      // centerTitle: true,
-      // leading: Builder(
-      //   builder: (context) => IconButton(
-      //     icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
-      //     onPressed: () => Navigator.of(context).pop(),
-      //   ),
+      backgroundColor: Colors.white,
+      centerTitle: true,
+      leading: Builder(
+        builder: (context) => IconButton(
+          icon: Icon(Icons.arrow_back, color: MyTheme.dark_grey),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
+      // title: Text(
+      //   widget.page_name,
+      //   style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       // ),
-      // // title: Text(
-      // //   widget.page_name,
-      // //   style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
-      // // ),
-      // elevation: 0.0,
-      // titleSpacing: 0,
+      elevation: 0.0,
+      titleSpacing: 0,
     );
   }
 
