@@ -20,8 +20,9 @@ class AppConfig {
 
   //configure this
   //static const DOMAIN_PATH = "emeraldlightauto.uk"; //localhost
-  static const DOMAIN_PATH = "visa.sddtifbank.com"; // directly inside the
+  //static const DOMAIN_PATH = "visa.sddtifbank.com"; // directly inside the
   // public folder
+  static const DOMAIN_PATH = "car.airsoftauctions.co.uk"; // directly inside the
 
   //do not configure these below
   static const String API_ENDPATH = "api/v2";
