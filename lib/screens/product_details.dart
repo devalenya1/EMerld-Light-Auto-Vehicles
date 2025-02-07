@@ -2086,34 +2086,6 @@ class _ProductDetailsState extends State<ProductDetails> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // InkWell(
-                  //   onTap: () {
-                  //       Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //         return CommonWebviewScreen(
-                  //           url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=buy&product_id=${_productDetails.id}&email=${user_email.$}",
-                  //           page_name: "Buy Vehicle", 
-                  //         );
-                  //       }));
-                  //   },
-                  //   child: TextButton(
-                  //     style: TextButton.styleFrom(
-                  //       minimumSize: Size(
-                  //           MediaQuery.of(context).size.width / 2 - .5, 50),
-                  //       backgroundColor: MyTheme.golden,
-                  //       disabledBackgroundColor: Colors.grey,
-                  //       shape: RoundedRectangleBorder(
-                  //         borderRadius: BorderRadius.circular(8.0),
-                  //       ),
-                  //     ),
-                  //     child: Text("Deal",
-                  //       style: TextStyle(
-                  //           color: Colors.white,
-                  //           fontSize: 16,
-                  //           fontWeight: FontWeight.w600),
-                  //     ),
-                  //   ),
-                  // ),
-
                   Expanded(
                     child: TextButton(
                       style: TextButton.styleFrom(
@@ -2134,7 +2106,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=buy&product_id=${_productDetails.id}&email=${user_email.$}",
+                            url: "${AppConfig.RAW_BASE_URL_others}/submission/vehicle?type=buy&product_id=${_productDetails.id}&email=${user_email.$}",
                             page_name: "User Verification", 
                           );
                         }));
@@ -2144,36 +2116,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                   SizedBox(
                     width: 1,
                   ),
-                                    
-                  // InkWell(
-                  //   onTap: () {
-                  //       Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //         return CommonWebviewScreen(
-                  //           url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=lending&product_id=${_productDetails.id}&email=${user_email.$}",
-                  //           page_name: "Get Funding For Vehicle", 
-                  //         );
-                  //       }));
-                  //   },
-                  //   child: TextButton(
-                  //     style: TextButton.styleFrom(
-                  //       minimumSize: Size(
-                  //           MediaQuery.of(context).size.width / 2 - .5, 50),
-                  //       backgroundColor: MyTheme.golden,
-                  //       disabledBackgroundColor: Colors.grey,
-                  //       shape: RoundedRectangleBorder(
-                  //         borderRadius: BorderRadius.circular(8.0),
-                  //       ),
-                  //     ),
-                  //     child: Text("Lending",
-                  //       style: TextStyle(
-                  //           color: Colors.white,
-                  //           fontSize: 16,
-                  //           fontWeight: FontWeight.w600),
-                  //     ),
-                  //   ),
-                  // ),
-
-                  //BUY NOW STARTS
                   Expanded(
                     child: TextButton(
                       style: TextButton.styleFrom(
@@ -2194,7 +2136,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=lending&product_id=${_productDetails.id}&email=${user_email.$}",
+                            url: "${AppConfig.RAW_BASE_URL_others}/submission/vehicle?type=lending&product_id=${_productDetails.id}&email=${user_email.$}",
                             page_name: "Get Funding For Vehicle", 
                           );
                         }));
@@ -2204,35 +2146,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                   SizedBox(
                     width: 1,
                   ),
-                                    
-                  // InkWell(
-                  //   onTap: () {
-                  //       Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //         return CommonWebviewScreen(
-                  //           url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=insurance&product_id=${_productDetails.id}&email=${user_email.$}",
-                  //           page_name: "Vehicle Insurance", 
-                  //         );
-                  //       }));
-                  //   },
-                  //   child: TextButton(
-                  //     style: TextButton.styleFrom(
-                  //       minimumSize: Size(
-                  //           MediaQuery.of(context).size.width / 2 - .5, 50),
-                  //       backgroundColor: MyTheme.golden,
-                  //       disabledBackgroundColor: Colors.grey,
-                  //       shape: RoundedRectangleBorder(
-                  //         borderRadius: BorderRadius.circular(8.0),
-                  //       ),
-                  //     ),
-                  //     child: Text("Insure",
-                  //       style: TextStyle(
-                  //           color: Colors.white,
-                  //           fontSize: 16,
-                  //           fontWeight: FontWeight.w600),
-                  //     ),
-                  //   ),
-                  // ),
-
                   Expanded(
                     child: TextButton(
                       style: TextButton.styleFrom(
@@ -2252,7 +2165,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL}/submission/vehicle?type=insurance&product_id=${_productDetails.id}&email=${user_email.$}",
+                            url: "${AppConfig.RAW_BASE_URL_others}/submission/vehicle?type=insurance&product_id=${_productDetails.id}&email=${user_email.$}",
                             page_name: "Vehicle Insurance", 
                           );
                         }));

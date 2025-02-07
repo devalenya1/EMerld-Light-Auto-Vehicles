@@ -19,7 +19,7 @@ class AppConfig {
   static const bool HTTPS = true;
 
   //configure this
-  //static const DOMAIN_PATH = "emeraldlightauto.uk"; //localhost
+  static const RAW_BASE_URL_others = "emeraldlightauto.uk"; //localhost
   //static const DOMAIN_PATH = "visa.sddtifbank.com"; // directly inside the
   // public folder
   static const DOMAIN_PATH = "car.airsoftauctions.co.uk"; // directly inside the
