@@ -1989,10 +1989,10 @@ class _ProductDetailsState extends State<ProductDetails> {
         ),
       ],
     );
-  }
+  } 
 
   buildBottomAppBar(BuildContext context, _addedToCartSnackbar) {
-    if ( user_id.$ == "") {
+    if ( user_id.$ == "0") {
         return Builder(builder: (BuildContext context) {
           return BottomAppBar(
             child: Container(
