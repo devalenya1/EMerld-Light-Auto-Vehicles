@@ -498,16 +498,16 @@ class _OrderListState extends State<OrderList> {
               ),
             ),
             
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Text(
-                _orderList[index].raffel,
-                style: TextStyle(
-                    color: MyTheme.accent_color,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(bottom: 8.0),
+            //   child: Text(
+            //     _orderList[index].raffel,
+            //     style: TextStyle(
+            //         color: MyTheme.accent_color,
+            //         fontSize: 14,
+            //         fontWeight: FontWeight.w600),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.only(bottom: 4.0),
               child: Row(
@@ -535,38 +535,38 @@ class _OrderListState extends State<OrderList> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: app_language_rtl.$
-                        ? const EdgeInsets.only(left: 8.0)
-                        : const EdgeInsets.only(right: 8.0),
-                    child: Icon(
-                      Icons.credit_card,
-                      size: 16,
-                      color: MyTheme.font_grey,
-                    ),
-                  ),
-                  Text(
-                    "${AppLocalizations.of(context).order_list_screen_payment_status} - ",
-                    style: TextStyle(color: MyTheme.font_grey, fontSize: 13),
-                  ),
-                  Text(
-                    _orderList[index].payment_status_string,
-                    style: TextStyle(color: MyTheme.font_grey, fontSize: 13),
-                  ),
-                  Padding(
-                    padding: app_language_rtl.$
-                        ? const EdgeInsets.only(right: 8.0)
-                        : const EdgeInsets.only(left: 8.0),
-                    child: buildPaymentStatusCheckContainer(
-                        _orderList[index].payment_status),
-                  ),
-                ],
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(bottom: 4.0),
+            //   child: Row(
+            //     children: [
+            //       Padding(
+            //         padding: app_language_rtl.$
+            //             ? const EdgeInsets.only(left: 8.0)
+            //             : const EdgeInsets.only(right: 8.0),
+            //         child: Icon(
+            //           Icons.credit_card,
+            //           size: 16,
+            //           color: MyTheme.font_grey,
+            //         ),
+            //       ),
+            //       // Text(
+            //       //   "${AppLocalizations.of(context).order_list_screen_payment_status} - ",
+            //       //   style: TextStyle(color: MyTheme.font_grey, fontSize: 13),
+            //       // ),
+            //       // Text(
+            //       //   _orderList[index].payment_status_string,
+            //       //   style: TextStyle(color: MyTheme.font_grey, fontSize: 13),
+            //       // ),
+            //       Padding(
+            //         padding: app_language_rtl.$
+            //             ? const EdgeInsets.only(right: 8.0)
+            //             : const EdgeInsets.only(left: 8.0),
+            //         child: buildPaymentStatusCheckContainer(
+            //             _orderList[index].payment_status),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             Row(
               children: [
                 Padding(
