@@ -2106,7 +2106,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL_others}/submission/vehicle?type=buy&product_id=${_productDetails.id}&email=${user_email.$}",
+                            url: "${AppConfig.RAW_BASE_URL_others}/submission/vehicle?product_id=${_productDetails.id}&email=${user_email.$}",
                             page_name: "User Verification", 
                           );
                         }));
@@ -2136,7 +2136,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL_others}/submission/vehicle?type=lending&product_id=${_productDetails.id}&email=${user_email.$}",
+                            url: "${AppConfig.RAW_BASE_URL_others}/submission/lending?product_id=${_productDetails.id}&email=${user_email.$}",
                             page_name: "Get Funding For Vehicle", 
                           );
                         }));
@@ -2165,7 +2165,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL_others}/submission/vehicle?type=insurance&product_id=${_productDetails.id}&email=${user_email.$}",
+                            url: "${AppConfig.RAW_BASE_URL_others}/submission/insurance?product_id=${_productDetails.id}&email=${user_email.$}",
                             page_name: "Vehicle Insurance", 
                           );
                         }));
