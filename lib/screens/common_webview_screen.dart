@@ -140,10 +140,10 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      // title: Text(
-      //   widget.page_name,
-      //   style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
-      // ),
+      title: Text(
+        widget.page_name,
+        style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
+      ),
       elevation: 0.0,
       titleSpacing: 0,
     );
