@@ -2104,10 +2104,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontWeight: FontWeight.w600),
                       ),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        onPressBuyNow(context);
+                        
+                        await Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return CommonWebviewScreen(
                             url: "${AppConfig.RAW_BASE_URL_others}/submission/vehicle?product_id=${_productDetails.id}&email=${user_email.$}",
-                            page_name: "User Verification", 
+                            page_name: "Submit To Dealer", 
                           );
                         }));
                       },
@@ -2134,7 +2136,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontWeight: FontWeight.w600),
                       ),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        onPressBuyNow(context);
+                        
+                        await Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return CommonWebviewScreen(
                             url: "${AppConfig.RAW_BASE_URL_others}/submission/lending?product_id=${_productDetails.id}&email=${user_email.$}",
                             page_name: "Get Funding For Vehicle", 
@@ -2163,7 +2167,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontWeight: FontWeight.w600),
                       ),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        onPressBuyNow(context);
+                        await Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return CommonWebviewScreen(
                             url: "${AppConfig.RAW_BASE_URL_others}/submission/insurance?product_id=${_productDetails.id}&email=${user_email.$}",
                             page_name: "Vehicle Insurance", 
