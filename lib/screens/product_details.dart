@@ -319,42 +319,47 @@ class _ProductDetailsState extends State<ProductDetails> {
     fetchAndSetVariantWiseInfo();
   }
 
-  onPressAddToCart(context, snackbar) {
-    addToCart(mode: "add_to_cart", context: context, snackbar: snackbar);
+  onPressLending(context) {
+    addToCart(mode: "lending", context: context);
   }
+
+  onPressInsure(context) {
+    addToCart(mode: "insure", context: context);
+  }
+
 
   onPressBuyNow(context) {
     addToCart(mode: "buy_now", context: context);
   }
 
-  addToCart({mode, context, snackbar}) async {
+  addToCart({mode, context}) async {
     if (is_logged_in.$ == false) {
       Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
       return;
+    } else {
+      if (mode == "insure") {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return CommonWebviewScreen(
+            url: "${AppConfig.RAW_BASE_URL_others}/submission/insurance?product_id=${_productDetails.id}&email=${user_email.$}",
+            page_name: "Vehicle Insurance", 
+          );
+        }));
+      } else if (mode == 'buy_now') {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return CommonWebviewScreen(
+            url: "${AppConfig.RAW_BASE_URL_others}/submission/vehicle?product_id=${_productDetails.id}&email=${user_email.$}",
+            page_name: "Submit To Dealer", 
+          );
+        }));
+      } else if (mode == 'lending') {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return CommonWebviewScreen(
+            url: "${AppConfig.RAW_BASE_URL_others}/submission/lending?product_id=${_productDetails.id}&email=${user_email.$}",
+            page_name: "Get Funding For Vehicle", 
+          );
+        }));
+      }
     }
-
-    // var cartAddResponse = await CartRepository()
-    //     .getCartAddResponse(widget.id, _variant, user_id.$, _quantity);
-
-    // if (cartAddResponse.result == false) {
-    //   ToastComponent.showDialog(cartAddResponse.message,
-    //       gravity: Toast.center, duration: Toast.lengthLong);
-    //   return;
-    // } else {
-    //   if (mode == "add_to_cart") {
-    //     if (snackbar != null && context != null) {
-    //       ScaffoldMessenger.of(context).showSnackBar(snackbar);
-    //     }
-    //     reset();
-    //     fetchAll();
-    //   } else if (mode == 'buy_now') {
-    //     Navigator.push(context, MaterialPageRoute(builder: (context) {
-    //       return Cart(has_bottomnav: false);
-    //     })).then((value) {
-    //       onPopped(value);
-    //     });
-    //   }
-    // }
   }
 
   onPopped(value) async {
@@ -2106,12 +2111,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                       onPressed: () {
                         onPressBuyNow(context);
                         
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL_others}/submission/vehicle?product_id=${_productDetails.id}&email=${user_email.$}",
-                            page_name: "Submit To Dealer", 
-                          );
-                        }));
                       },
                     ),
                   ),
@@ -2136,14 +2135,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontWeight: FontWeight.w600),
                       ),
                       onPressed: () {
-                        onPressBuyNow(context);
-                        
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL_others}/submission/lending?product_id=${_productDetails.id}&email=${user_email.$}",
-                            page_name: "Get Funding For Vehicle", 
-                          );
-                        }));
+                        onPressLending(context);
                       },
                     ),
                   ),
@@ -2167,14 +2159,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             fontWeight: FontWeight.w600),
                       ),
                       onPressed: () {
-                        onPressBuyNow(context);
-                        
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return CommonWebviewScreen(
-                            url: "${AppConfig.RAW_BASE_URL_others}/submission/insurance?product_id=${_productDetails.id}&email=${user_email.$}",
-                            page_name: "Vehicle Insurance", 
-                          );
-                        }));
+                        onPressInsure(context);
                       },
                       
                     ),
